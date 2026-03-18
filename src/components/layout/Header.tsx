@@ -33,7 +33,7 @@ export default function Header() {
   }, []);
 
   const closeMenu = useCallback(() => {
-    closeTimer.current = setTimeout(() => setActiveMenu(null), 120);
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 300);
   }, []);
 
   const cancelClose = useCallback(() => {
@@ -87,7 +87,6 @@ export default function Header() {
               <div
                 key={item.label}
                 onMouseEnter={() => openMenu(item.label)}
-                onMouseLeave={closeMenu}
               >
                 {item.groups ? (
                   <button
