@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Header from "@/components/layout/Header"
-import Footer from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
   title: "Request a Free Consultation | Beyond Care Home Care Services",
@@ -11,9 +9,7 @@ export const metadata: Metadata = {
 export default function ScheduleConsultationPage() {
   return (
     <>
-      <Header />
-      <main>
-        <section className="page-hero">
+              <section className="page-hero">
           <div className="wrap">
             <span className="eyebrow page-hero-eyebrow">Get Started</span>
             <h1>Request a Free Consultation</h1>
@@ -106,8 +102,7 @@ export default function ScheduleConsultationPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
+
     </>
   )
 }

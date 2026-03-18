@@ -322,10 +322,10 @@
 
   /* ── HERO OVERLAYS ── */
   .hero-scrim-left {
-    background: linear-gradient(to right, rgba(10,58,65,0.93) 30%, rgba(10,58,65,0.5) 60%, transparent 100%);
+    background: linear-gradient(to right, rgba(7,40,46,0.97) 35%, rgba(7,40,46,0.80) 60%, rgba(7,40,46,0.35) 100%);
   }
   .hero-scrim-bottom {
-    background: linear-gradient(to top, rgba(10,58,65,0.9) 0%, rgba(10,58,65,0.3) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(7,40,46,0.97) 0%, rgba(7,40,46,0.65) 50%, rgba(7,40,46,0.1) 100%);
   }
 
   /* ── HEADER ── */

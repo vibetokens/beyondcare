@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Header from "@/components/layout/Header"
-import Footer from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
   title: "Why Choose Beyond Care | Beyond Care Home Care Services",
@@ -44,9 +42,7 @@ const REASONS = [
 export default function WhyChoosePage() {
   return (
     <>
-      <Header />
-      <main>
-        <section className="page-hero">
+              <section className="page-hero">
           <div className="wrap">
             <span className="eyebrow page-hero-eyebrow">Why Beyond Care</span>
             <h1>Not Just Any Home Care Company</h1>
@@ -97,8 +93,7 @@ export default function WhyChoosePage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
+
     </>
   )
 }

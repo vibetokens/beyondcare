@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Header from "@/components/layout/Header"
-import Footer from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
   title: "Caregiver Standards | Beyond Care Home Care Services",
@@ -11,9 +9,7 @@ export const metadata: Metadata = {
 export default function CaregiverStandardsPage() {
   return (
     <>
-      <Header />
-      <main>
-        <section className="page-hero">
+              <section className="page-hero">
           <div className="wrap">
             <span className="eyebrow page-hero-eyebrow">Caregiver Standards</span>
             <h1>Who Is Coming Into Your Home?</h1>
@@ -88,8 +84,7 @@ export default function CaregiverStandardsPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
+
     </>
   )
 }

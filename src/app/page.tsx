@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Phone, CheckCircle, Shield, Award, Star } from "lucide-react";
+import {
+  ArrowRight, Phone, CheckCircle, Shield, Award, Star,
+  Heart, Users, RefreshCcw, UtensilsCrossed, Car, Bell,
+  Home, Activity, MoveHorizontal, Pill, Clock, Moon,
+} from "lucide-react";
+import type { LucideProps } from "lucide-react";
+
+const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
+  Heart, Users, RefreshCcw, UtensilsCrossed, Car, Bell,
+  Home, Activity, MoveHorizontal, Pill, Clock, Moon,
+};
 import {
   PHONES, OFFICES, AWARDS, PAYMENT_OPTIONS,
   SERVICES, PROCESS_STEPS, TRUST_SIGNALS,
@@ -72,24 +82,22 @@ export default function HomePage() {
 
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm
-              text-white/85 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5
-              animate-fade-in">
+              text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
               Nurse-Led · Locally Owned · Upstate South Carolina
             </div>
 
-            <h1 className="text-white font-extrabold mb-5 animate-fade-up"
+            <h1 className="text-white font-extrabold mb-5"
               style={{ fontSize: "clamp(2.25rem, 6vw, 4.75rem)", lineHeight: "1.04", letterSpacing: "-0.03em" }}>
               Care that feels<br />
               <em className="not-italic" style={{ color: "var(--teal-light)" }}>like home.</em>
             </h1>
 
-            <p className="text-white/78 mb-8 max-w-md animate-fade-up-1"
-              style={{ fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: "1.7" }}>
+            <p className="mb-8 max-w-md" style={{ color: "rgba(255,255,255,0.85)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: "1.7" }}>
               Dependable, nurse-guided in-home support for seniors and adults
               in Honea Path, Williamston, and throughout Upstate South Carolina.
             </p>
 
-            <div className="flex flex-col xs:flex-row gap-3 animate-fade-up-2">
+            <div className="flex flex-col xs:flex-row gap-3">
               <Link href="/contact" className="btn-coral text-base px-7 py-4 justify-center">
                 Schedule a Free Consultation
               </Link>
@@ -100,7 +108,7 @@ export default function HomePage() {
             </div>
 
             {/* Micro trust */}
-            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-7 animate-fade-up-3">
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-7">
               {["Bonded & Insured", "Employee Caregivers", "CPR Certified", "Free Consultation"].map(t => (
                 <span key={t} className="flex items-center gap-1.5 text-white/65 text-sm font-medium">
                   <CheckCircle size={13} className="text-teal-light flex-shrink-0" />
@@ -220,10 +228,7 @@ export default function HomePage() {
               <Link key={s.slug} href={s.slug}
                 className={`card group cursor-pointer reveal reveal-delay-${Math.min(i + 1, 5)}`}>
                 <div className="svc-icon-wrap mb-4 group-hover:bg-teal-brand group-hover:text-white transition-all">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                  </svg>
+                  {(() => { const Icon = ICON_MAP[s.icon] ?? Heart; return <Icon size={20} />; })()}
                 </div>
                 <h3 className="h-sm mb-2 group-hover:text-teal-brand transition-colors">{s.title}</h3>
                 <p className="text-sm text-muted leading-relaxed mb-3">{s.desc}</p>
