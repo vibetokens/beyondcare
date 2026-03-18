@@ -21,55 +21,52 @@ export default function AboutPage() {
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="page-hero">
           <div className="wrap">
-            <span className="eyebrow page-hero-eyebrow">About Us</span>
-            <h1>Locally Owned. Nurse-Led. Built for South Carolina Families.</h1>
+            <span className="eyebrow eyebrow-light">About Us</span>
+            <h1>Locally Owned. Nurse-Led.<br />Built for SC Families.</h1>
             <p className="lead" style={{ marginTop: 16 }}>
-              Beyond Care Home Care Services was built on a simple premise: families in South Carolina deserve
-              a home care provider they can genuinely trust — one that combines clinical knowledge, personal
-              accountability, and real community roots.
+              Beyond Care was built on a simple premise: families in South Carolina deserve a home care
+              provider they can genuinely trust — one that combines clinical knowledge, personal accountability,
+              and real community roots.
             </p>
           </div>
         </section>
 
-        {/* Story */}
-        <section className="section">
+        <section className="section bg-cream">
           <div className="wrap">
             <div className="grid-2" style={{ gap: 64, alignItems: "center" }}>
               <div>
                 <span className="eyebrow">Our Story</span>
-                <h2>Why Beyond Care Exists</h2>
-                <p style={{ marginTop: 16, marginBottom: 16 }}>
-                  Beyond Care was founded on the belief that non-medical home care in South Carolina could be
-                  done better — with higher standards for caregivers, more personalized attention for clients,
-                  and a level of professional oversight that families could actually count on.
+                <h2 className="serif">Why Beyond Care Exists</h2>
+                <p style={{ marginTop: 14, marginBottom: 14, color: "var(--t2)", lineHeight: 1.8 }}>
+                  Beyond Care was founded on the belief that non-medical home care in South Carolina
+                  could be done better — with higher standards for caregivers, more personalized attention
+                  for clients, and a level of professional oversight that families could actually count on.
                 </p>
-                <p style={{ marginBottom: 16 }}>
-                  Our owner, a Registered Nurse with direct experience in patient care, saw families struggling
-                  to find home care that was dependable, well-managed, and genuinely compassionate. The solution
-                  was to build it herself.
+                <p style={{ marginBottom: 14, color: "var(--t2)", lineHeight: 1.8 }}>
+                  Our owner, a Registered Nurse with direct experience in patient care, saw families
+                  struggling to find home care that was dependable, well-managed, and genuinely compassionate.
+                  The solution was to build it herself.
                 </p>
-                <p>
-                  Today, Beyond Care operates from two offices — Honea Path and Williamston — and serves families
-                  across the Upstate region. Every client we support receives an individualized care plan developed
-                  with the same care and precision that a clinical professional brings to any health-related matter.
+                <p style={{ marginBottom: 20, color: "var(--t2)", lineHeight: 1.8 }}>
+                  Today, Beyond Care operates from two offices — Honea Path and Williamston — and serves
+                  families across the Upstate region.
                 </p>
-                <p style={{ marginTop: 16, fontStyle: "italic", fontFamily: "var(--f-heading)", fontSize: "1.0625rem", color: "var(--teal)" }}>
+                <p style={{ fontFamily: "var(--f-serif)", fontStyle: "italic", fontSize: "1.0625rem", color: "var(--teal-mid)" }}>
                   This is what it means to go beyond.
                 </p>
               </div>
-              <div style={{ background: "var(--teal-light)", borderRadius: 20, padding: 40, border: "1px solid rgba(28,122,138,.15)" }}>
-                <h3 style={{ color: "var(--teal-dark)", marginBottom: 24 }}>The Beyond Care Standard</h3>
+              <div style={{ background: "var(--teal-deep)", borderRadius: 12, padding: 40 }}>
+                <h3 style={{ fontFamily: "var(--f-serif)", color: "#fff", marginBottom: 28, fontSize: "1.25rem" }}>The Beyond Care Standard</h3>
                 {[
-                  { h: "Nurse-Led Oversight", b: "Our owner's clinical background shapes how we approach care planning, caregiver oversight, and quality monitoring." },
+                  { h: "Nurse-Led Oversight", b: "Clinical background shapes how we approach care planning, caregiver oversight, and quality monitoring." },
                   { h: "Employee Caregivers", b: "Every caregiver is a direct employee — bonded, insured, CPR certified, and covered by workers' compensation." },
-                  { h: "Individualized Planning", b: "No one-size-fits-all approach. Every care plan is built around the specific needs, routines, and preferences of each client." },
+                  { h: "Individualized Planning", b: "No one-size-fits-all. Every plan is built around each client's specific needs, routines, and preferences." },
                 ].map(i => (
-                  <div key={i.h} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: "1px solid rgba(28,122,138,.15)" }}>
-                    <h4 style={{ color: "var(--teal)", marginBottom: 6 }}>{i.h}</h4>
-                    <p style={{ fontSize: ".9375rem" }}>{i.b}</p>
+                  <div key={i.h} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: "1px solid rgba(255,255,255,.1)" }}>
+                    <h4 style={{ color: "#5ECCE0", marginBottom: 6, fontSize: ".875rem", fontWeight: 700, letterSpacing: ".04em" }}>{i.h}</h4>
+                    <p style={{ color: "rgba(255,255,255,.75)", fontSize: ".9rem", lineHeight: 1.65, margin: 0 }}>{i.b}</p>
                   </div>
                 ))}
               </div>
@@ -77,55 +74,42 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Mission */}
-        <section className="section section-alt">
+        <section className="section">
           <div className="wrap">
-            <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-              <span className="eyebrow">Mission &amp; Vision</span>
-              <h2>What We Stand For</h2>
+            <div className="section-head" style={{ marginBottom: 48 }}>
+              <span className="eyebrow">What We Stand For</span>
+              <h2 className="serif">Mission, Vision &amp; Values</h2>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, maxWidth: 840, margin: "0 auto 48px" }}>
-              <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "var(--radius)", padding: 32, textAlign: "center" }}>
-                <div style={{ fontSize: "2rem", marginBottom: 16 }}>🎯</div>
-                <h3 style={{ color: "var(--teal)", marginBottom: 12 }}>Our Mission</h3>
-                <p>
-                  To provide compassionate, quality, individualized care to our community — improving quality of life
-                  and promoting personal independence for every client we serve.
-                </p>
+            <div className="grid-2" style={{ maxWidth: 800, margin: "0 auto 48px", gap: 24 }}>
+              <div className="card" style={{ textAlign: "center" }}>
+                <h3 className="serif" style={{ color: "var(--teal-mid)", marginBottom: 10 }}>Our Mission</h3>
+                <p>To provide compassionate, quality, individualized care to our community — improving quality of life and promoting personal independence for every client we serve.</p>
               </div>
-              <div style={{ background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "var(--radius)", padding: 32, textAlign: "center" }}>
-                <div style={{ fontSize: "2rem", marginBottom: 16 }}>🌟</div>
-                <h3 style={{ color: "var(--teal)", marginBottom: 12 }}>Our Vision</h3>
+              <div className="card" style={{ textAlign: "center" }}>
+                <h3 className="serif" style={{ color: "var(--teal-mid)", marginBottom: 10 }}>Our Vision</h3>
                 <p>To set a new standard for home care services in South Carolina.</p>
               </div>
             </div>
-
-            <div style={{ maxWidth: 840, margin: "0 auto" }}>
-              <h3 style={{ textAlign: "center", marginBottom: 32 }}>Our Values</h3>
-              <div className="why-grid">
-                {VALUES.map(v => (
-                  <div key={v.title} className="why-card">
-                    <h4>{v.title}</h4>
-                    <p>{v.body}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="why-grid" style={{ maxWidth: 900, margin: "0 auto" }}>
+              {VALUES.map(v => (
+                <div key={v.title} className="why-card">
+                  <h4>{v.title}</h4>
+                  <p>{v.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
         <section className="cta-section">
           <div className="wrap">
-            <h2>Ready to Learn More?</h2>
-            <p>Call us or request a free consultation. We are here to answer your questions.</p>
+            <h2>Ready to learn more?</h2>
+            <p>Call us or request a free consultation — no pressure, no obligation.</p>
             <div className="cta-actions">
-              <a href="/schedule-consultation" className="btn btn-w">Request a Free Consultation</a>
-              <a href="/contact" className="btn" style={{ background: "transparent", border: "2px solid rgba(255,255,255,.4)", color: "#fff" }}>Contact Us</a>
+              <a href="/schedule-consultation" className="btn btn-ow">Request a Free Consultation</a>
             </div>
             <div className="cta-phone">
-              <span>📞</span>
-              <a href="tel:8648412500" style={{ color: "rgba(255,255,255,.9)" }}>(864) 841-2500</a>
+              <a href="tel:8648412500">(864) 841-2500</a>
             </div>
           </div>
         </section>

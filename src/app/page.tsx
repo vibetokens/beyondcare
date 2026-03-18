@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 
@@ -8,47 +9,45 @@ export const metadata: Metadata = {
     "Beyond Care Home Care Services provides compassionate, nurse-led non-medical home care in South Carolina. Personal care, companionship, respite, and more — available 24/7. Call today.",
 }
 
-const SERVICES = [
-  { icon: "🤲", title: "Personal Care", desc: "Bathing, grooming, dressing, hygiene, and mobility support — handled with patience and respect.", href: "/services/personal-care" },
-  { icon: "💬", title: "Companion Care", desc: "Meaningful conversation, daily engagement, and a consistent presence that reduces isolation.", href: "/services/companion-care" },
-  { icon: "🌿", title: "Respite Care", desc: "Relief for family caregivers. We step in so you can step back and recharge.", href: "/services/respite-care" },
-  { icon: "🍽️", title: "Meal Preparation", desc: "Nutritious, home-prepared meals that respect your loved one's preferences and dietary needs.", href: "/services/meal-preparation" },
-  { icon: "🏠", title: "Light Housekeeping", desc: "Clean, safe, organized living spaces — because a tidy home is a safer home.", href: "/services/light-housekeeping" },
-  { icon: "🚗", title: "Transportation", desc: "Rides to appointments, errands, and daily needs — so independence doesn't stop at the front door.", href: "/services/transportation-assistance" },
-  { icon: "💊", title: "Medication Reminders", desc: "Consistent prompts to help clients stay on schedule with their medications.", href: "/services/medication-reminders" },
-  { icon: "🏥", title: "Hospital Discharge", desc: "Skilled transition support from facility to home — reducing the risk of readmission.", href: "/services/hospital-discharge-support" },
+const TRUST = [
+  "Bonded & Insured",
+  "Employee Caregivers — Not Contractors",
+  "CPR Certified Staff",
+  "Available 24/7",
+  "Two Upstate SC Offices",
+  "Nurse-Led Ownership",
 ]
 
-const WHY = [
-  { title: "Locally Owned and Nurse-Led", body: "Our owner is a Registered Nurse who is actively involved in client care — not a remote executive managing from a distance. When you call us, you reach a team that knows your loved one personally." },
-  { title: "Caregivers You Can Trust", body: "Every Beyond Care caregiver is a direct employee — bonded, insured, CPR certified, and covered by workers' compensation. They go through selective screening, orientation, and ongoing in-service training." },
-  { title: "Flexible Scheduling", body: "We serve families who need a few hours a week and families who need 24-hour support. Care is scheduled around your loved one's life — not the other way around." },
-  { title: "A Plan Built Around Your Family", body: "Every care relationship starts with a consultation and an individualized plan. Your loved one's specific needs, routines, and preferences shape everything we do." },
+const SERVICES = [
+  { title: "Personal Care", desc: "Bathing, grooming, dressing, hygiene, and mobility support — handled with patience and respect.", slug: "personal-care" },
+  { title: "Companion Care", desc: "Meaningful conversation, daily engagement, and a consistent presence that reduces isolation.", slug: "companion-care" },
+  { title: "Respite Care", desc: "Relief for family caregivers. We step in so you can step back and recharge.", slug: "respite-care" },
+  { title: "Meal Preparation", desc: "Nutritious, home-prepared meals that respect your loved one's preferences and dietary needs.", slug: "meal-preparation" },
+  { title: "Light Housekeeping", desc: "Clean, safe, organized living spaces — because a tidy home is a safer home.", slug: "light-housekeeping" },
+  { title: "Transportation", desc: "Rides to appointments, errands, and daily needs — so independence doesn't stop at the front door.", slug: "transportation-assistance" },
+  { title: "Medication Reminders", desc: "Consistent prompts to help clients stay on schedule with their medications.", slug: "medication-reminders" },
+  { title: "Hospital Discharge Support", desc: "Skilled transition support from facility to home — reducing the risk of readmission.", slug: "hospital-discharge-support" },
+]
+
+const STANDARD = [
+  { label: "Rigorous Vetting", body: "Criminal background checks, reference verification, skills assessment, and an in-person interview before any placement." },
+  { label: "Ongoing Training", body: "Caregivers complete continuing education and skills assessments on a regular basis — not just at hire." },
+  { label: "Matched, Not Random", body: "We use a structured matching process — personality, schedule, and care needs — to make sure the fit is right from day one." },
 ]
 
 const STEPS = [
-  { n: "1", title: "Call or Request a Consultation", body: "Contact us by phone or form. We will respond promptly." },
-  { n: "2", title: "We Assess Your Needs", body: "A member of our team will meet with you to understand your loved one's situation, preferences, and goals." },
-  { n: "3", title: "We Build a Care Plan", body: "An individualized plan is created based on the assessment." },
-  { n: "4", title: "We Match Your Caregiver", body: "We assign a caregiver who is the right fit for your loved one's needs and personality." },
-  { n: "5", title: "Care Begins — and We Stay Involved", body: "We monitor quality, maintain communication with your family, and adjust the plan as needs change." },
-]
-
-const PAYMENTS = [
-  "Private Pay", "Long-Term Care Insurance", "Community Long Term Care (CLTC)",
-  "Medicaid Waiver", "VA Benefits", "Vouchers",
-]
-
-const TRUST = [
-  "Nurse-Led Ownership", "Bonded and Insured", "Employee Caregivers — Not Contractors",
-  "CPR Certified Staff", "Flexible Scheduling 24/7", "Two SC Office Locations",
+  { n: "1", title: "Call or Request a Consultation", body: "Contact us by phone or online. We respond promptly — no obligation." },
+  { n: "2", title: "We Assess Your Needs", body: "A team member meets with you to understand your loved one's situation, preferences, and goals." },
+  { n: "3", title: "We Build a Care Plan", body: "An individualized plan created with clinical precision and personal attention." },
+  { n: "4", title: "We Match Your Caregiver", body: "We select the right fit — not just by availability, but by personality and care style." },
+  { n: "5", title: "Care Begins — We Stay Involved", body: "We monitor quality, communicate with your family, and adjust as needs change." },
 ]
 
 const SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Beyond Care Home Care Services",
-  "description": "Compassionate, nurse-led non-medical home care in South Carolina.",
+  "description": "Compassionate, nurse-led non-medical home care in Upstate South Carolina.",
   "url": "https://beyondcarehc.com",
   "telephone": "+18648412500",
   "email": "service@beyondcarehc.com",
@@ -56,8 +55,6 @@ const SCHEMA = {
     { "@type": "PostalAddress", "streetAddress": "512A East Greer St", "addressLocality": "Honea Path", "addressRegion": "SC", "postalCode": "29654" },
     { "@type": "PostalAddress", "streetAddress": "103 Belton Dr", "addressLocality": "Williamston", "addressRegion": "SC", "postalCode": "29697" },
   ],
-  "areaServed": "Upstate South Carolina",
-  "openingHours": "Mo-Fr 08:00-16:00",
 }
 
 export default function HomePage() {
@@ -67,190 +64,116 @@ export default function HomePage() {
       <main>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
 
-        {/* ── Hero ──────────────────────────────────── */}
+        {/* ── Hero ─────────────────────────────────── */}
         <section id="hero">
+          <Image
+            id="hero-img"
+            src="/images/hero-porch.png"
+            alt="Caregiver sitting with senior client on porch"
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center 30%", opacity: .35, zIndex: 0 }}
+          />
           <div className="wrap">
             <div className="hero-inner">
-              <div>
-                <div className="hero-badge">
-                  <span>❤️</span> Nurse-Led · Locally Owned · Upstate SC
-                </div>
-                <h1 className="hero-h1">
-                  Dependable Home Care for South Carolina Families
-                </h1>
-                <p className="hero-sub">
-                  Locally owned. Nurse-led. Here for your family when you need us most.
-                  We serve families across the Upstate, providing dependable, compassionate
-                  non-medical support so your loved one can remain where they want to be: at home.
-                </p>
-                <div className="hero-actions">
-                  <a href="/schedule-consultation" className="btn btn-p">Request a Free Consultation</a>
-                  <a href="tel:8648412500" className="btn btn-o">Call (864) 841-2500</a>
-                </div>
-                <div className="hero-trust">
-                  {TRUST.map(t => (
-                    <div key={t} className="hero-trust-item">
-                      <span className="check">✓</span>
-                      {t}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="hero-card">
-                <div className="hero-card-header">
-                  <div className="hero-card-header-dot" />
-                  <div className="hero-card-header-dot" />
-                  <div className="hero-card-header-dot" />
-                  <span>Beyond Care — Quick Overview</span>
-                </div>
-                <div className="hero-card-body">
-                  {[
-                    { label: "Service Type", value: "Non-Medical Home Care" },
-                    { label: "Ownership", value: "Locally Owned, Nurse-Led" },
-                    { label: "Caregiver Type", value: "Direct Employees" },
-                    { label: "Insurance", value: "Bonded & Insured" },
-                    { label: "Availability", value: "Flexible, 24/7" },
-                    { label: "Service Area", value: "5 SC Counties" },
-                    { label: "Offices", value: "Honea Path & Williamston" },
-                  ].map(r => (
-                    <div key={r.label} className="hero-card-row">
-                      <span className="hero-card-label">{r.label}</span>
-                      <span className="hero-card-value">{r.value}</span>
-                    </div>
-                  ))}
-                  <div className="hero-card-cta">
-                    <a href="/schedule-consultation" className="btn btn-p" style={{ width: "100%", justifyContent: "center", marginTop: 4 }}>
-                      Get Started Today →
-                    </a>
-                  </div>
-                </div>
+              <span className="eyebrow eyebrow-light">— Serving Upstate South Carolina</span>
+              <h1 className="hero-h1">
+                Dependable <em>Home Care</em><br />
+                for the People You Love
+              </h1>
+              <p className="hero-sub">
+                Locally owned. Nurse-led. Built to help your loved one stay safe,
+                comfortable, and independent at home — with people you can genuinely trust.
+              </p>
+              <p className="hero-sub-note">Privately owned &amp; operated by an experienced Registered Nurse</p>
+              <div className="hero-actions">
+                <a href="/schedule-consultation" className="btn btn-r">Request a Free Consultation</a>
+                <a href="tel:8648412500" className="btn btn-ol">(864) 841-2500</a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Trust Bar ─────────────────────────────── */}
-        <div id="trust-bar">
+        {/* ── Trust strip ───────────────────────────── */}
+        <div id="trust-strip">
           <div className="wrap">
-            <div className="trust-bar-inner">
+            <div className="trust-strip-inner">
               {TRUST.map(t => (
-                <div key={t} className="trust-item">
-                  <span className="trust-item-icon">✓</span>
-                  {t}
-                </div>
+                <span key={t} className="trust-item">{t}</span>
               ))}
             </div>
           </div>
         </div>
 
-        {/* ── Services ──────────────────────────────── */}
-        <section className="section">
+        {/* ── Services ─────────────────────────────── */}
+        <section className="section bg-cream">
           <div className="wrap">
-            <span className="eyebrow">Our Services</span>
-            <h2>Support Where It Matters Most — At Home</h2>
-            <p style={{ maxWidth: 640, marginTop: 12 }}>
-              We provide a broad range of non-medical home care services, customized around each
-              client's real daily needs. Whether your loved one needs a few hours of help each week
-              or consistent daily support, we can build a care plan that fits.
-            </p>
+            <div className="section-head">
+              <span className="eyebrow">Our Services</span>
+              <h2>Personalised care for every need</h2>
+              <p>We match each client with the right caregiver and the right level of support.</p>
+            </div>
             <div className="services-grid">
               {SERVICES.map(s => (
-                <div key={s.href} className="service-card">
-                  <div className="service-icon">{s.icon}</div>
+                <div key={s.slug} className="svc-card">
                   <h4>{s.title}</h4>
                   <p>{s.desc}</p>
-                  <a href={s.href} className="service-link">Learn More →</a>
+                  <a href={`/services/${s.slug}`} className="svc-link">Learn more →</a>
                 </div>
               ))}
             </div>
-            <div style={{ textAlign: "center", marginTop: 40 }}>
-              <a href="/services" className="btn btn-o">View All Services →</a>
+            <div className="services-cta">
+              <a href="/services" className="btn btn-t">View all services →</a>
             </div>
           </div>
         </section>
 
-        {/* ── Why Choose ────────────────────────────── */}
-        <section className="section section-alt">
-          <div className="wrap">
-            <span className="eyebrow">Why Families Choose Beyond Care</span>
-            <h2>Not Just Any Home Care Company</h2>
-            <p style={{ maxWidth: 540, marginTop: 12 }}>
-              There are a lot of options out there. Here's what makes Beyond Care different.
+        {/* ── The Beyond Care Standard ──────────────── */}
+        <div className="photo-split">
+          <div className="photo-split-img">
+            <Image src="/images/caregiver-indoor.png" alt="Caregiver providing compassionate care" fill sizes="50vw" style={{ objectFit: "cover" }} />
+          </div>
+          <div className="photo-split-content bg-deep">
+            <span className="eyebrow eyebrow-light">Caregiver Standards</span>
+            <h2 style={{ fontFamily: "var(--f-serif)", color: "#fff", fontSize: "clamp(1.5rem,2.5vw,2rem)", marginBottom: 12, letterSpacing: "-.02em" }}>
+              The Beyond Care standard
+            </h2>
+            <p style={{ color: "rgba(255,255,255,.75)", marginBottom: 32, lineHeight: 1.75 }}>
+              Every caregiver we place meets a bar most agencies never set.
             </p>
-            <div className="why-grid">
-              {WHY.map(w => (
-                <div key={w.title} className="why-card">
-                  <h4>{w.title}</h4>
-                  <p>{w.body}</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+              {STANDARD.map(s => (
+                <div key={s.label}>
+                  <h4 style={{ fontSize: ".75rem", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: "#5ECCE0", marginBottom: 6 }}>{s.label}</h4>
+                  <p style={{ color: "rgba(255,255,255,.75)", fontSize: ".9375rem", lineHeight: 1.7, margin: 0 }}>{s.body}</p>
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: 36 }}>
-              <a href="/why-choose-beyond-care" className="btn btn-p">Learn More About Our Approach →</a>
-            </div>
+            <a href="/caregiver-standards" className="standard-link" style={{ marginTop: 32 }}>Read about our caregiver standards →</a>
           </div>
-        </section>
-
-        {/* ── Caregiver Standards ───────────────────── */}
-        <section className="section">
-          <div className="wrap">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-              <div>
-                <span className="eyebrow">Caregiver Standards</span>
-                <h2>Who Is Coming Into Your Home?</h2>
-                <p style={{ marginTop: 12, marginBottom: 8 }}>
-                  It is a fair question — and we have a clear answer.
-                  Beyond Care caregivers are:
-                </p>
-                <ul className="check-list">
-                  <li>Direct employees of Beyond Care, not contractors or placement agency referrals</li>
-                  <li>Bonded and fully insured</li>
-                  <li>Covered by workers&apos; compensation</li>
-                  <li>CPR certified through required training</li>
-                  <li>Required to complete continuing education, in-service training, and skills assessments</li>
-                  <li>Monitored through regular performance evaluations</li>
-                  <li>Screened through a selective hiring process before they ever step inside a client&apos;s home</li>
-                </ul>
-                <div style={{ marginTop: 28 }}>
-                  <a href="/caregiver-standards" className="btn btn-p">Read Our Caregiver Standards →</a>
-                </div>
-              </div>
-              <div style={{ background: "var(--teal-light)", borderRadius: 20, padding: 40, border: "1px solid rgba(28,122,138,.15)" }}>
-                <div style={{ fontFamily: "var(--f-heading)", fontSize: "1.125rem", color: "var(--teal-dark)", fontStyle: "italic", lineHeight: 1.7, marginBottom: 20 }}>
-                  &ldquo;We take caregiver standards seriously because the quality of care depends on the quality
-                  and accountability of the people delivering it.&rdquo;
-                </div>
-                <div style={{ fontSize: ".875rem", fontWeight: 700, color: "var(--teal)" }}>
-                  — Beyond Care Standard of Care
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
 
         {/* ── How Care Works ────────────────────────── */}
-        <section className="section section-alt">
+        <section className="section bg-cream">
           <div className="wrap">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "72px", alignItems: "start" }}>
               <div>
-                <span className="eyebrow">How Care Works</span>
-                <h2>Simple, Clear, and Personal</h2>
-                <p style={{ marginTop: 12 }}>
-                  Getting started with home care should not be complicated.
-                  Here is how we make it straightforward.
+                <span className="eyebrow">How It Works</span>
+                <h2 className="serif">Simple, clear, and personal</h2>
+                <p style={{ color: "var(--t2)", fontSize: "1rem", lineHeight: 1.75, marginTop: 12, marginBottom: 32 }}>
+                  Getting started with home care should not be complicated. We walk every
+                  family through a clear, personal process — from first call to ongoing care.
                 </p>
-                <div style={{ marginTop: 28 }}>
-                  <a href="/schedule-consultation" className="btn btn-p">Request a Free Consultation →</a>
-                </div>
+                <a href="/schedule-consultation" className="btn btn-r">Request a Free Consultation</a>
               </div>
-              <div className="steps">
+              <div className="steps" style={{ borderTop: "1px solid rgba(27,61,72,.1)" }}>
                 {STEPS.map(s => (
-                  <div key={s.n} className="step">
-                    <div><span className="step-num">{s.n}</span></div>
+                  <div key={s.n} className="step" style={{ borderBottom: "1px solid rgba(27,61,72,.08)" }}>
+                    <span className="step-num" style={{ background: "var(--teal-deep)", border: "none", color: "#5ECCE0" }}>{s.n}</span>
                     <div>
-                      <h4>{s.title}</h4>
-                      <p>{s.body}</p>
+                      <h4 style={{ color: "var(--t1)" }}>{s.title}</h4>
+                      <p style={{ color: "var(--t2)" }}>{s.body}</p>
                     </div>
                   </div>
                 ))}
@@ -259,81 +182,94 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Service Area ──────────────────────────── */}
-        <section className="section">
-          <div className="wrap">
-            <div style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
-              <span className="eyebrow">Service Area</span>
-              <h2>Serving Families Across Upstate South Carolina</h2>
-              <p style={{ marginTop: 12, marginBottom: 40 }}>
-                Beyond Care operates from two offices in Anderson County and serves surrounding communities
-                throughout the Upstate region.
-              </p>
-            </div>
-            <div className="grid-2" style={{ maxWidth: 800, margin: "0 auto 40px" }}>
-              <div className="location-card">
-                <h4>Honea Path Office (Main)</h4>
-                <address>
-                  512A East Greer St<br />
-                  Honea Path, SC 29654<br /><br />
-                  <a href="tel:8648412500">(864) 841-2500</a>
-                </address>
-              </div>
-              <div className="location-card">
-                <h4>Williamston Office</h4>
-                <address>
-                  103 Belton Dr<br />
-                  Williamston, SC 29697<br /><br />
-                  <a href="tel:8643690222">(864) 369-0222</a>
-                </address>
-              </div>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <p style={{ marginBottom: 8, fontWeight: 600, color: "var(--t2)" }}>Coverage:</p>
-              <p style={{ color: "var(--t3)" }}>
-                Anderson County · Greenville County · Abbeville County · Pickens County · Greenwood County
-              </p>
-              <div style={{ marginTop: 28 }}>
-                <a href="/locations" className="btn btn-o">View All Locations →</a>
-              </div>
-            </div>
+        {/* ── Why Choose ────────────────────────────── */}
+        <div className="photo-split">
+          <div className="photo-split-content" style={{ background: "var(--cream)" }}>
+            <span className="eyebrow">Why Beyond Care</span>
+            <h2 className="serif">Not just any home care company</h2>
+            <p style={{ color: "var(--t2)", lineHeight: 1.75, marginTop: 12, marginBottom: 24 }}>
+              There are a lot of options in South Carolina. Here is what makes Beyond Care genuinely different.
+            </p>
+            <ul className="check-list" style={{ marginBottom: 28 }}>
+              <li>Nurse-owned — clinical oversight built in, not bolted on</li>
+              <li>Direct employees only — bonded, insured, workers&apos; comp covered</li>
+              <li>Individualized care plans for every single client</li>
+              <li>Flexible scheduling from a few hours to 24/7</li>
+              <li>Two offices, deeply rooted in the Upstate community</li>
+              <li>We stay involved — not just at placement</li>
+            </ul>
+            <a href="/why-choose-beyond-care" className="btn btn-r">Learn more about our approach</a>
           </div>
-        </section>
+          <div className="photo-split-img">
+            <Image src="/images/caregiver-kitchen.png" alt="Caregiver preparing meal with senior" fill sizes="50vw" style={{ objectFit: "cover" }} />
+          </div>
+        </div>
 
         {/* ── Testimonial ───────────────────────────── */}
-        <section className="section section-alt">
+        <section className="section bg-deep">
           <div className="wrap">
+            <div className="section-head section-head-light" style={{ marginBottom: 40 }}>
+              <span className="eyebrow eyebrow-light">Families Trust Beyond Care</span>
+            </div>
             <div className="testimonial-card">
               <div className="stars">★★★★★</div>
               <blockquote>
-                &ldquo;I am very pleased with my services. My caregiver is amazing, and goes above
-                and beyond what she is required to do.&rdquo;
+                &ldquo;I am very pleased with my services. My caregiver is amazing,
+                and goes above and beyond what she is required to do.&rdquo;
               </blockquote>
               <cite>— Betty F., Beyond Care Client</cite>
             </div>
           </div>
         </section>
 
-        {/* ── Payment Options ───────────────────────── */}
-        <section className="section">
+        {/* ── Service Area ──────────────────────────── */}
+        <section className="section bg-cream">
           <div className="wrap">
-            <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
-              <span className="eyebrow">Payment &amp; Coverage</span>
-              <h2>Flexible Payment and Coverage Options</h2>
-              <p style={{ marginTop: 12 }}>
-                We work with families using a variety of payment arrangements to help make quality home care accessible.
-              </p>
+            <div className="section-head">
+              <span className="eyebrow">Where We Serve</span>
+              <h2>Serving families across Upstate South Carolina</h2>
+              <p>Two offices. Five counties. Personally invested in every family we serve.</p>
+            </div>
+            <div className="grid-2" style={{ maxWidth: 760, margin: "0 auto 32px" }}>
+              <div className="location-card">
+                <h4>Honea Path Office (Main)</h4>
+                <address>
+                  512A East Greer St<br />Honea Path, SC 29654<br /><br />
+                  <a href="tel:8648412500">(864) 841-2500</a>
+                </address>
+              </div>
+              <div className="location-card">
+                <h4>Williamston Office</h4>
+                <address>
+                  103 Belton Dr<br />Williamston, SC 29697<br /><br />
+                  <a href="tel:8643690222">(864) 369-0222</a>
+                </address>
+              </div>
+            </div>
+            <p style={{ textAlign: "center", color: "var(--t3)", fontSize: ".9375rem" }}>
+              Anderson · Greenville · Abbeville · Pickens · Greenwood counties
+            </p>
+            <div style={{ textAlign: "center", marginTop: 28 }}>
+              <a href="/locations" className="btn btn-t">View all locations →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Payment Options ───────────────────────── */}
+        <section className="section bg-deep">
+          <div className="wrap">
+            <div className="section-head section-head-light">
+              <span className="eyebrow eyebrow-light">Payment &amp; Coverage</span>
+              <h2>Flexible payment options</h2>
+              <p>We work with families using a variety of arrangements to make quality care accessible.</p>
             </div>
             <div className="payment-grid">
-              {PAYMENTS.map(p => (
-                <div key={p} className="payment-pill">
-                  <span className="payment-pill-check">✓</span>
-                  {p}
-                </div>
+              {["Private Pay","Long-Term Care Insurance","Community Long Term Care (CLTC)","Medicaid Waiver","VA Benefits","Vouchers"].map(p => (
+                <span key={p} className="pay-pill">{p}</span>
               ))}
             </div>
             <div style={{ textAlign: "center", marginTop: 36 }}>
-              <a href="/payment-options" className="btn btn-o">Learn About Payment Options →</a>
+              <a href="/payment-options" className="btn btn-ol">Learn about payment options</a>
             </div>
           </div>
         </section>
@@ -341,19 +277,18 @@ export default function HomePage() {
         {/* ── Final CTA ─────────────────────────────── */}
         <section className="cta-section">
           <div className="wrap">
-            <h2>Ready to Talk?</h2>
+            <h2>Ready to talk about care<br />for your loved one?</h2>
             <p>
-              Whether you are planning ahead or need help right now, we are here.
-              Call our office or request a free consultation online.
+              Schedule a free, no-obligation consultation. We&apos;ll answer your questions,
+              explain your options, and help you find the right fit.
             </p>
             <div className="cta-actions">
-              <a href="/schedule-consultation" className="btn btn-w">Request a Free Consultation</a>
+              <a href="/schedule-consultation" className="btn btn-ow">Request a Free Consultation</a>
             </div>
             <div className="cta-phone">
-              <span>📞</span>
-              <a href="tel:8648412500" style={{ color: "rgba(255,255,255,.9)" }}>(864) 841-2500</a>
-              <span style={{ opacity: .5 }}>·</span>
-              <a href="tel:8643690222" style={{ color: "rgba(255,255,255,.7)", fontSize: ".9375rem" }}>(864) 369-0222</a>
+              <a href="tel:8648412500">(864) 841-2500</a>
+              <span>·</span>
+              <a href="tel:8643690222">(864) 369-0222</a>
             </div>
           </div>
         </section>
