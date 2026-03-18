@@ -7,22 +7,25 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-teal-deep" itemScope itemType="https://schema.org/LocalBusiness">
+    <footer itemScope itemType="https://schema.org/LocalBusiness">
       <meta itemProp="name" content={SITE.name} />
       <meta itemProp="url"  content={SITE.domain} />
 
-      {/* ── CTA Band ── */}
-      <div className="border-b border-white/10">
-        <div className="wrap py-14 lg:py-20">
+      {/* ── CTA Band — teal-mid, visually distinct from links below ── */}
+      <div className="relative overflow-hidden" style={{ background: "var(--teal-mid)" }}>
+        {/* Subtle radial glow for depth */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 70% 100% at 80% 50%, rgba(75,191,204,0.18) 0%, transparent 70%)" }} />
+        <div className="wrap py-14 lg:py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="eyebrow text-teal-light mb-3">Get started today</p>
+              <p className="eyebrow mb-3" style={{ color: "var(--teal-light)", letterSpacing: "0.14em" }}>Get started today</p>
               <h2 className="text-white font-extrabold leading-tight mb-4"
                 style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}>
                 Schedule a free<br />in-home consultation.
               </h2>
-              <p className="text-white/65 leading-relaxed max-w-md"
-                style={{ fontSize: "clamp(0.9375rem, 2vw, 1.0625rem)" }}>
+              <p className="leading-relaxed max-w-md"
+                style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(0.9375rem, 2vw, 1.0625rem)" }}>
                 The first conversation is always free. We listen, answer your questions,
                 and help you understand what care could look like — no pressure.
               </p>
@@ -35,7 +38,8 @@ export default function Footer() {
               <div className="flex flex-col xs:flex-row gap-3 w-full lg:w-auto">
                 {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
                   <a key={o.name} href={`tel:${o.phone.replace(/-/g,"")}`}
-                    className="flex items-center gap-2 border border-white/20 rounded-full px-5 py-3 text-sm font-semibold text-white hover:border-white/50 transition-colors">
+                    className="flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                    style={{ border: "1.5px solid rgba(255,255,255,0.3)" }}>
                     <Phone size={14} className="text-teal-light flex-shrink-0" />
                     <span>{o.city}: {o.phone}</span>
                   </a>
@@ -44,9 +48,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        {/* Bottom edge divider — angled cut for visual depth */}
+        <div className="h-px w-full" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.12) 70%, transparent)" }} />
       </div>
 
-      {/* ── Main footer grid ── */}
+      {/* ── Main footer grid — teal-deep ── */}
+      <div className="bg-teal-deep">
       <div className="wrap py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
 
@@ -168,14 +175,15 @@ export default function Footer() {
 
         </div>
       </div>
+      </div>{/* end bg-teal-deep */}
 
-      {/* ── Bottom bar ── */}
-      <div className="border-t border-white/10">
+      {/* ── Bottom bar — navy, darkest layer ── */}
+      <div style={{ background: "var(--navy)" }}>
         <div className="wrap flex flex-col sm:flex-row items-center justify-between py-4 gap-2">
-          <p className="text-xs text-white/25">
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
             © {year} {SITE.name}. All rights reserved. Beyond Care, LLC.
           </p>
-          <div className="flex flex-wrap gap-4 text-xs text-white/25">
+          <div className="flex flex-wrap gap-4 text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
             <Link href="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
             <Link href="/sitemap.xml"    className="hover:text-white/60 transition-colors">Sitemap</Link>
             <a href="/llms.txt"          className="hover:text-white/60 transition-colors">AI / LLMs</a>

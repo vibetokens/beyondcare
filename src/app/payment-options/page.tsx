@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import Link from "next/link"
+import { PAYMENT_OPTIONS } from "@/lib/constants"
 
 export const metadata: Metadata = {
   title: "Payment Options for Home Care | Beyond Care Home Care Services",
@@ -6,35 +8,35 @@ export const metadata: Metadata = {
     "Beyond Care accepts private pay, long-term care insurance, CLTC, Medicaid Waiver, VA Benefits, and vouchers. Learn how to make home care work for your family's budget.",
 }
 
-const PAYMENTS = [
+const PAYMENT_DETAILS = [
   {
-    icon: "💳",
     title: "Private Pay",
-    body: "Many families choose to pay for home care services directly. We work with families to structure a care plan that fits their needs and budget.",
+    href: "/payment-options/private-pay",
+    body: "Many families choose to pay for home care directly. We work with you to structure a care plan that fits your needs and budget, with no hidden fees or surprises.",
   },
   {
-    icon: "📋",
     title: "Long-Term Care Insurance",
-    body: "If your loved one has a long-term care insurance policy, it may cover some or all home care services. We can help you understand what your policy covers and assist with the claims process.",
+    href: "/payment-options/long-term-care-insurance",
+    body: "If your loved one has a long-term care insurance policy, it may cover some or all of our services. We can help you understand your policy and assist with the claims process.",
   },
   {
-    icon: "🏛️",
     title: "Community Long Term Care (CLTC)",
+    href: "/payment-options",
     body: "South Carolina's CLTC program helps eligible individuals receive home and community-based services. Contact us to discuss whether your loved one may qualify.",
   },
   {
-    icon: "🏥",
     title: "Medicaid Waiver",
-    body: "Medicaid waiver programs can help cover the cost of home care for qualifying individuals. Beyond Care works with families to navigate waiver eligibility and enrollment.",
+    href: "/payment-options/medicaid-waiver",
+    body: "Medicaid waiver programs can help cover the cost of home care for qualifying individuals. Our team can help families navigate waiver eligibility and enrollment.",
   },
   {
-    icon: "🎖️",
     title: "VA Benefits",
-    body: "Veterans and their spouses may qualify for VA-funded home care services. We work with families to understand and access applicable veteran benefits.",
+    href: "/payment-options/va-benefits",
+    body: "Veterans and surviving spouses may qualify for VA-funded home care through Aid & Attendance or other programs. We will help you understand and access your benefits.",
   },
   {
-    icon: "📄",
     title: "Vouchers",
+    href: "/payment-options",
     body: "Certain voucher programs may be available for qualifying individuals and families. Contact us to learn whether a voucher program applies to your situation.",
   },
 ]
@@ -42,48 +44,59 @@ const PAYMENTS = [
 export default function PaymentOptionsPage() {
   return (
     <>
-              <section className="page-hero">
-          <div className="wrap">
-            <span className="eyebrow page-hero-eyebrow">Payment Options</span>
-            <h1>Flexible Payment and Coverage Options</h1>
-            <p className="lead" style={{ marginTop: 16 }}>
-              We work with families using a variety of payment arrangements to help make quality home care accessible.
-              Quality care should not be out of reach — we will help you understand every option available to you.
+      {/* Hero */}
+      <section className="section-sm bg-teal-deep">
+        <div className="wrap">
+          <div className="max-w-2xl">
+            <span className="eyebrow" style={{ color: "var(--teal-light)" }}>Payment Options</span>
+            <h1 className="text-white font-extrabold mt-2"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.06, letterSpacing: "-0.025em" }}>
+              Flexible Payment &amp; Coverage Options
+            </h1>
+            <p className="mt-4 max-w-xl" style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: 1.75 }}>
+              We work with families using a variety of payment arrangements to help make quality home care
+              accessible. Quality care should not be out of reach — we will help you understand every option.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="section">
-          <div className="wrap">
-            <div className="grid-3" style={{ gap: 24 }}>
-              {PAYMENTS.map(p => (
-                <div key={p.title} className="card">
-                  <div style={{ fontSize: "1.75rem", marginBottom: 16 }}>{p.icon}</div>
-                  <h4 style={{ color: "var(--teal)", marginBottom: 10 }}>{p.title}</h4>
-                  <p style={{ fontSize: ".9375rem" }}>{p.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section section-alt">
-          <div className="wrap">
-            <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
-              <span className="eyebrow">Not Sure Where to Start?</span>
-              <h2>We Can Help You Navigate Your Options</h2>
-              <p style={{ marginTop: 12, marginBottom: 32 }}>
-                Understanding payment and coverage options can feel overwhelming. Call us — our team can walk you
-                through what is available based on your loved one&apos;s specific situation.
-              </p>
-              <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                <a href="/schedule-consultation" className="btn btn-p">Request a Free Consultation</a>
-                <a href="tel:8648412500" className="btn btn-o">Call (864) 841-2500</a>
+      {/* Payment cards */}
+      <section className="section bg-white">
+        <div className="wrap">
+          <div className="grid-3" style={{ gap: 24 }}>
+            {PAYMENT_DETAILS.map(p => (
+              <div key={p.title} className="card" style={{ display: "flex", flexDirection: "column" }}>
+                <h3 className="h-sm text-teal-brand mb-3">{p.title}</h3>
+                <p className="text-muted mb-4" style={{ flex: 1, lineHeight: 1.75 }}>{p.body}</p>
+                {p.href !== "/payment-options" ? (
+                  <Link href={p.href} className="link-cta-teal">Learn More</Link>
+                ) : (
+                  <Link href="/schedule-consultation" className="link-cta-teal">Ask Us About This</Link>
+                )}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Navigation help */}
+      <section className="section bg-teal-pale">
+        <div className="wrap">
+          <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
+            <span className="eyebrow">Not Sure Where to Start?</span>
+            <h2 className="h-lg mt-2 mb-4">We Can Help You Navigate Your Options</h2>
+            <p className="body-lg text-muted mb-6">
+              Understanding payment and coverage can feel overwhelming. Call us — our team will walk you through
+              what is available based on your loved one&apos;s specific situation. There is no cost or obligation.
+            </p>
+            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/schedule-consultation" className="btn-coral">Request a Free Consultation</Link>
+              <a href="tel:8648412500" className="btn-outline">(864) 841-2500</a>
             </div>
           </div>
-        </section>
-
+        </div>
+      </section>
     </>
   )
 }
