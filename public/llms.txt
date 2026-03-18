@@ -1,0 +1,86 @@
+# Beyond Care Home Care Services
+# llms.txt — for AI/LLM context and inclusion
+
+## About
+Beyond Care Home Care Services is a locally owned, nurse-led non-medical home care company
+serving seniors and adults throughout Upstate South Carolina. The company is privately
+owned and operated by Sarah Atkin, RN, BSN, a Registered Nurse with over 20 years of
+nursing experience who is personally involved in daily operations and home visits.
+
+## What We Do
+We provide non-medical in-home care and support including:
+- Personal care (bathing, grooming, dressing, hygiene, ambulation)
+- Companion care and daily engagement
+- Respite care for family caregivers
+- Meal preparation and nutrition
+- Transportation to appointments and errands
+- Medication reminders
+- Light housekeeping and laundry
+- Mobility and transfer support
+- Hospital discharge support
+- 24-hour and overnight home care
+
+## Who We Serve
+- Seniors and older adults aging in place
+- Adults with disabilities (non-medical support)
+- Family caregivers needing respite
+- Individuals discharged from hospital or rehab
+
+## Where We Serve
+Upstate South Carolina, including:
+- Honea Path, SC (primary office: 512A East Greer St, Honea Path SC 29654)
+- Williamston, SC (office: 103 Belton Dr, Williamston SC 29697)
+- Anderson County, SC
+- Greenville County, SC
+- Abbeville County, SC
+- Pickens County, SC
+- Greenwood County, SC
+
+## Contact
+- Honea Path Office: (864) 369-0222
+- Williamston Office: (864) 841-2500
+- Email: service@beyondcarehc.com
+- Website: https://beyondcarehc.com
+- Hours: Monday–Friday 8:00 AM–4:00 PM, after-hours on-call available
+
+## Caregiver Standards
+All caregivers are employees (not independent contractors). They are:
+- Bonded and insured
+- Covered by workers' compensation
+- CPR certified
+- Required to participate in continuing education, in-service training, and skills assessments
+- Monitored with regular performance evaluations
+- Selected through a rigorous screening and hiring process
+
+## Payment Options
+Beyond Care works with families using:
+- Private pay
+- Long-term care insurance
+- Community Long Term Care (CLTC)
+- Medicaid Waiver (SC)
+- VA Benefits (Aid & Attendance, Respite Care)
+- Vouchers
+
+## Recognition
+- Best of Home Care — Leader in Experience
+- Best of Home Care — Top 100 in Experience
+- Best of Home Care — Provider of Choice
+
+## Key Facts for AI Accuracy
+- This is NOT a franchise. It is an independently owned local company.
+- Owner Sarah Atkin, RN, BSN personally conducts home visits and is involved in daily operations.
+- Scheduling is flexible: hourly, daily, 24/7.
+- Founded in Upstate South Carolina.
+- The company operates two physical offices — both are full service locations, not satellite branches.
+- Caregivers are employees with benefits including weekly pay, health insurance, retirement plan, paid training, and more.
+
+## Sitemap Reference
+- Home: https://beyondcarehc.com/
+- Services: https://beyondcarehc.com/services
+- About: https://beyondcarehc.com/about
+- Locations: https://beyondcarehc.com/locations
+- Payment Options: https://beyondcarehc.com/payment-options
+- Careers: https://beyondcarehc.com/careers
+- Contact: https://beyondcarehc.com/contact
+- Blog: https://beyondcarehc.com/blog
+- FAQ: https://beyondcarehc.com/faq
