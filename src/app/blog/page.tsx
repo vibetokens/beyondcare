@@ -7,30 +7,246 @@ export const metadata: Metadata = {
     "Articles, guides, and practical tips for families navigating in-home care in South Carolina. From Beyond Care Home Care Services.",
 }
 
-const ARTICLES = [
+const ALL_POSTS = [
   {
-    title: "5 Signs It May Be Time to Consider Home Care for a Parent",
-    slug: "signs-time-home-care",
-    date: "Coming Soon",
-    excerpt:
-      "Recognizing when a loved one needs extra support is not always easy. These five signs can help families have an earlier, more productive conversation about in-home care options.",
+    slug: "home-care-seniors-independence-south-carolina",
+    title: "How Home Care Helps Seniors Stay Independent in South Carolina",
+    date: "March 2026",
+    category: "Senior Independence",
+    description:
+      "In-home care supports independence for South Carolina seniors — learn how non-medical home care helps aging adults stay safe, comfortable, and in control at home.",
+  },
+  {
+    slug: "signs-parent-needs-help-at-home",
+    title: "7 Signs Your Parent May Need Help at Home",
+    date: "March 2026",
     category: "Family Guides",
+    description:
+      "Not sure if your parent needs in-home care? These 7 signs can help South Carolina families recognize when it is time to explore home care support.",
   },
   {
-    title: "Home Care vs. Home Health: What Is the Difference?",
-    slug: "home-care-vs-home-health",
-    date: "Coming Soon",
-    excerpt:
-      "Many families confuse home care with home health care — but they serve very different purposes. Understanding the difference helps you find the right support for your loved one.",
+    slug: "home-care-vs-home-health-families",
+    title: "Home Care vs Home Health — What Every Family Should Understand",
+    date: "March 2026",
     category: "Understanding Care",
+    description:
+      "Home care and home health are not the same. Learn the key differences and what each type of service covers — so you can make the right decision for your loved one.",
   },
   {
-    title: "How to Prepare for Your First Home Care Consultation",
-    slug: "preparing-for-consultation",
-    date: "Coming Soon",
-    excerpt:
-      "Knowing what to bring and what to ask makes your first consultation more productive. Here is a practical guide to getting the most out of your initial conversation with a home care provider.",
+    slug: "in-home-support-after-hospital-stay",
+    title: "Coming Home From the Hospital — Why In-Home Support Matters",
+    date: "March 2026",
+    category: "Hospital Discharge",
+    description:
+      "The weeks after a hospital discharge are high-risk for seniors. Learn how in-home care reduces readmission risk and supports safer recovery at home in South Carolina.",
+  },
+  {
+    slug: "when-is-right-time-to-start-home-care",
+    title: "When Is the Right Time to Start Home Care?",
+    date: "March 2026",
     category: "Getting Started",
+    description:
+      "Many families wait too long to start home care. Learn when the right time actually is — and why earlier is almost always better for seniors in South Carolina.",
+  },
+  {
+    slug: "why-companion-care-matters-senior-wellbeing",
+    title: "Why Companion Care for Seniors Is More Than Just Keeping Them Company",
+    date: "March 2026",
+    category: "Companion Care",
+    description:
+      "Loneliness is a serious health risk for older adults. Learn why companion care for seniors in South Carolina is more than comfort — it is a meaningful health intervention.",
+  },
+  {
+    slug: "what-to-expect-home-care-consultation",
+    title: "What to Expect During a Home Care Consultation",
+    date: "March 2026",
+    category: "Getting Started",
+    description:
+      "Wondering what happens during a home care consultation? Learn what Beyond Care covers, what questions to ask, and how to prepare for your first meeting.",
+  },
+  {
+    slug: "fall-prevention-tips-seniors-at-home",
+    title: "Fall Prevention Tips for Seniors Living at Home",
+    date: "March 2026",
+    category: "Safety",
+    description:
+      "Falls are the leading cause of injury in older adults. These fall prevention tips can help South Carolina seniors stay safer at home — with or without home care support.",
+  },
+  {
+    slug: "why-medication-reminders-matter-seniors",
+    title: "Why Medication Reminders Are One of the Most Important Home Care Services",
+    date: "March 2026",
+    category: "Health Management",
+    description:
+      "Medication errors are among the most common — and preventable — causes of health decline in seniors. Learn why medication reminders are a critical component of home care.",
+  },
+  {
+    slug: "what-professional-caregivers-help-with-day-to-day",
+    title: "What a Professional Caregiver Actually Does Each Day",
+    date: "March 2026",
+    category: "Our Services",
+    description:
+      "What does a home care caregiver actually do during a visit? Learn what daily professional caregiver support looks like from Beyond Care in South Carolina.",
+  },
+  {
+    slug: "why-cpr-certified-caregivers-matter",
+    title: "Why CPR Certification in a Home Caregiver Is a Standard That Matters",
+    date: "March 2026",
+    category: "Caregiver Standards",
+    description:
+      "CPR certification in a home caregiver is more than a credential — it is a critical safety standard. Learn why it matters and how Beyond Care trains its team.",
+  },
+  {
+    slug: "how-family-caregivers-avoid-burnout",
+    title: "How Family Caregivers Can Protect Themselves From Burnout",
+    date: "March 2026",
+    category: "Family Caregivers",
+    description:
+      "Family caregiver burnout is real — and common. Learn the warning signs and practical steps that help South Carolina family caregivers protect their own health and sustain care.",
+  },
+  {
+    slug: "transportation-support-seniors-more-than-a-ride",
+    title: "Senior Transportation — Why It Is About More Than Getting From Here to There",
+    date: "March 2026",
+    category: "Transportation",
+    description:
+      "When seniors lose access to transportation, health suffers. Learn how caregiver-provided transportation in South Carolina supports independence and health access.",
+  },
+  {
+    slug: "what-respite-care-gives-back-to-families",
+    title: "What Respite Care Actually Gives Back to Families",
+    date: "March 2026",
+    category: "Respite Care",
+    description:
+      "Respite care is not just a break — it is what makes sustainable family caregiving possible. Learn how respite care from Beyond Care in South Carolina supports the whole family.",
+  },
+  {
+    slug: "families-choosing-aging-in-place-support",
+    title: "Why Aging in Place Has Become the Preferred Choice for South Carolina Families",
+    date: "March 2026",
+    category: "Aging in Place",
+    description:
+      "Aging in place is not just a trend — it is what most seniors want. Learn why in-home care is making it possible for more South Carolina families.",
+  },
+  {
+    slug: "senior-nutrition-at-home-small-habits",
+    title: "Senior Nutrition at Home — Why It Matters and How to Support It",
+    date: "March 2026",
+    category: "Health & Wellness",
+    description:
+      "Poor nutrition is a leading driver of health decline in older adults. Learn practical nutrition tips for seniors at home — and how home care supports better eating habits.",
+  },
+  {
+    slug: "early-memory-changes-when-families-should-pay-attention",
+    title: "Early Memory Changes — What Families Should Watch For",
+    date: "March 2026",
+    category: "Memory Care",
+    description:
+      "Memory changes in aging parents can be easy to dismiss. Learn which early signs warrant attention — and how in-home support helps South Carolina families manage safely.",
+  },
+  {
+    slug: "home-care-supports-mobility-daily-confidence",
+    title: "How Home Care Supports Senior Mobility and Daily Confidence",
+    date: "March 2026",
+    category: "Personal Care",
+    description:
+      "Mobility challenges affect everything — from fall risk to independence and emotional well-being. Learn how home care from Beyond Care supports safer daily movement for seniors.",
+  },
+  {
+    slug: "why-social-connection-matters-later-life",
+    title: "Why Social Connection Remains One of the Most Important Health Factors in Later Life",
+    date: "March 2026",
+    category: "Senior Well-Being",
+    description:
+      "Social connection is not a luxury for seniors — it is a health requirement. Learn why companionship and engagement matter deeply to senior well-being in South Carolina.",
+  },
+  {
+    slug: "light-housekeeping-improves-safety-seniors",
+    title: "How Light Housekeeping Makes a Senior's Home Safer",
+    date: "March 2026",
+    category: "Home Safety",
+    description:
+      "A tidy home is a safer home. Learn how light housekeeping from a home care caregiver supports fall prevention and daily health for seniors in South Carolina.",
+  },
+  {
+    slug: "emotional-benefits-staying-at-home-seniors",
+    title: "The Emotional Benefits of Staying Home — What Families Should Understand",
+    date: "March 2026",
+    category: "Aging in Place",
+    description:
+      "Home is more than a place — for seniors, it is independence, memory, and identity. Learn about the emotional benefits of aging at home with support from Beyond Care in South Carolina.",
+  },
+  {
+    slug: "home-care-resources-families-honea-path-sc",
+    title: "Home Care Resources for Families in Honea Path, South Carolina",
+    date: "March 2026",
+    category: "Local Resources",
+    description:
+      "Families in Honea Path, SC looking for in-home care resources — Beyond Care Home Care Services is based in Honea Path and serves the surrounding community. Learn more.",
+  },
+  {
+    slug: "home-care-resources-families-williamston-sc",
+    title: "Home Care Resources for Families in Williamston, South Carolina",
+    date: "March 2026",
+    category: "Local Resources",
+    description:
+      "Beyond Care serves families in Williamston, SC from our satellite office at 103 Belton Drive. Learn about home care services and resources available in Williamston.",
+  },
+  {
+    slug: "upstate-south-carolina-families-choose-in-home-care",
+    title: "Why Upstate South Carolina Families Are Choosing In-Home Care",
+    date: "March 2026",
+    category: "Local Resources",
+    description:
+      "Families across Upstate South Carolina are increasingly choosing in-home care for seniors and adults. Learn why — and how Beyond Care supports families throughout the region.",
+  },
+  {
+    slug: "home-care-support-veterans-families-south-carolina",
+    title: "Home Care Support for Veterans in South Carolina",
+    date: "March 2026",
+    category: "Veterans",
+    description:
+      "Veterans in South Carolina may qualify for VA home care benefits. Learn how Beyond Care supports veterans and how VA Aid and Attendance can help fund in-home care.",
+  },
+  {
+    slug: "planning-care-after-surgery-rehabilitation",
+    title: "How to Plan for Care After Surgery or Rehabilitation",
+    date: "March 2026",
+    category: "Recovery Care",
+    description:
+      "Coming home after surgery or rehab requires a plan. Learn how in-home care from Beyond Care in South Carolina supports a safer, smoother recovery at home.",
+  },
+  {
+    slug: "questions-ask-before-hiring-home-care-provider",
+    title: "Questions to Ask Before You Hire a Home Care Provider",
+    date: "March 2026",
+    category: "Choosing Care",
+    description:
+      "Not all home care providers are equal. Use these questions to evaluate and choose the right home care company for your loved one in South Carolina.",
+  },
+  {
+    slug: "understanding-medicaid-waiver-home-care-south-carolina",
+    title: "Understanding Medicaid Waiver Home Care Options in South Carolina",
+    date: "March 2026",
+    category: "Payment Options",
+    description:
+      "South Carolina's Medicaid Waiver and CLTC programs may help eligible families access in-home care. Learn how these programs work and how to explore eligibility.",
+  },
+  {
+    slug: "can-long-term-care-insurance-pay-for-home-care",
+    title: "Can Long-Term Care Insurance Help Pay for Home Care? Yes — Here Is How",
+    date: "March 2026",
+    category: "Payment Options",
+    description:
+      "If your loved one has a long-term care insurance policy, it may cover significant home care costs. Learn how LTC insurance works for home care in South Carolina.",
+  },
+  {
+    slug: "how-to-make-home-safer-aging-parent",
+    title: "How to Make Your Parent's Home Safer as They Age",
+    date: "March 2026",
+    category: "Home Safety",
+    description:
+      "Small home modifications can dramatically reduce fall risk and improve safety for aging seniors. A practical guide for South Carolina families preparing a parent's home.",
   },
 ]
 
@@ -42,64 +258,69 @@ export default function BlogPage() {
         <div className="wrap">
           <div className="max-w-2xl">
             <span className="eyebrow" style={{ color: "var(--teal-light)" }}>Blog</span>
-            <h1 className="text-white font-extrabold mt-2"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.06, letterSpacing: "-0.025em" }}>
+            <h1
+              className="text-white font-extrabold mt-2"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.06, letterSpacing: "-0.025em" }}
+            >
               Articles &amp; Guides for Families
             </h1>
-            <p className="mt-4 max-w-xl" style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: 1.75 }}>
+            <p
+              className="mt-4 max-w-xl"
+              style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: 1.75 }}
+            >
               Practical information about home care, caregiving, and navigating in-home support in South Carolina.
-              New articles coming soon.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Coming soon notice */}
-      <section className="section bg-teal-pale">
+      {/* Article grid */}
+      <section className="section bg-canvas">
         <div className="wrap">
-          <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-            <span className="eyebrow">Coming Soon</span>
-            <h2 className="h-lg mt-2 mb-4">New Articles on the Way</h2>
-            <p className="body-lg text-muted">
-              We are building out our resource library with practical guides for families in South Carolina who
-              are navigating home care for the first time. In the meantime, explore our existing resources below
-              or give us a call — we are always happy to answer questions directly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Article previews */}
-      <section className="section bg-white">
-        <div className="wrap">
-          <div className="text-center mb-10">
-            <span className="eyebrow">Upcoming Articles</span>
-            <h2 className="h-lg mt-2">What We Are Writing</h2>
-          </div>
-          <div className="grid-3" style={{ gap: 24 }}>
-            {ARTICLES.map(a => (
-              <div key={a.slug} className="card" style={{ display: "flex", flexDirection: "column" }}>
-                <div className="eyebrow mb-2">{a.category}</div>
-                <h3 className="h-sm text-ink mb-3" style={{ flex: 1 }}>{a.title}</h3>
-                <p className="text-muted mb-4" style={{ lineHeight: 1.75, fontSize: ".9375rem" }}>{a.excerpt}</p>
-                <span className="text-muted" style={{ fontSize: ".8125rem", fontWeight: 600 }}>Coming Soon</span>
-              </div>
+          <div className="grid-3">
+            {ALL_POSTS.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="card"
+                style={{ display: "flex", flexDirection: "column", textDecoration: "none" }}
+              >
+                <div className="eyebrow mb-2">{post.category}</div>
+                <h2 className="h-sm text-ink mb-3" style={{ flex: 1, fontSize: "clamp(1rem, 2vw, 1.2rem)" }}>
+                  {post.title}
+                </h2>
+                <p className="text-muted mb-4" style={{ lineHeight: 1.65, fontSize: ".9375rem" }}>
+                  {post.description}
+                </p>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <span className="text-muted" style={{ fontSize: ".8125rem", fontWeight: 600 }}>
+                    {post.date}
+                  </span>
+                  <span className="text-sm font-bold" style={{ color: "var(--teal-brand)" }}>
+                    Read →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Link to resources */}
-      <section className="section bg-canvas">
+      {/* CTA */}
+      <section className="section bg-teal-deep">
         <div className="wrap text-center">
-          <h2 className="h-lg mb-4">Looking for Resources Now?</h2>
-          <p className="body-lg text-muted mb-6">
-            Our resources hub includes guides about when to consider home care, what to expect from a
-            consultation, and other topics for families.
+          <h2
+            className="text-white font-extrabold mb-4"
+            style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+          >
+            Have Questions? We Are Here to Help.
+          </h2>
+          <p className="mb-6" style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(1rem, 2vw, 1.125rem)" }}>
+            Our team is available to answer your home care questions — no pressure, no obligation.
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/resources" className="btn-teal">Browse Resources</Link>
-            <Link href="/faq" className="btn-outline">Read Our FAQ</Link>
+            <Link href="/contact" className="btn-coral">Free Consultation</Link>
+            <Link href="/faq" className="btn-outline-white">Read Our FAQ</Link>
           </div>
         </div>
       </section>
