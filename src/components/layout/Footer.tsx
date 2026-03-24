@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from "lucide-react";
-import { SITE, OFFICES, PHONES, HOURS, AWARDS, SERVICES, MEGA_NAV } from "@/lib/constants";
+import { SITE, OFFICES, PHONES, HOURS, AWARDS, SERVICES } from "@/lib/constants";
+
+const RECENT_POSTS = [
+  { title: "How Home Care Helps Seniors Stay Independent", href: "/blog/home-care-seniors-independence-south-carolina" },
+  { title: "7 Signs Your Parent May Need Help at Home",    href: "/blog/signs-parent-needs-help-at-home" },
+  { title: "Home Care vs Home Health — What Families Should Know", href: "/blog/home-care-vs-home-health-families" },
+  { title: "Coming Home From the Hospital — Why In-Home Support Matters", href: "/blog/in-home-support-after-hospital-stay" },
+];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -11,9 +18,8 @@ export default function Footer() {
       <meta itemProp="name" content={SITE.name} />
       <meta itemProp="url"  content={SITE.domain} />
 
-      {/* ── CTA Band — teal-mid, visually distinct from links below ── */}
+      {/* ── CTA Band ── */}
       <div className="relative overflow-hidden" style={{ background: "var(--teal-mid)" }}>
-        {/* Subtle radial glow for depth */}
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 70% 100% at 80% 50%, rgba(75,191,204,0.18) 0%, transparent 70%)" }} />
         <div className="wrap py-14 lg:py-20 relative z-10">
@@ -48,136 +54,190 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {/* Bottom edge divider — angled cut for visual depth */}
         <div className="h-px w-full" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0.12) 70%, transparent)" }} />
       </div>
 
-      {/* ── Main footer grid — teal-deep ── */}
+      {/* ── Main footer grid ── */}
       <div className="bg-teal-deep">
-      <div className="wrap py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
+        <div className="wrap py-12 lg:py-16">
 
-          {/* Brand col */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/">
-              <Image
-                src="/images/beyond-care-logo-white.png"
-                alt={SITE.name}
-                width={170}
-                height={56}
-                className="h-11 w-auto mb-5"
-              />
-            </Link>
-            <p className="text-sm text-white/60 leading-relaxed mb-5 max-w-xs">
-              Locally owned, nurse-led non-medical home care in Upstate South Carolina.
-              Serving seniors and adults with compassionate, dependable in-home support.
-            </p>
-            {/* Awards */}
-            <div className="space-y-1.5 mb-5">
-              {AWARDS.map(a => (
-                <p key={a.label} className="text-xs text-white/35 font-medium">
-                  {a.label} — {a.org}
-                </p>
-              ))}
-            </div>
-            {/* Social */}
-            <div className="flex gap-3">
-              <a href={SITE.facebook} target="_blank" rel="noopener noreferrer"
-                aria-label="Beyond Care on Facebook"
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-white/50 text-white/60 hover:text-white transition-all">
-                <Facebook size={15} />
-              </a>
-              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer"
-                aria-label="Beyond Care on Instagram"
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-white/50 text-white/60 hover:text-white transition-all">
-                <Instagram size={15} />
-              </a>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <p className="footer-heading">Services</p>
-            <ul className="space-y-0.5">
-              {SERVICES.slice(0,8).map(s => (
-                <li key={s.slug}>
-                  <Link href={s.slug} className="footer-link">{s.title}</Link>
-                </li>
-              ))}
-              <li><Link href="/services" className="footer-link text-teal-light font-semibold">All Services →</Link></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <p className="footer-heading">Company</p>
-            <ul className="space-y-0.5">
-              {[
-                ["About Us",           "/about"                    ],
-                ["Leadership",         "/about/leadership"         ],
-                ["Why Choose Us",      "/why-choose-beyond-care"   ],
-                ["Caregiver Standards","/caregiver-standards"      ],
-                ["How Care Works",     "/how-care-works"           ],
-                ["Payment Options",    "/payment-options"          ],
-                ["Locations",          "/locations"                ],
-                ["Careers",            "/careers"                  ],
-                ["Resources",          "/resources"                ],
-                ["Blog",               "/blog"                     ],
-                ["FAQ",                "/faq"                      ],
-                ["Contact",            "/contact"                  ],
-              ].map(([label, href]) => (
-                <li key={href}>
-                  <Link href={href} className="footer-link">{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <p className="footer-heading">Contact</p>
-            {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
-              <div key={o.name} className="mb-5"
-                itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                <p className="text-sm font-bold text-white/80 mb-1.5">{o.name}</p>
-                <a href={`https://maps.google.com/?q=${encodeURIComponent(o.full)}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-start gap-2 text-sm text-white/55 hover:text-white transition-colors mb-1">
-                  <MapPin size={12} className="mt-0.5 flex-shrink-0 text-teal-light" />
-                  <span>
-                    <span itemProp="streetAddress">{o.address}</span>,{" "}
-                    <span itemProp="addressLocality">{o.city}</span>,{" "}
-                    <span itemProp="addressRegion">SC</span>{" "}
-                    <span itemProp="postalCode">{o.zip}</span>
-                  </span>
+          {/* Brand row — full width on all sizes */}
+          <div className="mb-10 pb-10 border-b border-white/10
+                          flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+            <div className="max-w-xs">
+              <Link href="/">
+                <Image
+                  src="/images/beyond-care-logo-white.png"
+                  alt={SITE.name}
+                  width={220} height={211}
+                  className="h-16 w-auto mb-4"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </Link>
+              <p className="text-sm text-white/60 leading-relaxed mb-4">
+                Locally owned, nurse-led non-medical home care in Upstate South Carolina.
+                Serving seniors and adults with compassionate, dependable in-home support.
+              </p>
+              <div className="space-y-1 mb-4">
+                {AWARDS.map(a => (
+                  <p key={a.label} className="text-xs text-white/35 font-medium">
+                    {a.label} — {a.org}
+                  </p>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <a href={SITE.facebook} target="_blank" rel="noopener noreferrer"
+                  aria-label="Beyond Care on Facebook"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-white/50 text-white/60 hover:text-white transition-all">
+                  <Facebook size={15} />
                 </a>
-                <a href={`tel:${o.phone.replace(/-/g,"")}`}
-                  className="flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors"
-                  itemProp="telephone">
-                  <Phone size={12} className="flex-shrink-0 text-teal-light" />
-                  {o.phone}
+                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer"
+                  aria-label="Beyond Care on Instagram"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-white/50 text-white/60 hover:text-white transition-all">
+                  <Instagram size={15} />
                 </a>
               </div>
-            ))}
-            <div className="pt-3 border-t border-white/10 space-y-2">
-              <div className="flex items-start gap-2 text-xs text-white/40">
-                <Clock size={11} className="mt-0.5 flex-shrink-0" />
-                <span>{HOURS.weekdays}, {HOURS.hours}</span>
+            </div>
+
+            {/* Contact info inline on desktop */}
+            <div className="sm:text-right">
+              {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
+                <div key={o.name} className="mb-4"
+                  itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <p className="text-sm font-bold text-white/80 mb-1">{o.name}</p>
+                  <a href={`https://maps.google.com/?q=${encodeURIComponent(o.full)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="flex items-start gap-2 sm:justify-end text-xs text-white/50 hover:text-white transition-colors mb-0.5">
+                    <MapPin size={11} className="mt-0.5 flex-shrink-0 text-teal-light sm:order-last" />
+                    <span>
+                      <span itemProp="streetAddress">{o.address}</span>,{" "}
+                      <span itemProp="addressLocality">{o.city}</span>,{" "}
+                      <span itemProp="addressRegion">SC</span>
+                    </span>
+                  </a>
+                  <a href={`tel:${o.phone.replace(/-/g,"")}`}
+                    className="flex items-center gap-2 sm:justify-end text-xs text-white/50 hover:text-white transition-colors"
+                    itemProp="telephone">
+                    <Phone size={11} className="flex-shrink-0 text-teal-light sm:order-last" />
+                    {o.phone}
+                  </a>
+                </div>
+              ))}
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 sm:justify-end text-xs text-white/35">
+                  <Clock size={10} className="flex-shrink-0 sm:order-last" />
+                  <span>{HOURS.weekdays}, {HOURS.hours}</span>
+                </div>
+                <a href={`mailto:${SITE.serviceEmail}`}
+                  className="flex items-center gap-2 sm:justify-end text-xs text-white/35 hover:text-white/60 transition-colors"
+                  itemProp="email">
+                  <Mail size={10} className="flex-shrink-0 sm:order-last" />
+                  {SITE.serviceEmail}
+                </a>
               </div>
-              <a href={`mailto:${SITE.serviceEmail}`}
-                className="flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors"
-                itemProp="email">
-                <Mail size={11} className="flex-shrink-0" />
-                {SITE.serviceEmail}
-              </a>
             </div>
           </div>
 
+          {/* Navigation columns — symmetrical 2×2 on mobile, 4-col on md+ */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 lg:gap-10">
+
+            {/* Services */}
+            <div>
+              <p className="footer-heading">Services</p>
+              <ul className="space-y-0.5">
+                {SERVICES.slice(0, 8).map(s => (
+                  <li key={s.slug}>
+                    <Link href={s.slug} className="footer-link">{s.title}</Link>
+                  </li>
+                ))}
+                <li><Link href="/services" className="footer-link text-teal-light font-semibold">All Services →</Link></li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <p className="footer-heading">Company</p>
+              <ul className="space-y-0.5">
+                {[
+                  ["About Us",           "/about"                  ],
+                  ["Leadership",         "/about/leadership"       ],
+                  ["Why Choose Us",      "/why-choose-beyond-care" ],
+                  ["Caregiver Standards","/caregiver-standards"    ],
+                  ["How Care Works",     "/how-care-works"         ],
+                  ["Payment Options",    "/payment-options"        ],
+                  ["Locations",          "/locations"              ],
+                  ["Careers",            "/careers"                ],
+                  ["Resources",          "/resources"              ],
+                  ["FAQ",                "/faq"                    ],
+                  ["Contact",            "/contact"                ],
+                ].map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="footer-link">{label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact — mobile only (desktop contact is in brand row above) */}
+            <div className="sm:hidden md:block">
+              <p className="footer-heading">Contact</p>
+              {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
+                <div key={o.name} className="mb-4"
+                  itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <p className="text-sm font-bold text-white/80 mb-1">{o.name}</p>
+                  <a href={`https://maps.google.com/?q=${encodeURIComponent(o.full)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="flex items-start gap-2 text-xs text-white/50 hover:text-white transition-colors mb-0.5">
+                    <MapPin size={11} className="mt-0.5 flex-shrink-0 text-teal-light" />
+                    <span itemProp="streetAddress">{o.address}, <span itemProp="addressLocality">{o.city}</span></span>
+                  </a>
+                  <a href={`tel:${o.phone.replace(/-/g,"")}`}
+                    className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
+                    itemProp="telephone">
+                    <Phone size={11} className="flex-shrink-0 text-teal-light" />
+                    {o.phone}
+                  </a>
+                </div>
+              ))}
+              <div className="pt-2 border-t border-white/10 space-y-1.5">
+                <div className="flex items-start gap-2 text-xs text-white/35">
+                  <Clock size={10} className="mt-0.5 flex-shrink-0" />
+                  <span>{HOURS.weekdays}, {HOURS.hours}</span>
+                </div>
+                <a href={`mailto:${SITE.serviceEmail}`}
+                  className="flex items-center gap-2 text-xs text-white/35 hover:text-white/60 transition-colors"
+                  itemProp="email">
+                  <Mail size={10} className="flex-shrink-0" />
+                  {SITE.serviceEmail}
+                </a>
+              </div>
+            </div>
+
+            {/* Recent Posts */}
+            <div>
+              <p className="footer-heading">From the Blog</p>
+              <ul className="space-y-3">
+                {RECENT_POSTS.map(p => (
+                  <li key={p.href}>
+                    <Link href={p.href}
+                      className="footer-link text-xs sm:text-[13px] leading-snug block">
+                      {p.title}
+                    </Link>
+                  </li>
+                ))}
+                <li className="pt-1">
+                  <Link href="/blog" className="footer-link text-teal-light font-semibold text-xs">
+                    All Articles →
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
-      </div>{/* end bg-teal-deep */}
 
-      {/* ── Bottom bar — navy, darkest layer ── */}
+      {/* ── Bottom bar ── */}
       <div style={{ background: "var(--navy)" }}>
         <div className="wrap flex flex-col sm:flex-row items-center justify-between py-4 gap-2">
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>

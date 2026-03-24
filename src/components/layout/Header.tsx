@@ -64,16 +64,16 @@ export default function Header() {
 
       {/* ── Main header ── */}
       <header ref={headerRef} className={clsx("site-header", scrolled && "scrolled")}>
-        <div className="wrap flex items-center justify-between h-16 lg:h-20">
+        <div className="wrap flex items-center justify-between h-20 lg:h-24">
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" onClick={() => setMobileOpen(false)}>
             <Image
               src="/images/beyond-care-logo.png"
               alt="Beyond Care Home Care Services"
-              width={180}
-              height={60}
-              className="h-9 lg:h-11 w-auto"
+              width={220}
+              height={211}
+              className="h-14 lg:h-16 w-auto"
               priority
             />
           </Link>
@@ -123,6 +123,11 @@ export default function Header() {
               <Phone size={14} strokeWidth={2.5} />
               {PHONES.primary}
             </a>
+            <Link href="/care-quiz"
+              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border transition-colors"
+              style={{ borderColor: "var(--teal-brand)", color: "var(--teal-brand)" }}>
+              Care Finder
+            </Link>
             <Link href="/contact"
               className="hidden lg:inline-flex btn-coral text-sm">
               Free Consultation
@@ -187,9 +192,9 @@ export default function Header() {
         <div className="lg:hidden fixed inset-0 z-50 flex flex-col bg-white overflow-y-auto"
           style={{ top: 0 }}>
           {/* Drawer header */}
-          <div className="flex items-center justify-between px-5 h-16 border-b border-rule flex-shrink-0">
+          <div className="flex items-center justify-between px-5 h-20 border-b border-rule flex-shrink-0">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/images/beyond-care-logo.png" alt="Beyond Care" width={150} height={50} className="h-9 w-auto" />
+              <Image src="/images/beyond-care-logo.png" alt="Beyond Care" width={220} height={211} className="h-14 w-auto" />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg text-ink" aria-label="Close menu">
               <X size={22} />
