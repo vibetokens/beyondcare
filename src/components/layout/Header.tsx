@@ -64,7 +64,7 @@ export default function Header() {
 
       {/* ── Main header ── */}
       <header ref={headerRef} className={clsx("site-header", scrolled && "scrolled")}>
-        <div className="wrap flex items-center justify-between h-24 lg:h-28">
+        <div className="wrap flex items-center justify-between h-20 lg:h-24">
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" onClick={() => setMobileOpen(false)}>
@@ -73,7 +73,7 @@ export default function Header() {
               alt="Beyond Care Home Care Services"
               width={220}
               height={211}
-              className="h-16 lg:h-20 w-auto"
+              className="h-14 lg:h-16 w-auto"
               priority
             />
           </Link>
@@ -91,7 +91,7 @@ export default function Header() {
                 {item.groups ? (
                   <button
                     className={clsx(
-                      "flex items-center gap-1 px-3.5 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-150",
+                      "flex items-center gap-1 px-4 py-2.5 rounded-lg text-[0.9375rem] font-semibold transition-colors duration-150",
                       activeMenu === item.label
                         ? "bg-teal-pale text-teal-brand"
                         : "text-body hover:bg-teal-pale hover:text-teal-brand"
@@ -107,7 +107,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="flex items-center px-3.5 py-2.5 rounded-lg text-sm font-semibold text-body hover:bg-teal-pale hover:text-teal-brand transition-colors duration-150"
+                    className="flex items-center px-4 py-2.5 rounded-lg text-[0.9375rem] font-semibold text-body hover:bg-teal-pale hover:text-teal-brand transition-colors duration-150"
                   >
                     {item.label}
                   </Link>
@@ -119,17 +119,17 @@ export default function Header() {
           {/* Right actions */}
           <div className="flex items-center gap-3">
             <a href={PHONES.primaryHref}
-              className="hidden lg:flex items-center gap-1.5 text-sm font-bold text-ink hover:text-teal-brand transition-colors">
-              <Phone size={14} strokeWidth={2.5} />
+              className="hidden lg:flex items-center gap-1.5 text-[0.9375rem] font-bold text-ink hover:text-teal-brand transition-colors">
+              <Phone size={15} strokeWidth={2.5} />
               {PHONES.primary}
             </a>
             <Link href="/care-quiz"
-              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-[0.9375rem] font-semibold border transition-colors"
               style={{ borderColor: "var(--teal-brand)", color: "var(--teal-brand)" }}>
               Care Finder
             </Link>
             <Link href="/contact"
-              className="hidden lg:inline-flex btn-coral text-sm">
+              className="hidden lg:inline-flex btn-coral text-[0.9375rem]">
               Free Consultation
             </Link>
             <a href={PHONES.primaryHref}
@@ -192,9 +192,9 @@ export default function Header() {
         <div className="lg:hidden fixed inset-0 z-50 flex flex-col bg-white overflow-y-auto"
           style={{ top: 0 }}>
           {/* Drawer header */}
-          <div className="flex items-center justify-between px-5 h-24 border-b border-rule flex-shrink-0">
+          <div className="flex items-center justify-between px-5 h-20 border-b border-rule flex-shrink-0">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/images/beyond-care-logo.png" alt="Beyond Care" width={220} height={211} className="h-16 w-auto" />
+              <Image src="/images/beyond-care-logo.png" alt="Beyond Care" width={220} height={211} className="h-14 w-auto" />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg text-ink" aria-label="Close menu">
               <X size={22} />
