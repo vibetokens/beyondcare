@@ -68,6 +68,70 @@ const LOCATION_DATA: Record<string, LocationData> = {
     cities: "Greenwood, Ninety Six, Ware Shoals, and surrounding communities",
     officeNote: "We serve Greenwood County from our offices in Honea Path and Williamston.",
   },
+  "anderson": {
+    name: "Anderson",
+    description:
+      "Beyond Care provides trusted non-medical home care in Anderson, SC — the heart of Anderson County. Our locally owned, nurse-led team serves families in the city of Anderson with personalized in-home support that helps seniors and adults live safely at home.",
+    counties: "Anderson County",
+    cities: "Anderson, SC and surrounding neighborhoods including North Anderson, Lakeside, and nearby communities",
+    officeNote: "Our Honea Path office is just minutes from Anderson, SC — we know this community well.",
+  },
+  "belton": {
+    name: "Belton",
+    description:
+      "Beyond Care serves families in Belton, SC with compassionate, nurse-led home care. Located in Anderson County, Belton families have relied on Beyond Care for personalized in-home support since 2013.",
+    counties: "Anderson County",
+    cities: "Belton and surrounding Anderson County communities including Williamston, Honea Path, and Iva",
+    officeNote: "Our Williamston office at 103 Belton Dr serves the Belton community directly.",
+  },
+  "iva": {
+    name: "Iva",
+    description:
+      "Beyond Care provides dependable non-medical home care for families in Iva, SC. Our locally owned team is rooted in Anderson County and brings nurse-led care directly to your loved one's home in Iva and surrounding areas.",
+    counties: "Anderson County",
+    cities: "Iva and surrounding Anderson County communities including Honea Path, Belton, and Starr",
+    officeNote: "We serve Iva from our Honea Path office at 512A East Greer St.",
+  },
+  "greenville": {
+    name: "Greenville",
+    description:
+      "Beyond Care extends nurse-led, locally owned home care services to families in Greenville, SC. Whether your loved one is in the heart of Greenville, a nearby neighborhood, or surrounding suburbs, our caregiver team brings dependable, compassionate support directly to the home.",
+    counties: "Greenville County",
+    cities: "Greenville, SC and surrounding areas including Taylors, Wade Hampton, Parker, and Berea",
+    officeNote: "We serve Greenville from our offices in Honea Path and Williamston — reach us at (864) 841-2500.",
+  },
+  "simpsonville": {
+    name: "Simpsonville",
+    description:
+      "Families in Simpsonville, SC can count on Beyond Care for personalized, nurse-led in-home care. Simpsonville is one of Greenville County's fastest-growing communities — and we are here to serve its seniors and families with the same standard of care we are known for throughout Upstate SC.",
+    counties: "Greenville County",
+    cities: "Simpsonville, SC and nearby communities including Fountain Inn, Mauldin, and Piedmont",
+    officeNote: "We serve Simpsonville from our offices in Honea Path and Williamston.",
+  },
+  "mauldin": {
+    name: "Mauldin",
+    description:
+      "Beyond Care provides trusted in-home care to families in Mauldin, SC. Our nurse-led team brings personalized, non-medical home care to Mauldin seniors and adults — helping them remain safely and comfortably at home.",
+    counties: "Greenville County",
+    cities: "Mauldin, SC and surrounding communities including Simpsonville, Greenville, and Fountain Inn",
+    officeNote: "We serve Mauldin from our offices in Honea Path and Williamston.",
+  },
+  "greer": {
+    name: "Greer",
+    description:
+      "Beyond Care serves families in Greer, SC with professional, nurse-led non-medical home care. Situated between Anderson and Greenville Counties, Greer families benefit from Beyond Care's deep roots in Upstate South Carolina and our commitment to individualized in-home support.",
+    counties: "Greenville & Spartanburg Counties",
+    cities: "Greer, SC and surrounding communities including Taylors, Duncan, and Lyman",
+    officeNote: "We serve Greer from our offices in Honea Path and Williamston — call us at (864) 841-2500.",
+  },
+  "easley": {
+    name: "Easley",
+    description:
+      "Beyond Care provides dependable, nurse-led in-home care for families in Easley, SC. As the largest city in Pickens County, Easley has a growing population of seniors and families who deserve the best in non-medical home care — and that is exactly what Beyond Care delivers.",
+    counties: "Pickens County",
+    cities: "Easley, SC and surrounding Pickens County communities including Powdersville, Pelzer, and Piedmont",
+    officeNote: "We serve Easley from our offices in Honea Path and Williamston.",
+  },
 }
 
 const VALID_SLUGS = LOCATION_PAGES.map(p => p.href.replace("/locations/", ""))

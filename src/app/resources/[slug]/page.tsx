@@ -249,19 +249,6 @@ export default async function ResourceArticlePage(
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section bg-canvas">
-        <div className="wrap text-center">
-          <h2 className="h-lg mb-4">Have Questions? We Are Happy to Help.</h2>
-          <p className="body-lg text-muted mb-6">
-            Request a free consultation with our team — no pressure, no obligation.
-          </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/schedule-consultation" className="btn-coral">Request a Free Consultation</Link>
-            <Link href="/resources" className="btn-outline">More Resources</Link>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

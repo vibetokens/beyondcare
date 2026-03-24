@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FeedbackWidget from "@/components/FeedbackWidget";
+import MobileCTA from "@/components/MobileCTA";
+import PostHogProvider from "@/components/PostHogProvider";
+import { Suspense } from "react";
 import { SITE, LOCAL_BUSINESS_SCHEMA, AI_CONTEXT } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -47,7 +51,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // google: "YOUR_GOOGLE_VERIFICATION_ID",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   alternates: {
     canonical: SITE.domain,
@@ -86,11 +90,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ── Preconnect for performance ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* ── Material Symbols (Stitch design icons) ── */}
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" rel="stylesheet" />
       </head>
       <body className="antialiased">
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <FeedbackWidget />
+        <MobileCTA />
+        <Suspense fallback={null}><PostHogProvider /></Suspense>
 
         {/* ── Scroll reveal ── */}
         <script dangerouslySetInnerHTML={{ __html: `
@@ -100,7 +109,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
               });
             },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
-            function run(){ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); }); }
+            function run(){
+              document.querySelectorAll('.reveal').forEach(function(el){
+                el.classList.add('will-animate');
+                io.observe(el);
+              });
+            }
             if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',run); } else { run(); }
           })();
         `}} />

@@ -186,20 +186,6 @@ export default async function PaymentOptionPage(
         </div>
       </section>
 
-      {/* CTA box */}
-      <section className="section bg-teal-pale">
-        <div className="wrap">
-          <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-            <span className="eyebrow">Get Started</span>
-            <h2 className="h-lg mt-2 mb-4">Ready to Discuss Payment Options?</h2>
-            <p className="body-lg text-muted mb-6">{data.cta}</p>
-            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/schedule-consultation" className="btn-coral">Request a Free Consultation</Link>
-              <a href="tel:8648412500" className="btn-outline">(864) 841-2500</a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Back link */}
       <div className="wrap" style={{ paddingTop: 16, paddingBottom: 32 }}>

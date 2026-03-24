@@ -57,8 +57,20 @@ export default async function ServicePage(
     s => s.slug !== service.slug && s.slug !== "/services/medication-reminders" || s.title === "Medication Reminders"
   ).filter(s => s.slug !== service.slug).slice(0, 4);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home",     item: SITE.domain },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${SITE.domain}/services` },
+      { "@type": "ListItem", position: 3, name: service.title, item: `${SITE.domain}/services/${slug}` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* ── Hero ── */}
       <section className="section-sm bg-teal-deep" aria-label={`${service.title} service`}>
         <div className="wrap">
@@ -115,14 +127,6 @@ export default async function ServicePage(
                 </ul>
               )}
 
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-coral">
-                  Request a Free Consultation
-                </Link>
-                <a href={PHONES.primaryHref} className="btn-outline">
-                  <Phone size={14} /> Call Us
-                </a>
-              </div>
             </div>
 
             {/* Who it's for + CTA box */}

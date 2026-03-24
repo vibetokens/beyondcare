@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { OFFICES, SITE } from "@/lib/constants"
+import ContactForm from "@/components/ContactForm"
 
 export const metadata: Metadata = {
   title: "Contact Us | Beyond Care Home Care Services",
@@ -7,10 +8,6 @@ export const metadata: Metadata = {
     "Contact Beyond Care Home Care Services in Honea Path and Williamston, SC. Call (864) 841-2500 or email service@beyondcarehc.com. Serving Upstate South Carolina.",
 }
 
-const inputStyle = {
-  borderColor: "var(--rule)",
-  fontFamily: "var(--font-sans)",
-} as const
 
 export default function ContactPage() {
   return (
@@ -84,54 +81,7 @@ export default function ContactPage() {
             {/* Contact form */}
             <div>
               <h2 className="h-md mb-6">Send Us a Message</h2>
-              <form action="https://formspree.io/f/placeholder" method="POST">
-                <div className="grid-2" style={{ gap: 16 }}>
-                  <div className="flex flex-col gap-1.5 mb-5">
-                    <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="fname">First Name *</label>
-                    <input
-                      id="fname" name="fname" type="text" required
-                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                      style={inputStyle}
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5 mb-5">
-                    <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="lname">Last Name *</label>
-                    <input
-                      id="lname" name="lname" type="text" required
-                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                      style={inputStyle}
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="phone">Phone Number</label>
-                  <input
-                    id="phone" name="phone" type="tel"
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="email">Email Address *</label>
-                  <input
-                    id="email" name="email" type="email" required
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="message">Message *</label>
-                  <textarea
-                    id="message" name="message" required rows={5}
-                    placeholder="How can we help you?"
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <button type="submit" className="btn-coral w-full" style={{ justifyContent: "center" }}>
-                  Send Message
-                </button>
-              </form>
+              <ContactForm type="contact" />
             </div>
 
           </div>

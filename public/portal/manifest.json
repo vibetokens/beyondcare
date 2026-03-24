@@ -1,0 +1,90 @@
+{
+  "resources": [
+    {
+      "id": "logo-primary",
+      "name": "Logo — Primary (Light)",
+      "category": "Logos",
+      "type": "svg",
+      "filename": "logo-primary.svg",
+      "description": "Main wordmark for light backgrounds",
+      "version": "v1.0",
+      "added": "2026-03-21",
+      "isNew": true,
+      "versions": [
+        { "v": "v1.0", "date": "Mar 21 2026", "note": "Initial release", "current": true }
+      ]
+    },
+    {
+      "id": "logo-reversed",
+      "name": "Logo — Reversed (Dark)",
+      "category": "Logos",
+      "type": "svg",
+      "filename": "logo-reversed.svg",
+      "description": "White wordmark for dark/teal backgrounds",
+      "version": "v1.0",
+      "added": "2026-03-21",
+      "isNew": true,
+      "versions": [
+        { "v": "v1.0", "date": "Mar 21 2026", "note": "Initial release", "current": true }
+      ]
+    },
+    {
+      "id": "logo-nav",
+      "name": "Logo — Nav Size",
+      "category": "Logos",
+      "type": "svg",
+      "filename": "logo-nav.svg",
+      "description": "Compact version optimized for navigation bars",
+      "version": "v1.0",
+      "added": "2026-03-21",
+      "isNew": true,
+      "versions": [
+        { "v": "v1.0", "date": "Mar 21 2026", "note": "Initial release", "current": true }
+      ]
+    },
+    {
+      "id": "brochure-services-bifold",
+      "name": "Services Bifold Brochure",
+      "category": "Marketing PDFs",
+      "type": "pdf",
+      "filename": "brochure-services-bifold.pdf",
+      "description": "Print-ready bifold brochure covering all care services",
+      "version": "v1.1",
+      "added": "2026-03-21",
+      "isNew": true,
+      "versions": [
+        { "v": "v1.0", "date": "Mar 21 2026", "note": "Initial release", "current": false },
+        { "v": "v1.1", "date": "Mar 21 2026", "note": "Updated service list and pricing section", "current": true }
+      ]
+    },
+    {
+      "id": "pdf-why-choose",
+      "name": "Why Choose Beyond Care",
+      "category": "Marketing PDFs",
+      "type": "pdf",
+      "filename": "pdf-why-choose.pdf",
+      "description": "One-pager for prospects — differentiators, credentials, and caregiver standards",
+      "version": "v1.0",
+      "added": "2026-03-21",
+      "isNew": true,
+      "versions": [
+        { "v": "v1.0", "date": "Mar 21 2026", "note": "Initial release", "current": true }
+      ]
+    },
+    {
+      "id": "copy-homepage-final",
+      "name": "Homepage Copy — Final",
+      "category": "Website Copy",
+      "type": "doc",
+      "filename": "copy-homepage-final.doc",
+      "description": "Approved final copy for all homepage sections",
+      "version": "v2.0",
+      "added": "2026-03-21",
+      "isNew": true,
+      "versions": [
+        { "v": "v1.0", "date": "Mar 21 2026", "note": "Initial draft", "current": false },
+        { "v": "v2.0", "date": "Mar 21 2026", "note": "Approved final — all sections revised by Sarah", "current": true }
+      ]
+    }
+  ]
+}

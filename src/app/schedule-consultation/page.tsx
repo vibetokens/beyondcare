@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { OFFICES } from "@/lib/constants"
+import ContactForm from "@/components/ContactForm"
 
 export const metadata: Metadata = {
   title: "Request a Free Consultation | Beyond Care Home Care Services",
@@ -7,10 +8,6 @@ export const metadata: Metadata = {
     "Schedule a free, no-obligation consultation with Beyond Care Home Care Services. We serve Upstate South Carolina families. Call (864) 841-2500 or fill out our form.",
 }
 
-const inputStyle = {
-  borderColor: "var(--rule)",
-  fontFamily: "var(--font-sans)",
-} as const
 
 export default function ScheduleConsultationPage() {
   return (
@@ -40,84 +37,7 @@ export default function ScheduleConsultationPage() {
             {/* Form */}
             <div>
               <h2 className="h-md mb-6">Tell Us About Your Needs</h2>
-              <form action="https://formspree.io/f/placeholder" method="POST">
-                <div className="grid-2" style={{ gap: 16 }}>
-                  <div className="flex flex-col gap-1.5 mb-5">
-                    <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="fname">First Name *</label>
-                    <input
-                      id="fname" name="fname" type="text" required
-                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                      style={inputStyle}
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5 mb-5">
-                    <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="lname">Last Name *</label>
-                    <input
-                      id="lname" name="lname" type="text" required
-                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                      style={inputStyle}
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="phone">Phone Number *</label>
-                  <input
-                    id="phone" name="phone" type="tel" required
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="email">Email Address</label>
-                  <input
-                    id="email" name="email" type="email"
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="city">City / Area</label>
-                  <input
-                    id="city" name="city" type="text"
-                    placeholder="e.g., Honea Path, Williamston, Anderson..."
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="services">Services of Interest</label>
-                  <select
-                    id="services" name="services"
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  >
-                    <option value="">Select a service...</option>
-                    <option>Personal Care</option>
-                    <option>Companion Care</option>
-                    <option>Respite Care</option>
-                    <option>Meal Preparation</option>
-                    <option>Light Housekeeping</option>
-                    <option>Transportation</option>
-                    <option>Medication Reminders</option>
-                    <option>Hospital Discharge Support</option>
-                    <option>24-Hour Home Care</option>
-                    <option>Overnight Care</option>
-                    <option>Multiple / Not Sure</option>
-                  </select>
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="message">Tell Us More (Optional)</label>
-                  <textarea
-                    id="message" name="message" rows={4}
-                    placeholder="Share any details that would help us prepare for your consultation..."
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle}
-                  />
-                </div>
-                <button type="submit" className="btn-coral w-full" style={{ justifyContent: "center", fontSize: "1rem", padding: "16px" }}>
-                  Submit Request
-                </button>
-              </form>
+              <ContactForm type="consultation" />
             </div>
 
             {/* Side info */}
