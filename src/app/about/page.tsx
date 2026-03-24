@@ -50,13 +50,13 @@ export default function AboutPage() {
                 for clients, and a level of professional oversight that families could actually count on.
               </p>
               <p className="body-lg text-muted mb-4" style={{ lineHeight: 1.8 }}>
-                Our owner, a Registered Nurse with direct experience in patient care, saw families
-                struggling to find home care that was dependable, well-managed, and genuinely compassionate.
-                The solution was to build it herself.
+                Beyond Care was founded by a Registered Nurse who saw families struggling to find home care
+                that was dependable, well-managed, and genuinely compassionate — and built something better.
               </p>
               <p className="body-lg text-muted mb-5" style={{ lineHeight: 1.8 }}>
-                Today, Beyond Care operates from two offices — Honea Path and Williamston — and serves
-                families across the Upstate region.
+                Today, Beyond Care operates from two offices — Honea Path and Williamston — serving families
+                across the Upstate region. The team of caregivers, coordinators, and support staff who show
+                up every day are what make this company what it is.
               </p>
               <p style={{ fontStyle: "italic", fontSize: "1.0625rem", color: "var(--teal-mid)" }}>
                 This is what it means to go beyond.
@@ -135,11 +135,12 @@ export default function AboutPage() {
       <section className="section bg-teal-pale">
         <div className="wrap">
           <div className="text-center" style={{ maxWidth: 640, margin: "0 auto" }}>
-            <span className="eyebrow">Our Leadership</span>
-            <h2 className="h-lg mt-2 mb-4">Nurse-Led from the Top</h2>
+            <span className="eyebrow">Our Team</span>
+            <h2 className="h-lg mt-2 mb-4">People Who Take It Personally</h2>
             <p className="body-lg text-muted mb-6">
-              Beyond Care was founded by a Registered Nurse whose clinical expertise shaped the standards and
-              oversight model the company runs on today. Learn more about our team and the recognition we have earned.
+              Beyond Care was built on clinical standards and a commitment to doing this work the right way.
+              Our caregivers, coordinators, and leadership team all share that commitment — and it shows in
+              the care families receive every day. Learn more about our team and the recognition we have earned.
             </p>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/about/leadership" className="btn-teal">Meet Our Leadership</Link>

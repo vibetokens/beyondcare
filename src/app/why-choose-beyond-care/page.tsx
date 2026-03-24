@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 const REASONS = [
   {
-    title: "Nurse-Led Ownership",
-    body: "Our owner is a Registered Nurse who is actively involved in client care — not a remote executive managing from a distance. When you call us, you reach a team that knows your loved one personally. Clinical oversight is not an add-on at Beyond Care — it is foundational.",
+    title: "Nurse-Led Team",
+    body: "Clinical oversight is built into how our team operates — not bolted on as an afterthought. When you call us, you reach people who know your loved one personally. Our caregivers, coordinators, and support staff are what make Beyond Care exceptional.",
   },
   {
     title: "Caregivers You Can Trust",
@@ -30,7 +30,7 @@ const REASONS = [
   },
   {
     title: "Responsive and Present",
-    body: "Home care needs can change quickly. We maintain regular communication with families, monitor care quality, and respond when things shift. We do not disappear after placement.",
+    body: "Home care needs can change quickly. Our team stays in close contact with families, monitors care quality, and responds when things shift. We do not disappear after placement.",
   },
 ]
 
@@ -84,17 +84,6 @@ export default function WhyChoosePage() {
         </div>
       </section>
 
-      {/* CTA strip */}
-      <section className="section bg-teal-pale">
-        <div className="wrap text-center">
-          <h2 className="h-lg mb-4">See the Difference for Yourself</h2>
-          <p className="body-lg text-muted mb-6">Request a free, no-obligation consultation today.</p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/schedule-consultation" className="btn-coral">Request a Free Consultation</Link>
-            <Link href="/caregiver-standards" className="btn-outline">Our Caregiver Standards</Link>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

@@ -780,6 +780,269 @@ const POSTS: Record<string, {
       </>
     ),
   },
+  "home-care-anderson-south-carolina": {
+    title: "Home Care in Anderson, South Carolina — What Families Should Know",
+    date: "March 2026",
+    description: "Looking for in-home care in Anderson, SC? Beyond Care provides nurse-led, locally owned non-medical home care throughout Anderson and Anderson County. Learn what to expect.",
+    category: "Local Resources",
+    body: (
+      <>
+        <p className="body-lg mb-4">Anderson, South Carolina is the heart of Anderson County and home to a large and growing population of seniors and families who need dependable in-home care. If you are searching for home care in Anderson, SC, you are not alone — and the quality of the provider you choose matters more than most families realize.</p>
+        <h2>What Non-Medical Home Care Means for Anderson Families</h2>
+        <p>Non-medical home care — sometimes called personal care or companion care — provides daily assistance with the tasks that have become difficult: bathing, grooming, meals, light housekeeping, medication reminders, and transportation. It is distinct from home health care, which involves skilled nursing or therapy services ordered by a physician. For many Anderson families, non-medical home care is the support that makes it possible for a parent or loved one to remain safely at home rather than moving to a facility.</p>
+        <h2>Why Local Ownership Matters in Anderson</h2>
+        <p>Beyond Care is locally owned and headquartered in nearby Honea Path — just minutes from Anderson. We are not a national franchise with a call center in another state. When you call us, you reach a team that knows Anderson County, knows the community, and is personally invested in the families we serve here.</p>
+        <h2>Nurse-Led Care: What It Means for Anderson Clients</h2>
+        <p>Beyond Care is nurse-led — founded and operated with clinical oversight built into every care plan. Changes in a client's condition are noticed, documented, and communicated to the family and healthcare team. This level of accountability is not standard in the industry — but it is standard at Beyond Care.</p>
+        <h2>Services Available to Anderson, SC Families</h2>
+        <ul>
+          <li><TB /><span>Personal Care — bathing, grooming, dressing, hygiene</span></li>
+          <li><TB /><span>Companion Care — conversation, activities, social engagement</span></li>
+          <li><TB /><span>Meal Preparation and nutrition support</span></li>
+          <li><TB /><span>Light Housekeeping and fall prevention</span></li>
+          <li><TB /><span>Medication Reminders</span></li>
+          <li><TB /><span>Transportation to medical appointments and errands</span></li>
+          <li><TB /><span>Respite Care for family caregivers</span></li>
+          <li><TB /><span>Overnight and 24-Hour Care for higher needs</span></li>
+        </ul>
+        <h2>Payment Options for Anderson Families</h2>
+        <p>Beyond Care accepts private pay, long-term care insurance, VA benefits, Medicaid Waiver, Community Long Term Care (CLTC), and vouchers. Many Anderson families are surprised to discover that existing insurance or benefit programs cover more of the cost than they expected. We are happy to walk through your options during a free consultation.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Do you have an office in Anderson, SC?</p><p className="text-muted text-sm">A: Our nearest office is in Honea Path, SC — just minutes from Anderson. We serve Anderson and all of Anderson County directly from that location.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How quickly can care start for a family in Anderson?</p><p className="text-muted text-sm">A: We can often have care in place within a few days of the initial consultation. For urgent discharge or recovery situations, contact us as soon as possible.</p></div>
+      </>
+    ),
+  },
+  "home-care-greenville-south-carolina": {
+    title: "Home Care in Greenville, South Carolina — A Guide for Families",
+    date: "March 2026",
+    description: "Searching for home care in Greenville, SC? Beyond Care provides nurse-led in-home care to Greenville County families. Learn about services, payment options, and how to get started.",
+    category: "Local Resources",
+    body: (
+      <>
+        <p className="body-lg mb-4">Greenville, South Carolina has one of the fastest-growing senior populations in the state. As the Upstate region expands, so does the need for dependable, high-quality in-home care. If you are looking for home care in Greenville, SC, this guide will help you understand your options and what to look for in a provider.</p>
+        <h2>The Growing Need for Home Care in Greenville</h2>
+        <p>Greenville County is home to tens of thousands of seniors and adults who want to remain at home as they age or manage health conditions. For most of them, non-medical home care — not a facility — is the right answer. The right caregiver makes the difference between a senior who is thriving at home and one who is at risk.</p>
+        <h2>What to Look for in a Greenville Home Care Provider</h2>
+        <ul>
+          <li><TB /><span>Are caregivers employees or independent contractors? (Employees are bonded, insured, and accountable)</span></li>
+          <li><TB /><span>Is there clinical oversight — a nurse, not just an administrator?</span></li>
+          <li><TB /><span>Is the company locally owned or a national franchise?</span></li>
+          <li><TB /><span>Do they offer consistent caregiver assignments?</span></li>
+          <li><TB /><span>What payment options do they accept?</span></li>
+        </ul>
+        <h2>Beyond Care's Service to Greenville County</h2>
+        <p>Beyond Care serves families throughout Greenville County, including Greenville, Simpsonville, Mauldin, Greer, and Taylors. Our nurse-led team brings the same standards to every client in Greenville that we apply throughout Upstate South Carolina. All caregivers are direct employees — bonded, insured, licensed, and trained to our standards.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does Beyond Care serve all of Greenville County?</p><p className="text-muted text-sm">A: Yes. We serve families throughout Greenville County from our offices in Honea Path and Williamston, SC.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How do I start home care for a parent in Greenville?</p><p className="text-muted text-sm">A: Contact us for a free, no-obligation consultation. We will discuss your loved one's needs and how we can help.</p></div>
+      </>
+    ),
+  },
+  "home-care-easley-south-carolina": {
+    title: "Home Care in Easley, South Carolina — What Pickens County Families Should Know",
+    date: "March 2026",
+    description: "Beyond Care provides nurse-led in-home care to families in Easley and throughout Pickens County, SC. Learn about our services and how to get started.",
+    category: "Local Resources",
+    body: (
+      <>
+        <p className="body-lg mb-4">Easley is the largest city in Pickens County and home to many families navigating the challenges of caring for aging parents or loved ones who need daily support. If you are searching for home care in Easley, SC, here is what you should know about non-medical in-home care and how Beyond Care serves this community.</p>
+        <h2>Non-Medical Home Care in Easley — The Basics</h2>
+        <p>Non-medical home care assists with daily tasks that have become difficult — bathing, grooming, meals, housekeeping, medication reminders, transportation, and companionship. It is not nursing or therapy. It is the kind of steady, practical support that allows a senior or adult to remain safely at home without moving to a facility.</p>
+        <h2>Why Easley Families Choose Beyond Care</h2>
+        <p>Beyond Care is locally owned and nurse-led — not a national franchise. Our team oversees care standards and is actively invested in client outcomes. Families in Easley and Pickens County receive the same high standard of care that we have delivered throughout Upstate South Carolina since 2013.</p>
+        <h2>Services for Easley, SC Families</h2>
+        <ul>
+          <li><TB /><span>Personal Care and hygiene assistance</span></li>
+          <li><TB /><span>Companion Care and social engagement</span></li>
+          <li><TB /><span>Meal Preparation and nutrition support</span></li>
+          <li><TB /><span>Transportation to Pickens County medical appointments</span></li>
+          <li><TB /><span>Medication Reminders</span></li>
+          <li><TB /><span>Respite Care for family caregivers in Easley</span></li>
+          <li><TB /><span>Light Housekeeping</span></li>
+        </ul>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does Beyond Care serve Easley and Pickens County?</p><p className="text-muted text-sm">A: Yes. We serve Easley, Pickens, Liberty, Clemson, Six Mile, and surrounding Pickens County communities from our offices in Honea Path and Williamston.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What payment options are available in Easley?</p><p className="text-muted text-sm">A: We accept private pay, long-term care insurance, VA benefits, Medicaid Waiver, and CLTC. Contact us to discuss what applies to your situation.</p></div>
+      </>
+    ),
+  },
+  "dementia-home-care-south-carolina": {
+    title: "Dementia Care at Home in South Carolina — What Families Need to Know",
+    date: "March 2026",
+    description: "Caring for a loved one with dementia at home in South Carolina? Learn how non-medical in-home care supports individuals with dementia and the families who care for them.",
+    category: "Memory Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">When a family member is diagnosed with dementia, one of the first questions families ask is: can we keep them at home? For many families in South Carolina, the answer is yes — with the right support. Non-medical in-home care is not a substitute for memory care facilities in every case, but for many individuals with dementia, it is what makes remaining at home possible for far longer than families expect.</p>
+        <h2>What Non-Medical Home Care Can Do for Dementia Clients</h2>
+        <p>Non-medical home care supports individuals with dementia by providing consistent, daily assistance with personal care, meals, medication reminders, light housekeeping, companionship, and routine. It does not provide medical treatment or skilled nursing — but for most individuals in the early to moderate stages of dementia, those are not the primary needs. Practical daily support from a trusted, familiar caregiver is.</p>
+        <h2>Why Consistency Matters So Much</h2>
+        <p>Individuals with dementia thrive on familiarity and routine. An unfamiliar face can trigger anxiety or confusion. This is why Beyond Care prioritizes consistent caregiver assignments for dementia clients — so that your loved one builds familiarity and trust with the person supporting them. Over time, that consistency becomes a meaningful source of stability.</p>
+        <h2>Supporting the Family Caregiver</h2>
+        <p>Family members who are caring for a loved one with dementia carry one of the heaviest caregiving loads that exists. Caregiver burnout in this population is not just common — it is nearly universal without adequate relief. Beyond Care's respite care services provide scheduled breaks, overnight support, and backup coverage that allow family caregivers to rest, work, travel, and maintain their own health without leaving their loved one unattended.</p>
+        <h2>Nurse-Led Oversight for Dementia Clients</h2>
+        <p>Because dementia is a progressive condition, changes in behavior, cognition, or physical health can signal important developments. Beyond Care's nurse-led model means that caregivers are trained to recognize and report these changes promptly to the family and healthcare team.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is non-medical home care appropriate for someone with advanced dementia?</p><p className="text-muted text-sm">A: It depends on the individual's specific needs. We recommend a consultation to assess what level of care is appropriate and whether in-home support is the right fit.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can Medicaid or VA benefits cover dementia home care in SC?</p><p className="text-muted text-sm">A: Potentially, yes. Medicaid Waiver, CLTC, and VA Aid and Attendance all may cover qualifying in-home care. Contact us to explore what applies to your situation.</p></div>
+      </>
+    ),
+  },
+  "parkinsons-disease-home-care-south-carolina": {
+    title: "Parkinson's Disease and Home Care in South Carolina",
+    date: "March 2026",
+    description: "Learn how non-medical in-home care supports individuals with Parkinson's disease in South Carolina — and how Beyond Care helps families manage safely at home.",
+    category: "Memory Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Parkinson's disease is one of the most common neurological conditions affecting older adults — and it presents a unique set of daily challenges that non-medical in-home care is well-positioned to address. For South Carolina families managing a loved one's Parkinson's diagnosis, understanding the role of home care is an important step in planning for long-term safety and quality of life.</p>
+        <h2>What Makes Parkinson's Care Different</h2>
+        <p>Parkinson's disease affects movement, balance, coordination, and — over time — cognition and speech. The practical daily challenges include tremors that interfere with eating and grooming, rigidity that makes getting dressed or bathing difficult, and significant fall risk due to balance impairment. Non-medical home care addresses all of these challenges directly, without requiring clinical nursing services.</p>
+        <h2>Fall Prevention Is Central</h2>
+        <p>Falls are among the most serious — and most preventable — risks for individuals with Parkinson's. A trained caregiver who assists with transfers, accompanies clients during movement, and maintains a clear, hazard-free home environment significantly reduces this risk. Beyond Care caregivers are trained in safe transfer techniques and fall prevention strategies specific to clients with mobility challenges.</p>
+        <h2>Care That Adapts as Parkinson's Progresses</h2>
+        <p>Parkinson's is a progressive condition. Care needs in the early stages may be minimal — assistance with grooming or meal preparation. Later, more comprehensive personal care, overnight support, or around-the-clock assistance may be needed. Beyond Care builds care plans that adapt as needs change, so families do not need to start over with a new provider at each stage of progression.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can a home caregiver help with the tremors and movement challenges of Parkinson's?</p><p className="text-muted text-sm">A: Yes. Caregivers assist with personal care tasks that have become difficult due to tremors or rigidity — bathing, grooming, dressing, eating — and provide mobility support during movement throughout the home.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does insurance cover home care for Parkinson's in South Carolina?</p><p className="text-muted text-sm">A: Long-term care insurance, VA benefits (for veterans), and Medicaid Waiver may all cover qualifying home care for Parkinson's clients. We can help you understand what applies to your situation.</p></div>
+      </>
+    ),
+  },
+  "stroke-recovery-home-care-south-carolina": {
+    title: "Stroke Recovery at Home in South Carolina — What the First 90 Days Look Like",
+    date: "March 2026",
+    description: "Recovering from a stroke at home in South Carolina? Learn how non-medical in-home care supports safer recovery and reduces the risk of readmission after a stroke.",
+    category: "Recovery Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">The weeks immediately following a stroke are one of the most critical periods in a person's long-term recovery. Patients who return home from the hospital or rehabilitation facility without adequate support face elevated risks of falls, missed medications, poor nutrition, and hospital readmission. Non-medical in-home care from a qualified provider is one of the most effective tools available to South Carolina families navigating post-stroke recovery.</p>
+        <h2>What Stroke Survivors Typically Need at Home</h2>
+        <p>The specific needs of a stroke survivor depend on which functions were affected and the degree of recovery that has occurred in the hospital or rehab setting. Common needs include assistance with bathing and dressing, help with meal preparation and eating, mobility and transfer support, medication reminders, transportation to therapy appointments, and companionship to address the emotional challenges of recovery.</p>
+        <h2>Why the First 90 Days Matter So Much</h2>
+        <p>Research on stroke recovery consistently shows that the brain has a heightened period of neuroplasticity — the ability to reorganize and recover function — in the weeks and months following a stroke. Consistent structure, routine, appropriate nutrition, and engagement during this window can significantly influence long-term outcomes. A stable home environment with daily professional support is not a luxury during this period — it is a clinical asset.</p>
+        <h2>Coordinating With the Recovery Team</h2>
+        <p>Beyond Care's nurse-led model is particularly valuable for stroke recovery cases. Our team ensures alignment with the client's discharge instructions, therapy schedule, and care team communication. Any concerning changes — increased confusion, worsening mobility, signs of a secondary event — are communicated to the family and healthcare providers promptly.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How quickly can care start after a stroke discharge?</p><p className="text-muted text-sm">A: We recommend contacting us before the discharge date so that care can begin the day your loved one returns home. We can often mobilize within 24-48 hours for urgent situations.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does insurance cover post-stroke home care in South Carolina?</p><p className="text-muted text-sm">A: Long-term care insurance, VA benefits, and Medicaid Waiver may all cover qualifying non-medical home care after a stroke. Contact us to explore what applies.</p></div>
+      </>
+    ),
+  },
+  "va-aid-attendance-home-care-south-carolina": {
+    title: "VA Aid and Attendance Benefits for Home Care in South Carolina",
+    date: "March 2026",
+    description: "South Carolina veterans and surviving spouses may qualify for VA Aid and Attendance benefits that cover in-home care. Learn how the program works and how Beyond Care can help.",
+    category: "Veterans",
+    body: (
+      <>
+        <p className="body-lg mb-4">Many veterans and surviving spouses in South Carolina are eligible for VA Aid and Attendance benefits — a pension supplement that can help cover the cost of in-home care, assisted living, or nursing home care. Despite being one of the most valuable benefits available to qualifying veterans, it remains one of the most underutilized. This guide explains how the benefit works and how it applies to home care.</p>
+        <h2>What Is VA Aid and Attendance?</h2>
+        <p>VA Aid and Attendance is an enhanced pension benefit available to veterans and surviving spouses who need assistance with daily activities — including those provided by a home caregiver. It is a monthly cash benefit, paid in addition to the basic VA pension, that can be used to pay for in-home care, assisted living, or other approved care services.</p>
+        <h2>Who Qualifies for VA Aid and Attendance in South Carolina?</h2>
+        <ul>
+          <li><TB /><span>Veterans who served at least 90 days of active duty, with at least one day during a wartime period</span></li>
+          <li><TB /><span>Veterans who need help with daily activities due to disability, illness, or age</span></li>
+          <li><TB /><span>Surviving spouses of qualifying veterans</span></li>
+          <li><TB /><span>Individuals who meet income and asset thresholds established by the VA</span></li>
+        </ul>
+        <h2>How Much Does VA Aid and Attendance Pay?</h2>
+        <p>Benefit amounts change annually. As of 2025, the maximum Aid and Attendance benefit is approximately $2,300 per month for a veteran with a dependent, $1,900 per month for a single veteran, and $1,200 per month for a surviving spouse. These amounts can cover a significant portion — or all — of the cost of non-medical in-home care.</p>
+        <h2>How Beyond Care Works With VA Benefits</h2>
+        <p>Beyond Care accepts VA Aid and Attendance and works with families to ensure the billing and documentation process is as smooth as possible. We serve veterans throughout Upstate South Carolina and are experienced in coordinating care with VA benefit payment structures.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How do I apply for VA Aid and Attendance in South Carolina?</p><p className="text-muted text-sm">A: Applications are submitted through the VA. We recommend working with an accredited VA claims agent or veterans service organization (VSO) for assistance with the application process.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can care start before the VA benefit is approved?</p><p className="text-muted text-sm">A: Yes. Many families start care using private pay while the VA application is processed, then transition to VA billing once approved. Contact us to discuss your specific situation.</p></div>
+      </>
+    ),
+  },
+  "overnight-care-seniors-south-carolina": {
+    title: "Overnight Home Care for Seniors in South Carolina — What Families Should Know",
+    date: "March 2026",
+    description: "Overnight home care provides safety monitoring and support for seniors in South Carolina who need nighttime assistance. Learn what overnight care includes and when it is the right choice.",
+    category: "Our Services",
+    body: (
+      <>
+        <p className="body-lg mb-4">Nighttime is often the most vulnerable time for seniors living alone. Falls, medication errors, confusion episodes, and other incidents frequently happen overnight — when no one is present to respond. Overnight home care from Beyond Care in South Carolina provides the monitoring, assistance, and peace of mind that families need when daytime support is not enough.</p>
+        <h2>What Overnight Care Includes</h2>
+        <p>Beyond Care's overnight caregivers are present in the home throughout the night — available to assist if the client needs to get up, use the bathroom, take medication, or address any safety concern. Overnight care is not 24-hour care, but it fills the specific gap when a senior is safe during the day and needs nighttime presence.</p>
+        <h2>Who Needs Overnight Care?</h2>
+        <ul>
+          <li><TB /><span>Seniors who are at risk of falls when getting up at night</span></li>
+          <li><TB /><span>Individuals with dementia or memory conditions who may become confused or wander at night</span></li>
+          <li><TB /><span>Clients recovering from surgery or illness who need nighttime monitoring</span></li>
+          <li><TB /><span>Family caregivers who need to sleep through the night without worry</span></li>
+          <li><TB /><span>Seniors living alone who are not safe to be unattended overnight</span></li>
+        </ul>
+        <h2>Overnight Care vs. 24-Hour Care</h2>
+        <p>Overnight care covers the nighttime hours — typically 8 to 12 hours. The caregiver is present and available to respond, but may rest when the client is asleep. Twenty-four-hour care involves continuous coverage with rotating caregivers throughout the day and night. We help families determine which level of care is appropriate based on the client's specific needs.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Do overnight caregivers sleep during their shift?</p><p className="text-muted text-sm">A: Overnight caregivers may rest when the client is sleeping, but they remain in the home and available to respond immediately if needed.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can we combine overnight care with daytime care?</p><p className="text-muted text-sm">A: Yes. Many families pair overnight care with daytime caregiver visits to create a comprehensive support plan. Contact us to discuss the right schedule.</p></div>
+      </>
+    ),
+  },
+  "questions-to-ask-home-care-agency-south-carolina": {
+    title: "10 Questions to Ask a Home Care Agency in South Carolina Before You Hire",
+    date: "March 2026",
+    description: "Not all home care agencies in South Carolina are equal. Use these 10 questions to evaluate providers — and understand what separates a great agency from an average one.",
+    category: "Choosing Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Choosing a home care agency in South Carolina is one of the most important decisions a family makes — and it is often made under pressure, during a stressful time. These 10 questions will help you cut through the marketing language and evaluate what matters: the quality and accountability of the care.</p>
+        <h2>1. Are your caregivers employees or independent contractors?</h2>
+        <p>This is the single most important question. Employee caregivers are covered by the agency's liability insurance, bonded, subject to background checks, and accountable to the agency's standards. Independent contractors are not. If a contractor causes harm or a problem arises, the agency's liability is limited. Beyond Care uses exclusively employee caregivers.</p>
+        <h2>2. Is there clinical oversight — a nurse — involved in care?</h2>
+        <p>Many home care companies are run by administrators, not clinicians. When clinical oversight is built into the organization, care plans reflect real clinical awareness, changes in client condition are recognized and acted upon, and the standard of care meets a higher threshold. That is the Beyond Care model.</p>
+        <h2>3. Are caregivers CPR-certified?</h2>
+        <p>This should be a non-negotiable standard. Beyond Care requires CPR certification for all caregivers.</p>
+        <h2>4. How do you handle caregiver consistency?</h2>
+        <p>Ask specifically whether you will see the same caregiver regularly. High turnover and rotating caregivers are common industry problems. Consistent caregiver assignments are better for clients — especially those with dementia or chronic conditions — and reflect a well-managed agency.</p>
+        <h2>5. What happens if my regular caregiver calls in sick?</h2>
+        <p>Coverage plans matter. Ask how the agency handles unexpected absences. A quality agency has backup staffing and a clear protocol for communicating with the family.</p>
+        <h2>6. How are caregivers trained?</h2>
+        <p>Ask what training is required before a caregiver begins working with clients, and whether ongoing training is provided. Beyond Care maintains training and continuing education standards for all caregivers.</p>
+        <h2>7. What payment options do you accept?</h2>
+        <p>Private pay, long-term care insurance, Medicaid Waiver, VA benefits, and CLTC are all common options. Make sure the agency accepts what applies to your situation.</p>
+        <h2>8. Are you licensed and insured?</h2>
+        <p>Home care agencies operating in South Carolina are required to be licensed. Ask for verification and confirm that the agency carries liability insurance.</p>
+        <h2>9. How are you involved locally?</h2>
+        <p>A locally owned agency has accountability to the community it serves. Ask whether leadership is genuinely invested in local families — or whether it is a franchise with an out-of-state corporate structure.</p>
+        <h2>10. Can I speak with the owner or a clinical leader?</h2>
+        <p>A quality agency will welcome this conversation. If the answer is no, that tells you something important.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How is Beyond Care different from other agencies in South Carolina?</p><p className="text-muted text-sm">A: We are locally owned, nurse-led, and use only direct employee caregivers who are licensed, bonded, insured, and drug screened. Our team is personally invested in every client we serve. We welcome the conversation.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How do I start the process with Beyond Care?</p><p className="text-muted text-sm">A: Contact us for a free, no-pressure consultation. We will answer every question you have before any commitment is made.</p></div>
+      </>
+    ),
+  },
+  "respite-care-family-caregivers-south-carolina": {
+    title: "Respite Care for Family Caregivers in South Carolina — A Practical Guide",
+    date: "March 2026",
+    description: "Respite care gives South Carolina family caregivers the scheduled relief they need to sustain long-term caregiving. Learn what respite care includes and how to access it.",
+    category: "Respite Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Family caregivers in South Carolina provide an extraordinary amount of unpaid care — and most of them do it without adequate relief. Respite care is not a luxury. It is what makes sustainable family caregiving possible. This guide explains what respite care is, who it serves, and how families in Upstate South Carolina can access it through Beyond Care.</p>
+        <h2>What Is Respite Care?</h2>
+        <p>Respite care is temporary, relief-focused in-home care provided to give a family caregiver a break. It can range from a few hours per week to full-day coverage, overnight stays, or extended weekend care. The purpose is always the same: to ensure that the person receiving care has safe, professional support while the family caregiver rests, works, attends to personal needs, or simply steps away from the caregiving role.</p>
+        <h2>Who Needs Respite Care in South Carolina?</h2>
+        <ul>
+          <li><TB /><span>Spouses caring for partners with chronic illness, dementia, or post-stroke needs</span></li>
+          <li><TB /><span>Adult children managing parents' care alongside their own families and careers</span></li>
+          <li><TB /><span>Families that handle all caregiving internally and are approaching burnout</span></li>
+          <li><TB /><span>Any family caregiver who needs scheduled, reliable relief</span></li>
+        </ul>
+        <h2>The Warning Signs of Caregiver Burnout</h2>
+        <p>Burnout in family caregivers does not always announce itself clearly. Common signs include persistent exhaustion that sleep does not resolve, resentment or withdrawal from the person you are caring for, declining physical or mental health, neglect of your own medical needs, and a growing sense of hopelessness about the situation. If any of these feel familiar, respite care is not optional — it is necessary.</p>
+        <h2>How to Structure Respite Care That Works</h2>
+        <p>The most effective respite care is scheduled — built into the care plan as a consistent, predictable break. Emergency respite is also available, but planned respite is far more sustainable. Beyond Care works with families to build respite schedules that provide meaningful relief while maintaining the quality and consistency of care for the client.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is respite care covered by insurance in South Carolina?</p><p className="text-muted text-sm">A: It may be. Long-term care insurance, Medicaid Waiver, CLTC, and VA benefits may all cover qualifying respite care. Contact us to discuss what applies to your situation.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: My loved one doesn't want a caregiver. What do I do?</p><p className="text-muted text-sm">A: This is a common challenge. We recommend starting with short, low-key visits focused on companionship rather than personal care — allowing the client to build trust with the caregiver over time. Contact us to discuss strategies.</p></div>
+      </>
+    ),
+  },
 };
 
 export async function generateStaticParams() {

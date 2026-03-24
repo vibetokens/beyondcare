@@ -167,7 +167,7 @@ export default function WhoWeServePage() {
           >
             {[
               { stat: "2013", label: "Serving SC Since" },
-              { stat: "Nurse-Led", label: "Owner is a Registered Nurse" },
+              { stat: "Nurse-Led", label: "Nurse-Led Team & Oversight" },
               { stat: "2 Offices", label: "Honea Path & Williamston" },
               { stat: "5 Counties", label: "Served Across Upstate SC" },
             ].map((item) => (

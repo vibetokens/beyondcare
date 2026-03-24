@@ -33,7 +33,7 @@ const AUDIENCE_DATA: Record<string, AudienceData> = {
       {
         heading: "Nurse-Led Oversight for Quality You Can Trust",
         body:
-          "Our nurse-led model means that clinical oversight is built into everything we do. Sarah Atkin, RN, BSN, personally oversees care standards and is actively involved in client outcomes. Families can trust that the care their loved one receives meets a consistent, accountable standard.",
+          "Our nurse-led model means that clinical oversight is built into everything we do. Our team — caregivers, coordinators, and clinical leadership — all operate to a consistent, accountable standard that families can count on.",
       },
     ],
     services: [
@@ -182,9 +182,149 @@ const AUDIENCE_DATA: Record<string, AudienceData> = {
     ],
     cta: "Plan ahead for hospital discharge — contact us before the discharge date to ensure a smooth transition home.",
   },
+  "veterans": {
+    title: "Home Care for Veterans",
+    eyebrow: "Who We Serve",
+    hero: "In-Home Care for Veterans &amp; Their Families",
+    intro:
+      "Beyond Care proudly serves veterans in Upstate South Carolina with dependable, nurse-led non-medical home care. Many veterans qualify for VA benefits that help cover the cost — and our team is here to help families understand every available option.",
+    sections: [
+      {
+        heading: "Veterans Deserve the Best Care at Home",
+        body:
+          "After a lifetime of service, veterans deserve to age and recover on their own terms — at home, with dignity, and with support that meets their specific needs. Beyond Care provides the personalized, non-medical home care that makes remaining at home safe and sustainable for veterans of all ages and service backgrounds.",
+      },
+      {
+        heading: "VA Benefits May Cover Home Care",
+        body:
+          "Veterans and their surviving spouses may qualify for VA Aid and Attendance or other VA benefits that can significantly offset or fully cover the cost of in-home care. Our team can walk you through the payment options available so that cost does not stand between a veteran and the support they need.",
+      },
+      {
+        heading: "Nurse-Led Care You Can Trust",
+        body:
+          "Our nurse-led team oversees care standards for every client, including our veteran clients. All caregivers are bonded, insured, licensed, and trained to the Beyond Care standard — giving veterans and their families confidence in the quality of support they receive.",
+      },
+    ],
+    services: [
+      "Personal Care (bathing, grooming, dressing)",
+      "Companion Care and social engagement",
+      "Meal Preparation and nutrition support",
+      "Transportation to VA appointments and errands",
+      "Medication Reminders",
+      "Light Housekeeping",
+      "Respite Care for veteran family caregivers",
+      "24-Hour and Overnight Care for higher needs",
+    ],
+    cta: "Contact us to discuss VA benefit eligibility and home care options for a veteran in your family.",
+  },
+  "dementia-families": {
+    title: "Home Care for Families Managing Dementia",
+    eyebrow: "Who We Serve",
+    hero: "In-Home Support for Loved Ones with Dementia",
+    intro:
+      "Caring for a loved one with dementia is one of the most demanding experiences a family can face. Beyond Care provides consistent, compassionate non-medical home care that supports individuals with dementia at home — while giving family caregivers the relief and backup they need.",
+    sections: [
+      {
+        heading: "Consistency Is Everything",
+        body:
+          "For individuals with dementia, consistency and familiarity reduce anxiety and support daily functioning. Beyond Care prioritizes consistent caregiver assignments so that your loved one works with familiar faces who understand their preferences, routines, and communication needs. A consistent caregiver is not just convenient — it is clinically meaningful.",
+      },
+      {
+        heading: "What Non-Medical Home Care Can and Cannot Do",
+        body:
+          "Non-medical home care is not memory care facility placement — but for many families, it is what makes it possible to keep a loved one at home far longer. Our caregivers assist with personal care, meals, activities, and daily routines. They are trained to respond calmly and patiently in challenging situations. They also serve as an extra set of eyes and ears, keeping families informed about changes in condition or behavior.",
+      },
+      {
+        heading: "Supporting the Family Caregiver",
+        body:
+          "Family members who serve as primary caregivers for a loved one with dementia carry an exceptional load. Caregiver burnout in this population is common and serious. Beyond Care's respite and backup care services are specifically designed to give family caregivers scheduled breaks, overnight relief, and backup when they need to step away — without leaving their loved one without support.",
+      },
+    ],
+    services: [
+      "Personal Care with patience and routine",
+      "Consistent caregiver assignments",
+      "Companion Care and engagement activities",
+      "Meal Preparation and hydration monitoring",
+      "Medication Reminders",
+      "Respite Care for family caregivers",
+      "Overnight Care and monitoring",
+      "Light Housekeeping and fall prevention",
+    ],
+    cta: "Talk to us about building a care plan that supports your loved one with dementia at home.",
+  },
+  "parkinsons-care": {
+    title: "Home Care for Parkinson's Disease",
+    eyebrow: "Who We Serve",
+    hero: "In-Home Support for Individuals with Parkinson&apos;s Disease",
+    intro:
+      "Parkinson's disease presents unique daily challenges — tremors, mobility changes, speech difficulties, and increased fall risk. Beyond Care provides non-medical in-home care in Upstate South Carolina that is built around the specific needs of individuals living with Parkinson's disease.",
+    sections: [
+      {
+        heading: "Understanding What Parkinson's Requires",
+        body:
+          "Parkinson's disease is progressive, and care needs evolve over time. Early on, clients may need assistance primarily with activities affected by tremors or fine motor challenges. As the disease progresses, more comprehensive personal care, mobility support, and transfer assistance may be needed. Beyond Care builds care plans that start where the client is and flex as needs change.",
+      },
+      {
+        heading: "Fall Prevention Is Central to Parkinson's Care",
+        body:
+          "Falls are among the most serious risks for individuals with Parkinson's disease. Our caregivers are trained to assist with safe transfers, steady mobility support, and maintaining a clear, hazard-free home environment. Our nurse-led oversight means that any concerning changes are identified quickly and communicated to the family and healthcare team.",
+      },
+      {
+        heading: "Maintaining Quality of Life at Home",
+        body:
+          "Living with Parkinson's does not mean giving up independence or comfort. With the right in-home support, many individuals remain at home throughout the progression of their condition. Our caregivers provide the practical assistance that allows clients to maintain their routines, stay engaged with family, and preserve their quality of life.",
+      },
+    ],
+    services: [
+      "Personal Care and hygiene assistance",
+      "Mobility and Transfer Support with fall prevention",
+      "Meal Preparation and feeding assistance",
+      "Medication Reminders",
+      "Companion Care and engagement",
+      "Transportation to neurology and therapy appointments",
+      "Light Housekeeping and hazard management",
+      "Overnight Care for nighttime safety",
+    ],
+    cta: "Contact Beyond Care to discuss how we can support a loved one with Parkinson's disease at home.",
+  },
+  "stroke-recovery": {
+    title: "Home Care After a Stroke",
+    eyebrow: "Who We Serve",
+    hero: "In-Home Support for Stroke Survivors",
+    intro:
+      "Recovering from a stroke at home in Upstate South Carolina is more achievable with the right support. Beyond Care provides non-medical in-home care that helps stroke survivors regain daily function, stay safe, and rebuild confidence — while reducing the risk of hospital readmission.",
+    sections: [
+      {
+        heading: "The Critical Window After a Stroke",
+        body:
+          "The weeks and months following a stroke are a critical period for recovery. Patients returning home from the hospital or rehabilitation facility often need significant daily assistance — but many of those needs are non-medical in nature. Beyond Care fills that gap: helping with personal care, meal preparation, mobility assistance, and daily routines that support a structured, stable recovery at home.",
+      },
+      {
+        heading: "Coordinating With the Recovery Team",
+        body:
+          "Stroke recovery is a team effort. Beyond Care works alongside discharge planners, physical therapists, occupational therapists, and primary care providers to ensure that in-home care reinforces — not disrupts — the recovery plan. Our nurse-led oversight means that any concerning changes are identified and communicated to the appropriate members of the care team.",
+      },
+      {
+        heading: "Building Confidence and Preventing Setbacks",
+        body:
+          "Beyond the physical aspects of recovery, stroke survivors often face emotional challenges: frustration, anxiety, and loss of confidence. A consistent, patient caregiver who is familiar with the client's routine and recovery goals provides not just physical support but meaningful reassurance. This matters deeply to long-term recovery outcomes.",
+      },
+    ],
+    services: [
+      "Personal Care and hygiene assistance",
+      "Mobility and Transfer Support",
+      "Meal Preparation and nutrition monitoring",
+      "Medication Reminders",
+      "Transportation to therapy and follow-up appointments",
+      "Light Housekeeping and fall prevention",
+      "Companion Care and emotional support",
+      "Hospital Discharge coordination and care start",
+    ],
+    cta: "Planning for a stroke survivor's return home? Contact us to have care ready from day one.",
+  },
 }
 
-const VALID_SLUGS = ["seniors", "adults-disabilities", "family-caregivers", "aging-in-place", "hospital-discharge"]
+const VALID_SLUGS = ["seniors", "adults-disabilities", "family-caregivers", "aging-in-place", "hospital-discharge", "veterans", "dementia-families", "parkinsons-care", "stroke-recovery"]
 
 export async function generateStaticParams() {
   return VALID_SLUGS.map(slug => ({ slug }))
@@ -259,17 +399,6 @@ export default async function WhoWeServePage(
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section bg-teal-pale">
-        <div className="wrap text-center">
-          <h2 className="h-lg mb-4">Ready to Talk?</h2>
-          <p className="body-lg text-muted mb-6">{data.cta}</p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/schedule-consultation" className="btn-coral">Request a Free Consultation</Link>
-            <a href="tel:8648412500" className="btn-outline">(864) 841-2500</a>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
