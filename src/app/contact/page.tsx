@@ -43,15 +43,15 @@ export default function ContactPage() {
                     name: OFFICES.honeaPath.name + " (Main)",
                     address: OFFICES.honeaPath.address,
                     cityLine: `${OFFICES.honeaPath.city}, ${OFFICES.honeaPath.state} ${OFFICES.honeaPath.zip}`,
-                    phone: `(864) 841-2500`,
+                    phone: `(864) 369-0222`,
                     phoneHref: OFFICES.honeaPath.phoneHref,
                   },
                   {
                     name: OFFICES.williamston.name,
                     address: OFFICES.williamston.address,
                     cityLine: `${OFFICES.williamston.city}, ${OFFICES.williamston.state} ${OFFICES.williamston.zip}`,
-                    phone: `(864) 369-0222`,
-                    phoneHref: OFFICES.honeaPath.phoneHref,
+                    phone: `(864) 841-2500`,
+                    phoneHref: OFFICES.williamston.phoneHref,
                   },
                 ].map(o => (
                   <div key={o.name} className="card">

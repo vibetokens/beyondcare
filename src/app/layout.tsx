@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title:     "Beyond Care Home Care Services | Upstate South Carolina",
     description: SITE.description,
     images: [{
-      url:    `${SITE.domain}/images/og-default.jpg`,
+      url:    `${SITE.domain}/images/hero-home.jpg`,
       width:  1200,
       height: 630,
       alt:    "Beyond Care Home Care Services — Upstate South Carolina",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card:        "summary_large_image",
     title:       "Beyond Care Home Care Services | Upstate South Carolina",
     description: SITE.description,
-    images:      [`${SITE.domain}/images/og-default.jpg`],
+    images:      [`${SITE.domain}/images/hero-home.jpg`],
   },
   robots: {
     index:             true,
