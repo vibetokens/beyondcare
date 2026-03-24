@@ -50,10 +50,10 @@ export default function Header() {
           <p className="text-xs text-white/60 font-medium">
             Serving Upstate South Carolina &nbsp;·&nbsp; Mon–Fri 8am–4pm &nbsp;·&nbsp; After-hours on-call available
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
               <a key={o.name} href={`tel:${o.phone.replace(/-/g,"")}`}
-                className="flex items-center gap-1.5 text-xs text-white/70 hover:text-white transition-colors font-medium">
+                className="flex items-center gap-1.5 text-xs text-white/80 hover:text-white transition-colors font-semibold">
                 <Phone size={11} />
                 <span>{o.city}: {o.phone}</span>
               </a>
@@ -91,7 +91,7 @@ export default function Header() {
                 {item.groups ? (
                   <button
                     className={clsx(
-                      "flex items-center gap-1 px-4 py-2.5 rounded-lg text-[0.9375rem] font-semibold transition-colors duration-150",
+                      "flex items-center gap-1 px-3.5 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-150",
                       activeMenu === item.label
                         ? "bg-teal-pale text-teal-brand"
                         : "text-body hover:bg-teal-pale hover:text-teal-brand"
@@ -107,7 +107,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="flex items-center px-4 py-2.5 rounded-lg text-[0.9375rem] font-semibold text-body hover:bg-teal-pale hover:text-teal-brand transition-colors duration-150"
+                    className="flex items-center px-3.5 py-2.5 rounded-lg text-sm font-semibold text-body hover:bg-teal-pale hover:text-teal-brand transition-colors duration-150"
                   >
                     {item.label}
                   </Link>
@@ -118,18 +118,13 @@ export default function Header() {
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
-            <a href={PHONES.primaryHref}
-              className="hidden lg:flex items-center gap-1.5 text-[0.9375rem] font-bold text-ink hover:text-teal-brand transition-colors">
-              <Phone size={15} strokeWidth={2.5} />
-              {PHONES.primary}
-            </a>
             <Link href="/care-quiz"
-              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-[0.9375rem] font-semibold border transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border transition-colors"
               style={{ borderColor: "var(--teal-brand)", color: "var(--teal-brand)" }}>
               Care Finder
             </Link>
             <Link href="/contact"
-              className="hidden lg:inline-flex btn-coral text-[0.9375rem]">
+              className="hidden lg:inline-flex btn-coral text-sm">
               Free Consultation
             </Link>
             <a href={PHONES.primaryHref}
