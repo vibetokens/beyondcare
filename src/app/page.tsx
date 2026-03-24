@@ -1,22 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight, Phone, CheckCircle, Shield, Award,
-  Heart, Users, RefreshCcw, UtensilsCrossed, Car, Bell,
-  Home, Activity, MoveHorizontal, Pill, Clock, Moon,
-  GraduationCap, ShieldCheck,
-} from "lucide-react";
-import type { LucideProps } from "lucide-react";
-
-const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
-  Heart, Users, RefreshCcw, UtensilsCrossed, Car, Bell,
-  Home, Activity, MoveHorizontal, Pill, Clock, Moon,
-};
+import HomepageCTAForm from "@/components/HomepageCTAForm";
 
 import {
-  PHONES, OFFICES, AWARDS, SERVICES, PROCESS_STEPS,
-  TRUST_SIGNALS, TESTIMONIALS, OWNER, SITE, LOCAL_BUSINESS_SCHEMA,
+  PHONES, SERVICES, TESTIMONIALS, SITE, AWARDS,
 } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -34,419 +22,402 @@ export const metadata: Metadata = {
 const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What services does Beyond Care provide?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Beyond Care provides non-medical in-home support including personal care, companion care, respite care, meal preparation, transportation, medication reminders, light housekeeping, mobility assistance, hospital discharge support, and 24-hour home care." } },
-    { "@type": "Question", "name": "Where does Beyond Care serve?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Beyond Care serves families throughout Upstate South Carolina, including Honea Path, Williamston, and Anderson, Greenville, Abbeville, Pickens, and Greenwood Counties." } },
-    { "@type": "Question", "name": "Who owns Beyond Care?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Beyond Care is owned and operated by Sarah Atkin, RN, BSN, a Registered Nurse with over 20 years of nursing experience who is personally involved in daily operations and home visits." } },
-    { "@type": "Question", "name": "How much does home care from Beyond Care cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Beyond Care accepts private pay, long-term care insurance, Community Long Term Care (CLTC), Medicaid Waiver, VA benefits, and vouchers. Contact them at 864-841-2500 for a free consultation." } },
-    { "@type": "Question", "name": "Are Beyond Care caregivers employees or contractors?",
-      "acceptedAnswer": { "@type": "Answer", "text": "All Beyond Care caregivers are employees, not independent contractors. They are bonded, insured, covered by workers' compensation, CPR certified, and required to complete ongoing skills training." } },
+  mainEntity: [
+    { "@type": "Question", name: "What services does Beyond Care provide?",
+      acceptedAnswer: { "@type": "Answer", text: "Beyond Care provides non-medical in-home support including personal care, companion care, respite care, meal preparation, transportation, medication reminders, light housekeeping, mobility assistance, hospital discharge support, and 24-hour home care." } },
+    { "@type": "Question", name: "Where does Beyond Care serve?",
+      acceptedAnswer: { "@type": "Answer", text: "Beyond Care serves families throughout Upstate South Carolina, including Honea Path, Williamston, and Anderson, Greenville, Abbeville, Pickens, and Greenwood Counties." } },
   ],
 };
 
-// Editorial process steps with Stitch naming style
-const EDITORIAL_STEPS = [
-  { n: "01", label: "The Consultation", body: "A confidential conversation — by phone or in person — to understand your situation and care goals." },
-  { n: "02", label: "The Appraisal",    body: "Our nurse-led team conducts a thorough in-home assessment of medical, environmental, and personal needs." },
-  { n: "03", label: "The Plan",         body: "A fully customized care schedule designed around your loved one's real daily life and health objectives." },
-  { n: "04", label: "The Match",        body: "Meticulous pairing with a vetted caregiver whose skills and temperament align with your family." },
-  { n: "05", label: "The Transition",   body: "Seamless care begins with 24/7 nurse oversight and continuous family communication." },
+const SERVICE_ICONS: Record<string, string> = {
+  Heart: "self_care", Users: "diversity_3", RefreshCcw: "replay",
+  UtensilsCrossed: "local_dining", Car: "directions_car", Bell: "medication",
+  Home: "sanitizer", Activity: "health_and_safety",
+  MoveHorizontal: "accessibility_new", Pill: "medication",
+  Clock: "schedule", Moon: "nights_stay",
+};
+
+const PROCESS_STEPS = [
+  { n: "01", label: "The Conversation",  body: "We start with a no-pressure call or visit — just an honest conversation about your situation and what you're hoping for." },
+  { n: "02", label: "The Assessment",    body: "Our nurse-led team comes to you to understand what day-to-day support will make the biggest difference." },
+  { n: "03", label: "The Care Plan",     body: "We build a schedule around real life — a few hours a week, every day, or around the clock." },
+  { n: "04", label: "The Match",         body: "We pair your loved one with a caregiver whose skills, personality, and style are the right fit." },
+  { n: "05", label: "Ongoing Support",   body: "Care begins — with regular nurse supervisory visits, family check-ins, and a plan that adjusts as needs change." },
 ];
+
+const P        = "#00343e";
+const SURFACE  = "#e5f7f9";
+const MUTED    = "#40484b";
+const SECONDARY= "#296675";
 
 export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
 
-      {/* ══════════════════════════════════════════════════════
-          HERO — image + text
-      ══════════════════════════════════════════════════════ */}
-      <section
-        className="relative overflow-hidden bg-teal-deep"
-        style={{ minHeight: "clamp(500px, 85vh, 760px)" }}
-        aria-label="Homepage hero"
-      >
-        {/* Background photo */}
-        <div className="absolute inset-0">
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="relative flex items-center overflow-hidden"
+        style={{ minHeight: "100svh", background: "#00343e" }}>
+
+        <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-home.jpg"
-            alt="Caregiver helping an elderly woman in her South Carolina home"
-            fill priority quality={88}
+            src="/images/caregiver-indoor.png"
+            alt="Caregiver with senior — Beyond Care home care"
+            fill priority quality={90}
             className="object-cover object-center"
           />
-          <div className="hero-scrim-left absolute inset-0 hidden sm:block" />
-          <div className="hero-scrim-bottom absolute inset-0 sm:hidden" />
+          <div className="absolute inset-0 sm:hidden"
+            style={{ background: "rgba(0,36,44,0.72)" }} />
+          <div className="absolute inset-0 hidden sm:block"
+            style={{ background: "linear-gradient(to right, rgba(0,36,44,0.88) 0%, rgba(0,36,44,0.72) 45%, rgba(0,36,44,0.35) 100%)" }} />
         </div>
 
-        {/* Content */}
-        <div
-          className="relative z-10 wrap flex items-end pb-10 sm:pb-14 lg:pb-20"
-          style={{ minHeight: "clamp(500px, 85vh, 760px)" }}
-        >
-          <div className="max-w-xl py-16 sm:py-20">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm
-              text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
-              Premium Home Care · Upstate South Carolina
-            </div>
-
-            <h1
-              className="text-white font-extrabold mb-5"
-              style={{ fontSize: "clamp(2.25rem, 6vw, 4.75rem)", lineHeight: "1.04", letterSpacing: "-0.03em" }}
-            >
-              Care that feels<br />
-              <em className="not-italic" style={{ color: "var(--teal-light)" }}>like home.</em>
+        <div className="relative z-10 w-full mx-auto px-5 sm:px-8 py-24 sm:py-32"
+          style={{ maxWidth: 1280 }}>
+          <div style={{ maxWidth: 560 }}>
+            <span className="inline-block px-3 py-1 rounded-full border text-[11px] font-bold tracking-[0.15em] uppercase mb-4"
+              style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.8)" }}>
+              Nurse-Led Home Care · Upstate SC
+            </span>
+            <h1 className="font-serif leading-[1.08] mb-5"
+              style={{ fontSize: "clamp(2.5rem, 7vw, 5.25rem)", color: "#fff" }}>
+              Care that feels<br />like home.
             </h1>
-
-            <p
-              className="mb-8 max-w-md"
-              style={{ color: "rgba(255,255,255,0.85)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: "1.7" }}
-            >
-              Personalized support blending nurse-led excellence with the warmth
-              of a loved one&apos;s presence — in Honea Path, Williamston, and throughout Upstate SC.
+            <p className="font-light leading-relaxed mb-8"
+              style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "rgba(255,255,255,0.8)", maxWidth: 460 }}>
+              Dependable, compassionate support for seniors and families —
+              in Honea Path, Williamston, and throughout Upstate South Carolina.
             </p>
-
-            <div className="flex flex-col xs:flex-row gap-3">
-              <Link href="/contact" className="btn-coral text-base px-7 py-4 justify-center">
-                Schedule a Free Consultation
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/how-care-works"
+                className="text-center px-7 py-4 rounded-xl font-bold text-base sm:text-lg transition-all shadow-xl"
+                style={{ background: "#fff", color: P }}>
+                See How It Works
               </Link>
-              <a href={PHONES.primaryHref} className="btn-outline-white text-base px-7 py-4 justify-center">
-                <Phone size={16} />
+              <a href={PHONES.primaryHref}
+                className="text-center border px-7 py-4 rounded-xl font-bold text-base sm:text-lg transition-all"
+                style={{ background: "rgba(255,255,255,0.1)", borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}>
                 {PHONES.primary}
               </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Micro trust */}
-            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-7">
-              {["Bonded & Insured", "Employee Caregivers", "CPR Certified", "Free Consultation"].map(t => (
-                <span key={t} className="flex items-center gap-1.5 text-white/65 text-sm font-medium">
-                  <CheckCircle size={13} className="text-teal-light flex-shrink-0" />
-                  {t}
-                </span>
-              ))}
+      {/* ── AWARDS STRIP ─────────────────────────────────────── */}
+      <section style={{ background: SURFACE, borderBottom: "1px solid rgba(0,52,62,0.08)" }}>
+        <div className="mx-auto px-5 sm:px-8 py-5 flex flex-wrap items-center justify-center gap-6 sm:gap-10"
+          style={{ maxWidth: 1280 }}>
+          {AWARDS.map(a => (
+            <div key={a.label} className="flex items-center gap-3">
+              <span className="material-symbols-outlined" style={{ color: SECONDARY, fontSize: 22 }}>
+                military_tech
+              </span>
+              <div>
+                <p className="text-[11px] font-bold tracking-[0.12em] uppercase" style={{ color: SECONDARY }}>{a.org}</p>
+                <p className="text-sm font-bold" style={{ color: P }}>{a.label}</p>
+              </div>
+            </div>
+          ))}
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined" style={{ color: SECONDARY, fontSize: 22 }}>verified_user</span>
+            <div>
+              <p className="text-[11px] font-bold tracking-[0.12em] uppercase" style={{ color: SECONDARY }}>Serving SC Since</p>
+              <p className="text-sm font-bold" style={{ color: P }}>2013</p>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Floating office pills */}
-        <div className="absolute bottom-6 right-6 hidden xl:flex flex-col gap-2 z-10">
-          {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
-            <a key={o.name} href={`tel:${o.phone.replace(/-/g,"")}`}
-              className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/15
-                text-white rounded-xl px-4 py-2.5 hover:bg-white/20 transition-colors">
-              <Phone size={13} className="text-teal-light flex-shrink-0" />
-              <div>
-                <div className="text-[11px] text-white/55 font-medium">{o.name}</div>
-                <div className="text-sm font-bold">{o.phone}</div>
-              </div>
-            </a>
+      {/* ── TRUST SIGNALS STRIP ──────────────────────────────── */}
+      <section className="bg-white" style={{ borderBottom: "1px solid rgba(0,52,62,0.06)" }}>
+        <div className="mx-auto px-5 sm:px-8 py-4 flex flex-wrap items-center justify-center gap-5 sm:gap-8"
+          style={{ maxWidth: 1280 }}>
+          {[
+            { icon: "badge",            label: "Employee Caregivers"    },
+            { icon: "medical_services", label: "CPR Certified"          },
+            { icon: "shield",           label: "Bonded & Insured"       },
+            { icon: "stethoscope",      label: "Nurse-Led"              },
+            { icon: "workspace_premium",label: "Workers' Comp Covered"  },
+            { icon: "calendar_month",   label: "Serving SC Since 2013"  },
+          ].map(({ icon, label }) => (
+            <div key={label} className="flex items-center gap-2">
+              <span className="material-symbols-outlined" style={{ color: SECONDARY, fontSize: 17 }}>{icon}</span>
+              <span className="text-xs font-bold tracking-wide" style={{ color: MUTED }}>{label}</span>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ── Award / trust strip ── */}
-      <div className="bg-white border-b" style={{ borderColor: "var(--rule)" }}>
-        <div className="wrap py-3 flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
-          {AWARDS.map(a => (
-            <div key={a.label} className="flex items-center gap-2">
-              <Award size={13} className="text-teal-brand flex-shrink-0" />
-              <span className="text-xs font-bold text-muted whitespace-nowrap">{a.label} — {a.org}</span>
-            </div>
-          ))}
-          <span className="hidden sm:block w-px h-4 bg-rule" />
-          <div className="flex items-center gap-2">
-            <Shield size={13} className="text-teal-brand flex-shrink-0" />
-            <span className="text-xs font-bold text-muted">Nurse-owned &amp; operated since {SITE.founded}</span>
-          </div>
+      {/* ── SERVICES ─────────────────────────────────────────── */}
+      <section className="py-14 md:py-24 px-5 sm:px-6 mx-auto" style={{ maxWidth: 1280 }}>
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="font-serif mb-4 md:mb-6 tracking-tight"
+            style={{ fontSize: "clamp(1.6rem, 4vw, 3rem)", color: P }}>
+            Support for Every Need
+          </h2>
+          <p className="font-light leading-relaxed mx-auto"
+            style={{ color: MUTED, maxWidth: 680, fontSize: "clamp(0.9375rem, 2vw, 1.125rem)" }}>
+            From a few hours of companionship to around-the-clock care — we meet families wherever they are.
+          </p>
         </div>
-      </div>
 
-      {/* ══════════════════════════════════════════════════════
-          SERVICES — editorial 4-col grid
-      ══════════════════════════════════════════════════════ */}
-      <section className="section bg-white" aria-label="Home care services">
-        <div className="wrap">
-          <div className="text-center max-w-3xl mx-auto mb-16 reveal">
-            <span className="eyebrow">Our services</span>
-            <h2 className="h-serif-display mb-5">The Premium Standard<br className="hidden sm:block" /> of Home Care</h2>
-            <p className="body-lg text-muted">
-              From daily assistance to specialized clinical support, every service is delivered
-              with uncompromising empathy and nurse-led oversight.
-            </p>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14">
+          {SERVICES.slice(0, 8).map(s => (
+            <Link key={s.slug} href={s.slug} className="group flex flex-col items-center sm:items-start gap-3 md:gap-4 text-center sm:text-left">
+              <span className="material-symbols-outlined" style={{ color: SECONDARY, fontSize: 28 }}>
+                {SERVICE_ICONS[s.icon] ?? "self_care"}
+              </span>
+              <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight group-hover:opacity-70 transition-opacity"
+                style={{ color: P }}>{s.title}</h3>
+              <p className="text-xs sm:text-sm leading-relaxed font-light hidden sm:block" style={{ color: MUTED }}>{s.desc}</p>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-10 md:mt-14 text-center">
+          <Link href="/services"
+            className="inline-flex items-center gap-2 font-bold hover:opacity-70 transition-opacity text-sm sm:text-base"
+            style={{ color: P }}>
+            See all services
+            <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_forward</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* ── TRUST / OWNER ─────────────────────────────────────── */}
+      <section className="py-16 md:py-28 overflow-hidden" style={{ background: "rgba(229,247,249,0.35)" }}>
+        <div className="mx-auto px-5 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center"
+          style={{ maxWidth: 1280 }}>
+
+          <div className="relative">
+            <div className="overflow-hidden" style={{ borderRadius: "1.5rem" }}>
+              <Image
+                src="/images/sarah-atkin-owner.jpg"
+                alt="Sarah Atkin, RN, BSN — Owner and Founder of Beyond Care"
+                width={640} height={480}
+                className="w-full object-cover object-top"
+                style={{ aspectRatio: "4/3" }}
+              />
+            </div>
+            <div className="glass-card absolute z-20 hidden lg:block border"
+              style={{ bottom: -28, right: -28, padding: 32, borderRadius: "1.5rem",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.1)", borderColor: "rgba(255,255,255,0.6)", maxWidth: 260 }}>
+              <p className="font-bold text-lg mb-1 tracking-tight" style={{ color: P }}>Nurse-Led Care</p>
+              <p className="text-sm font-light" style={{ color: MUTED }}>Founded and led by a Registered Nurse with 20+ years of clinical experience.</p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-            {SERVICES.map((s, i) => {
-              const Icon = ICON_MAP[s.icon] ?? Heart;
-              return (
-                <Link
-                  key={s.slug}
-                  href={s.slug}
-                  className={`group flex flex-col items-start gap-4 reveal reveal-delay-${Math.min(i + 1, 5)}`}
-                >
-                  <Icon size={28} className="text-teal-brand font-light group-hover:text-teal-mid transition-colors" />
-                  <h3 className="text-lg font-bold text-ink tracking-tight group-hover:text-teal-brand transition-colors">{s.title}</h3>
-                  <p className="text-sm text-muted leading-relaxed font-light">{s.desc}</p>
-                  <span className="flex items-center gap-1 text-coral text-sm font-semibold mt-auto">
-                    Learn more <ArrowRight size={13} />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+          <div className="flex flex-col gap-6 md:gap-8">
+            <div>
+              <h2 className="font-serif leading-tight tracking-tight mb-4"
+                style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", color: P }}>
+                Caregivers Who Actually<br />Care
+              </h2>
+              <p className="text-base font-light leading-relaxed" style={{ color: MUTED }}>
+                Every caregiver we send into a home is someone we&apos;d trust with our own family.
+                We hire carefully, train thoroughly, and keep a close eye on the work — because good care
+                depends on good people, and good people deserve real support.
+              </p>
+            </div>
 
-          <div className="text-center mt-14 reveal">
-            <Link href="/services" className="btn-outline">
-              View All Services <ArrowRight size={15} />
+            <ul className="flex flex-col gap-6 md:gap-8">
+              {[
+                { icon: "verified",           label: "Thorough Background Checks",  body: "Every caregiver goes through multi-point screening, reference checks, and in-person interviews before they meet a single client." },
+                { icon: "school",             label: "Ongoing Training",             body: "Our team receives continuous education in geriatric care, safety protocols, and specialized conditions — not just a one-time orientation." },
+                { icon: "shield_with_heart",  label: "Employees, Not Contractors",   body: "Every caregiver is a Beyond Care employee — bonded, insured, and covered by workers&apos; compensation. Your family is protected." },
+              ].map(({ icon, label, body }) => (
+                <li key={label} className="flex items-start gap-4 md:gap-5">
+                  <span className="material-symbols-outlined flex-shrink-0 mt-0.5" style={{ color: SECONDARY, fontSize: 22 }}>{icon}</span>
+                  <div>
+                    <h4 className="font-bold text-base tracking-tight mb-1" style={{ color: P }}>{label}</h4>
+                    <p className="font-light text-sm leading-relaxed" style={{ color: MUTED }}>{body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <Link href="/caregiver-standards"
+              className="inline-flex items-center gap-2 font-bold self-start hover:opacity-70 transition-opacity text-sm sm:text-base"
+              style={{ color: P }}>
+              Our caregiver standards
+              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_forward</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          CAREGIVER VETTING — "A Curation of Exceptional Humans"
-      ══════════════════════════════════════════════════════ */}
-      <section className="section bg-canvas overflow-hidden" aria-label="Caregiver standards">
-        <div className="wrap">
-          <div className="grid-2">
-
-            {/* Image */}
-            <div className="relative group reveal">
-              <div className="absolute -top-12 -left-12 w-72 h-72 rounded-full blur-3xl"
-                style={{ background: "rgba(10,74,82,0.05)" }} />
-              <div className="rounded-img aspect-4-3 overflow-hidden relative z-10">
-                <Image
-                  src="/images/caregiver-standards.jpg"
-                  alt="Beyond Care caregiver providing support to a client"
-                  width={580} height={435}
-                  className="img-cover"
-                />
-              </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -right-4 lg:-right-8 p-7 glass-card rounded-2xl shadow-2xl z-20 hidden lg:block border border-white/60 max-w-xs">
-                <p className="font-bold text-ink text-lg mb-1 tracking-tight">Elite Vetting Process</p>
-                <p className="text-muted text-sm font-light">Only the most qualified caregivers represent Beyond Care.</p>
-              </div>
-            </div>
-
-            {/* Text */}
-            <div className="flex flex-col gap-8 reveal reveal-delay-1">
-              <div className="space-y-5">
-                <span className="eyebrow">Caregiver standards</span>
-                <h2 className="h-serif-xl">A Curation of<br />Exceptional Humans</h2>
-                <p className="body-lg text-muted">
-                  We select our caregivers with the same precision you use to curate your life.
-                  Every Beyond Care professional is a reflection of our commitment to excellence,
-                  empathy, and clinical integrity.
-                </p>
-              </div>
-
-              <ul className="space-y-8">
-                {[
-                  { icon: CheckCircle, label: "Rigorously Authenticated", body: "Multi-point background checks, reference verification, and behavioral alignment analysis." },
-                  { icon: GraduationCap, label: "Advanced Clinical Training", body: "Continuous education in the latest geriatric care protocols and specialized conditions." },
-                  { icon: ShieldCheck, label: "Fully Bonded & Insured", body: "Every caregiver is an employee — bonded, insured, and workers' comp covered." },
-                ].map(({ icon: Icon, label, body }) => (
-                  <li key={label} className="flex items-start gap-5">
-                    <Icon size={22} className="text-teal-brand mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-ink text-base tracking-tight mb-1">{label}</h4>
-                      <p className="text-muted text-sm font-light leading-relaxed">{body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-
-              <Link href="/caregiver-standards" className="link-cta-teal self-start">
-                Our full caregiver standards <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          TESTIMONIAL — large serif blockquote
-      ══════════════════════════════════════════════════════ */}
-      <section className="bg-white py-24 md:py-40" aria-label="Client testimonial">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <span className="block text-3xl text-muted/30 mb-8 select-none font-serif">&ldquo;</span>
-          <blockquote
-            className="font-serif italic font-light text-ink mb-12 leading-[1.45]"
-            style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)" }}
-          >
-            {TESTIMONIALS[0].quote}
+      {/* ── TESTIMONIAL ──────────────────────────────────────── */}
+      <section className="py-16 md:py-32 bg-white">
+        <div className="mx-auto px-5 sm:px-6 text-center" style={{ maxWidth: 760 }}>
+          <span className="font-serif select-none block mb-3 leading-none" aria-hidden="true"
+            style={{ fontSize: "4rem", color: "rgba(0,52,62,0.1)", lineHeight: 1 }}>&ldquo;</span>
+          <blockquote className="font-serif italic font-light leading-[1.4] mb-8 md:mb-12 tracking-tight"
+            style={{ fontSize: "clamp(1.25rem, 3.5vw, 2.25rem)", color: P }}>
+            &ldquo;{TESTIMONIALS[0].quote}&rdquo;
           </blockquote>
           <div className="flex flex-col items-center">
-            <div className="w-12 h-px mb-8" style={{ background: "var(--rule)" }} />
+            <div className="w-10 mb-6" style={{ height: 1, background: "rgba(0,52,62,0.2)" }} />
             <cite className="not-italic">
-              <span className="block font-bold text-ink text-lg tracking-tight mb-1">{TESTIMONIALS[0].name}</span>
-              <span className="block text-muted tracking-widest uppercase text-xs font-bold">{TESTIMONIALS[0].city}</span>
+              <span className="block font-bold text-base sm:text-lg tracking-tight mb-1" style={{ color: P }}>
+                {TESTIMONIALS[0].name}
+              </span>
+              <span className="block text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: MUTED }}>
+                {TESTIMONIALS[0].city}
+              </span>
             </cite>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          PROCESS — editorial numbered steps
-      ══════════════════════════════════════════════════════ */}
-      <section className="section" style={{ background: "#f0f9fa" }} aria-label="How care works">
-        <div className="wrap">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8 reveal">
-            <div className="max-w-2xl">
-              <span className="eyebrow">Getting started</span>
-              <h2 className="h-serif-display mb-4">The Path to<br className="hidden sm:block" /> Personalized Support</h2>
-              <p className="body-lg text-muted">
-                A curated journey toward bespoke in-home care, refined across five deliberate stages.
-              </p>
-            </div>
-            <Link href="/how-care-works" className="btn-outline flex-shrink-0">
-              Full Process <ArrowRight size={14} />
-            </Link>
+      {/* ── WHY CHOOSE ───────────────────────────────────────── */}
+      <section className="py-14 md:py-24 px-5 sm:px-6" style={{ background: SURFACE }}>
+        <div className="mx-auto" style={{ maxWidth: 1280 }}>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-serif tracking-tight"
+              style={{ fontSize: "clamp(1.6rem, 4vw, 3rem)", color: P }}>
+              Why Families Choose Beyond Care
+            </h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12">
-            {EDITORIAL_STEPS.map((step, i) => (
-              <div key={step.n} className={`editorial-step reveal reveal-delay-${i + 1}`}>
-                <span className="font-serif text-6xl md:text-8xl block mb-2 md:mb-4"
-                  style={{ color: "rgba(10,74,82,0.08)", lineHeight: 1 }}>
-                  {step.n}
-                </span>
-                <h4 className="font-serif italic text-xl md:text-2xl text-ink mb-3 md:mb-4">{step.label}</h4>
-                <p className="text-muted text-sm md:text-base font-light leading-relaxed">{step.body}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8" style={{ maxWidth: 900, margin: "0 auto" }}>
+            {[
+              { icon: "home_pin",       title: "Locally Owned",              body: "Beyond Care was founded in 2013 right here in Upstate SC. This isn't a franchise — it's a company built by someone who knows this community personally." },
+              { icon: "stethoscope",    title: "Nurse-Led",                  body: "Every care plan is designed and overseen by a registered nurse — not just a scheduler. Clinical knowledge is built into how we operate." },
+              { icon: "calendar_month", title: "No Long-Term Contracts",     body: "Care that fits your timeline. Start with a few hours a week and adjust as your situation changes — no commitments beyond what you need." },
+              { icon: "person_check",   title: "Consistent Caregivers",      body: "We match carefully and keep assignments consistent. Your loved one will see the same familiar faces — and that familiarity makes a real difference." },
+            ].map(({ icon, title, body }) => (
+              <div key={title} className="flex items-start gap-5 p-6 rounded-2xl bg-white"
+                style={{ border: "1px solid rgba(0,52,62,0.06)" }}>
+                <span className="material-symbols-outlined flex-shrink-0 mt-0.5" style={{ color: SECONDARY, fontSize: 24 }}>{icon}</span>
+                <div>
+                  <h3 className="font-bold text-base mb-2 tracking-tight" style={{ color: P }}>{title}</h3>
+                  <p className="text-sm font-light leading-relaxed" style={{ color: MUTED }}>{body}</p>
+                </div>
               </div>
             ))}
           </div>
-
-          <div className="mt-16 reveal">
-            <Link href="/contact" className="btn-coral">
-              Start with a Free Consultation
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          VETERANS — dark section with glass cards
-      ══════════════════════════════════════════════════════ */}
-      <section className="section bg-navy" aria-label="Veterans home care benefits">
-        <div className="wrap">
-          <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
-            <div className="md:w-1/2 space-y-6 reveal">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-bold tracking-widest uppercase"
-                style={{ borderColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.7)" }}>
-                Honoring Service
-              </div>
-              <h2 className="h-serif-xl text-white">The Veteran&apos;s<br />Legacy Benefit</h2>
-              <p className="body-lg" style={{ color: "rgba(255,255,255,0.65)" }}>
-                Navigating VA Aid &amp; Attendance requires expert guidance. We help veterans and
-                surviving spouses access the dignified care they earned — without the paperwork burden.
+      {/* ── PROCESS ──────────────────────────────────────────── */}
+      <section className="py-14 md:py-28 px-5 sm:px-6" style={{ background: "#f0f9fa" }}>
+        <div className="mx-auto" style={{ maxWidth: 1280 }}>
+
+          <div className="mb-12 md:mb-20">
+            <h2 className="font-serif mb-3 md:mb-5 tracking-tight"
+              style={{ fontSize: "clamp(1.75rem, 5vw, 3.5rem)", color: P }}>
+              Getting Started Is Easier Than You Think
+            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5">
+              <p className="text-base font-light max-w-lg" style={{ color: MUTED }}>
+                We guide families through every step — from the first phone call to the first day of care.
               </p>
-              <Link href="/payment-options/va-benefits" className="btn-teal inline-flex">
-                Check Eligibility <ArrowRight size={15} />
+              <Link href="/how-care-works"
+                className="flex-shrink-0 self-start sm:self-auto px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all"
+                style={{ background: P, color: "#fff" }}>
+                Learn How It Works
               </Link>
             </div>
+          </div>
 
-            <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-5 reveal reveal-delay-1">
-              {[
-                { title: "Financial Strategy", body: "Strategic allocation of VA resources to significantly reduce out-of-pocket care costs." },
-                { title: "Concierge Filing",   body: "Expert, white-glove management of the complex VA application and filing process." },
-                { title: "Aid & Attendance",   body: "Dedicated guidance on the VA benefit most applicable to in-home care situations." },
-                { title: "Respite Coverage",   body: "Access VA Respite Care benefits to provide planned relief for family caregivers." },
-              ].map(card => (
-                <div key={card.title}
-                  className="p-7 rounded-2xl border backdrop-blur-md"
-                  style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.1)" }}>
-                  <h4 className="font-bold text-white text-base mb-2 tracking-tight">{card.title}</h4>
-                  <p className="text-sm font-light leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{card.body}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
+            {PROCESS_STEPS.map(step => (
+              <div key={step.n} className="relative editorial-step">
+                <span className="font-serif block mb-2 leading-none select-none"
+                  style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)", color: "rgba(0,52,62,0.1)" }}>
+                  {step.n}
+                </span>
+                <h4 className="font-serif italic mb-2 md:mb-3"
+                  style={{ fontSize: "clamp(1rem, 1.8vw, 1.375rem)", color: P }}>
+                  {step.label}
+                </h4>
+                <p className="text-sm font-light leading-relaxed" style={{ color: MUTED }}>
+                  {step.body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          CTA — consultation form
-      ══════════════════════════════════════════════════════ */}
-      <section className="section bg-white relative overflow-hidden" aria-label="Request a consultation">
-        {/* Subtle bg glow */}
-        <div className="absolute inset-0 pointer-events-none opacity-5">
-          <div className="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] rounded-full blur-[150px]"
-            style={{ background: "var(--teal-deep)" }} />
+      {/* ── VA BENEFITS ──────────────────────────────────────── */}
+      <section className="relative overflow-hidden py-14 md:py-28 px-5 sm:px-6" style={{ background: P }}>
+
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/veterans-care.jpg"
+            alt="Veteran with caregiver — Beyond Care VA benefits"
+            fill quality={85}
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0"
+            style={{ background: "rgba(0,36,44,0.78)" }} />
         </div>
 
-        <div className="wrap relative z-10">
-          <div className="text-center mb-14 reveal">
-            <span className="eyebrow">Begin your journey</span>
-            <h2 className="h-serif-display mb-5">Begin Your Journey<br className="hidden sm:block" /> to Better Care</h2>
-            <p className="body-lg text-muted max-w-2xl mx-auto">
-              Schedule a free in-home consultation. No obligations — just an honest conversation
-              about what your family needs and how we can help.
+        <div className="relative z-10 mx-auto flex flex-col md:flex-row items-start md:items-center gap-12 md:gap-20"
+          style={{ maxWidth: 1200 }}>
+
+          <div className="w-full md:w-1/2 flex flex-col gap-5 md:gap-6">
+            <div className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full border text-[10px] font-bold tracking-[0.25em] uppercase"
+              style={{ borderColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.65)" }}>
+              Honoring Those Who Served
+            </div>
+            <h2 className="font-serif leading-[1.2] tracking-tight"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)", color: "#fff" }}>
+              Helping Veterans<br />Access the Care They Earned
+            </h2>
+            <p className="text-sm sm:text-base leading-relaxed font-light"
+              style={{ color: "rgba(255,255,255,0.72)" }}>
+              Many veterans and surviving spouses qualify for VA Aid &amp; Attendance — a benefit
+              that can help pay for in-home care. The application process can feel overwhelming,
+              and we&apos;re here to help your family navigate it.
             </p>
+            <Link href="/payment-options/va-benefits"
+              className="self-start px-7 py-3.5 rounded-full font-bold text-sm sm:text-base transition-all text-white"
+              style={{ background: SECONDARY }}>
+              Learn About VA Benefits
+            </Link>
           </div>
 
-          <div className="max-w-2xl mx-auto reveal reveal-delay-1">
-            <div className="bg-canvas rounded-3xl p-8 md:p-14 shadow-2xl border" style={{ borderColor: "var(--rule)" }}>
-              <div className="mb-10 pb-8 border-b" style={{ borderColor: "var(--rule)" }}>
-                <h3 className="h-serif-lg text-ink mb-2">Request a Private Consultation</h3>
-                <p className="text-muted text-sm">Our care coordinator will reach out within 24 hours.</p>
+          <div className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { icon: "account_balance", title: "Reduce Out-of-Pocket Costs", body: "VA benefits can significantly offset the cost of in-home care — we help you understand what's available and how to use it." },
+              { icon: "description",     title: "Help With the Paperwork",    body: "We'll guide your family through the application process so you can focus on care, not bureaucracy." },
+            ].map(card => (
+              <div key={card.title} className="p-6 rounded-2xl border"
+                style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.1)" }}>
+                <span className="material-symbols-outlined mb-4 block"
+                  style={{ color: "rgba(177,236,253,0.65)", fontSize: 32 }}>{card.icon}</span>
+                <h4 className="font-bold text-base sm:text-lg mb-2 tracking-tight" style={{ color: "#fff" }}>{card.title}</h4>
+                <p className="text-xs sm:text-sm font-light leading-relaxed"
+                  style={{ color: "rgba(255,255,255,0.5)" }}>{card.body}</p>
               </div>
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6" action="/contact" method="GET">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-ink/60 uppercase tracking-widest block">Full Name</label>
-                  <input
-                    type="text"
-                    placeholder="Jane Smith"
-                    className="w-full bg-white border rounded-xl p-4 text-ink placeholder:text-muted/50 font-light focus:outline-none focus:ring-2"
-                    style={{ borderColor: "var(--rule)", fontSize: "0.9375rem" }}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-ink/60 uppercase tracking-widest block">Phone Number</label>
-                  <input
-                    type="tel"
-                    placeholder="(864) 000-0000"
-                    className="w-full bg-white border rounded-xl p-4 text-ink placeholder:text-muted/50 font-light focus:outline-none focus:ring-2"
-                    style={{ borderColor: "var(--rule)", fontSize: "0.9375rem" }}
-                  />
-                </div>
-                <div className="md:col-span-2 space-y-2">
-                  <label className="text-[10px] font-bold text-ink/60 uppercase tracking-widest block">Your Primary Concern</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Share your unique care requirements..."
-                    className="w-full bg-white border rounded-xl p-4 text-ink placeholder:text-muted/50 font-light focus:outline-none focus:ring-2 resize-none"
-                    style={{ borderColor: "var(--rule)", fontSize: "0.9375rem" }}
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <Link href="/contact"
-                    className="block w-full btn-coral justify-center text-center py-5 text-base rounded-xl">
-                    Request Consultation
-                  </Link>
-                </div>
-              </form>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Office quick links */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              {[OFFICES.honeaPath, OFFICES.williamston].map(o => (
-                <a key={o.name} href={`tel:${o.phone.replace(/-/g,"")}`}
-                  className="flex-1 flex items-center justify-between px-5 py-3.5 rounded-xl border bg-white hover:border-teal-brand transition-colors"
-                  style={{ borderColor: "var(--rule)" }}>
-                  <div>
-                    <div className="text-xs font-bold text-muted uppercase tracking-wider">{o.name}</div>
-                    <div className="text-sm font-bold text-ink mt-0.5">{o.phone}</div>
-                  </div>
-                  <Phone size={15} className="text-teal-brand" />
-                </a>
-              ))}
-            </div>
+      {/* ── CTA FORM ─────────────────────────────────────────── */}
+      <section className="py-16 md:py-40 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute -bottom-1/2 -left-1/4 rounded-full"
+            style={{ width: 800, height: 800, background: P, filter: "blur(160px)" }} />
+        </div>
+
+        <div className="relative z-10 mx-auto px-5 sm:px-6 text-center" style={{ maxWidth: 720 }}>
+          <h2 className="font-serif mb-4 md:mb-6 tracking-tight"
+            style={{ fontSize: "clamp(1.75rem, 5vw, 3.5rem)", color: P }}>
+            Let&apos;s Talk About Your Family
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg font-light mb-10 md:mb-16" style={{ color: MUTED }}>
+            No pressure, no sales pitch — just an honest conversation about your needs
+            and how we might be able to help.
+          </p>
+
+          <div className="bg-white p-6 sm:p-10 md:p-12 shadow-2xl border mx-auto"
+            style={{ borderRadius: "2rem", borderColor: "rgba(0,52,62,0.06)" }}>
+            <HomepageCTAForm />
           </div>
         </div>
       </section>

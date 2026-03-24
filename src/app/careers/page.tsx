@@ -19,7 +19,7 @@ const BENEFITS = [
   },
   {
     title: "Health Insurance",
-    body: "Full-time employees are eligible for health insurance benefits.",
+    body: "Health insurance benefits are available to all employees upon hire.",
   },
   {
     title: "Paid Training",
@@ -47,7 +47,7 @@ const POSITIONS = [
     desc: "Build meaningful daily relationships with seniors and adults who benefit from consistent, caring company.",
   },
   {
-    title: "Overnight / Live-In Caregiver",
+    title: "Overnight Caregiver",
     href: "/careers/caregiver-jobs",
     desc: "Provide overnight monitoring, safety support, and personal care for clients with higher-level needs.",
   },
@@ -123,7 +123,8 @@ export default function CareersPage() {
               and what working at Beyond Care looks like.
             </p>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/careers/apply" className="btn-coral">Apply Now</Link>
+              <a href="https://2920.axiscare.com" target="_blank" rel="noopener noreferrer" className="btn-coral">Apply Online</a>
+              <Link href="/careers/apply" className="btn-outline">Application Form</Link>
               <a href={PHONES.careersHref} className="btn-outline">{PHONES.careers}</a>
             </div>
             <div style={{ display: "flex", gap: 32, justifyContent: "center", flexWrap: "wrap", marginTop: 32 }}>

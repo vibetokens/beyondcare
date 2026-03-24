@@ -71,15 +71,15 @@ export default async function AboutSlugPage(
                   accountable for the quality of care their loved ones received.
                 </p>
                 <p className="body-lg text-muted mb-5" style={{ lineHeight: 1.85 }}>
-                  Today, {OWNER.name} remains actively involved in the daily operations of Beyond Care —
-                  conducting home visits, overseeing caregiver performance, reviewing care plans, and
-                  maintaining direct relationships with the families the company serves. She is not a remote
-                  executive. She is present, engaged, and personally committed to the standard she built
-                  this company around.
+                  Today, Beyond Care operates from two offices in Honea Path and Williamston, serving families
+                  across the Upstate region. Nurse oversight remains central to how the company operates —
+                  with care quality reviewed through regular supervisory visits and a clinical lens built into
+                  every level of the organization.
                 </p>
                 <p className="body-lg text-muted" style={{ lineHeight: 1.85, fontStyle: "italic" }}>
-                  &ldquo;The families we serve deserve better than what most home care companies offer.
-                  That belief is why Beyond Care exists — and why we hold ourselves to the standards we do.&rdquo;
+                  &ldquo;Families in this community deserve home care they can genuinely count on —
+                  care that is dependable, compassionate, and professionally managed.
+                  That belief is why Beyond Care exists, and it is the standard we hold ourselves to every day.&rdquo;
                 </p>
                 <p className="text-muted mt-3" style={{ fontSize: ".875rem" }}>
                   — {OWNER.name}, {OWNER.credentials}

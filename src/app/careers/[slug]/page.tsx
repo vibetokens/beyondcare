@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { PHONES } from "@/lib/constants"
+import CareersApplyForm from "@/components/CareersApplyForm"
 
 const VALID_SLUGS = ["caregiver-jobs", "benefits-training", "apply"]
 
@@ -28,10 +29,6 @@ export async function generateMetadata(
   return {}
 }
 
-const inputStyle = {
-  borderColor: "var(--rule)",
-  fontFamily: "var(--font-sans)",
-} as const
 
 export default async function CareerSlugPage(
   { params }: { params: Promise<{ slug: string }> }
@@ -70,7 +67,7 @@ export default async function CareerSlugPage(
                     title: "Home Care Aide",
                     type: "Full Time / Part Time",
                     desc: "Provide personal care, companion care, meal preparation, light housekeeping, and other daily living support to clients in their homes throughout Anderson, Greenville, and surrounding counties.",
-                    requirements: ["High school diploma or equivalent", "Valid SC driver's license", "Reliable transportation", "CPR certification (or willingness to obtain)", "Compassionate, reliable, and professional attitude"],
+                    requirements: ["High school diploma or equivalent", "Valid SC driver's license", "Reliable transportation", "Compassionate, reliable, and professional attitude"],
                   },
                   {
                     title: "Companion Caregiver",
@@ -79,10 +76,10 @@ export default async function CareerSlugPage(
                     requirements: ["Friendly, patient, and dependable personality", "Valid SC driver's license preferred", "Comfort building relationships with older adults", "Reliable transportation"],
                   },
                   {
-                    title: "Overnight / Live-In Caregiver",
+                    title: "Overnight Caregiver",
                     type: "Full Time",
-                    desc: "Provide nighttime monitoring, personal care, and safety support for clients with higher-level needs. Overnight shifts and extended stays available.",
-                    requirements: ["Experience with overnight or live-in care preferred", "Strong reliability and communication skills", "Comfort with personal care and safety monitoring", "CPR certification required"],
+                    desc: "Provide nighttime monitoring, personal care, and safety support for clients with higher-level needs. Overnight shifts available.",
+                    requirements: ["Experience with overnight care preferred", "Strong reliability and communication skills", "Comfort with personal care and safety monitoring"],
                   },
                 ].map(p => (
                   <div key={p.title} className="card mb-5">
@@ -107,7 +104,7 @@ export default async function CareerSlugPage(
                 <div className="bg-teal-pale" style={{ borderRadius: 12, padding: 32, marginBottom: 24 }}>
                   <h2 className="h-md text-teal-brand mb-4">What We Offer</h2>
                   <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-                    {["Competitive wages", "Weekly pay", "Health insurance (full-time eligible)", "Paid training and orientation", "Flexible scheduling", "Meaningful, rewarding work"].map(b => (
+                    {["Competitive wages", "Weekly pay", "Health insurance (available upon hire)", "Paid training and orientation", "Flexible scheduling", "Meaningful, rewarding work"].map(b => (
                       <li key={b} className="check-item">
                         <span className="check-dot" />
                         <span className="text-ink">{b}</span>
@@ -117,8 +114,8 @@ export default async function CareerSlugPage(
                 </div>
                 <div className="card text-center">
                   <h3 className="h-sm text-ink mb-3">Ready to Apply?</h3>
-                  <p className="text-muted mb-4">Start your application online or call our careers line.</p>
-                  <Link href="/careers/apply" className="btn-coral" style={{ display: "block", textAlign: "center", marginBottom: 12 }}>Apply Now</Link>
+                  <p className="text-muted mb-4">Apply through our online portal or call our careers line.</p>
+                  <a href="https://2920.axiscare.com" target="_blank" rel="noopener noreferrer" className="btn-coral" style={{ display: "block", textAlign: "center", marginBottom: 12 }}>Apply Online</a>
                   <a href={PHONES.careersHref} className="btn-outline" style={{ display: "block", textAlign: "center" }}>{PHONES.careers}</a>
                 </div>
               </div>
@@ -167,7 +164,7 @@ export default async function CareerSlugPage(
                 },
                 {
                   title: "Health Insurance",
-                  body: "Eligible full-time caregivers have access to health insurance benefits. Taking care of our team's health is as important to us as taking care of our clients.",
+                  body: "Health insurance benefits are available to all employees upon hire — not just full-time staff. Taking care of our team's health is as important to us as taking care of our clients.",
                 },
                 {
                   title: "401(k) Retirement",
@@ -251,9 +248,21 @@ export default async function CareerSlugPage(
               Start Your Application
             </h1>
             <p className="mt-4 max-w-xl" style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: 1.75 }}>
-              Fill out the form below and a member of our team will reach out to discuss available positions
-              and next steps. We respond promptly.
+              Apply online through our applicant portal for the fastest response — or fill out the form below
+              and we will reach out promptly.
             </p>
+            <div className="mt-6">
+              <a
+                href="https://2920.axiscare.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl font-bold text-base transition-all"
+                style={{ background: "#fff", color: "#00343e" }}
+              >
+                Apply Online — Applicant Portal
+                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>open_in_new</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -265,73 +274,27 @@ export default async function CareerSlugPage(
             {/* Application form */}
             <div>
               <h2 className="h-md mb-6">Caregiver Application</h2>
-              <form action="https://formspree.io/f/placeholder" method="POST">
-                <div className="grid-2" style={{ gap: 16 }}>
-                  <div className="flex flex-col gap-1.5 mb-5">
-                    <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="fname">First Name *</label>
-                    <input id="fname" name="fname" type="text" required
-                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none" style={inputStyle} />
-                  </div>
-                  <div className="flex flex-col gap-1.5 mb-5">
-                    <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="lname">Last Name *</label>
-                    <input id="lname" name="lname" type="text" required
-                      className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none" style={inputStyle} />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="phone">Phone Number *</label>
-                  <input id="phone" name="phone" type="tel" required
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none" style={inputStyle} />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="email">Email Address *</label>
-                  <input id="email" name="email" type="email" required
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none" style={inputStyle} />
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="position">Position Interest</label>
-                  <select id="position" name="position"
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none" style={inputStyle}>
-                    <option value="">Select a position...</option>
-                    <option>Home Care Aide</option>
-                    <option>Companion Caregiver</option>
-                    <option>Overnight / Live-In Caregiver</option>
-                    <option>Not Sure / Open to Options</option>
-                  </select>
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="availability">Availability</label>
-                  <select id="availability" name="availability"
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none" style={inputStyle}>
-                    <option value="">Select availability...</option>
-                    <option>Full Time</option>
-                    <option>Part Time</option>
-                    <option>Weekends Only</option>
-                    <option>Evenings / Overnight</option>
-                    <option>Flexible</option>
-                  </select>
-                </div>
-                <div className="flex flex-col gap-1.5 mb-5">
-                  <label className="block text-sm font-semibold text-ink mb-1.5" htmlFor="message">Tell Us About Yourself (Optional)</label>
-                  <textarea id="message" name="message" rows={4}
-                    placeholder="Share any relevant experience, certifications, or questions..."
-                    className="w-full border rounded-lg px-4 py-3 text-sm focus:outline-none"
-                    style={inputStyle} />
-                </div>
-                <button type="submit" className="btn-coral w-full" style={{ justifyContent: "center", fontSize: "1rem", padding: "16px" }}>
-                  Submit Application
-                </button>
-              </form>
+              <CareersApplyForm />
             </div>
 
             {/* Side info */}
             <div>
               <div className="bg-teal-pale" style={{ borderRadius: 12, padding: 32, marginBottom: 24 }}>
-                <h2 className="h-md text-teal-brand mb-4">Prefer to Call?</h2>
+                <h2 className="h-md text-teal-brand mb-4">Apply Online</h2>
                 <p className="text-muted mb-4">
-                  Reach our careers line directly to speak with someone about available positions.
+                  Use our applicant portal for the fastest response and automatic interview scheduling.
                 </p>
-                <a href={PHONES.careersHref} className="btn-teal" style={{ display: "block", textAlign: "center" }}>{PHONES.careers}</a>
+                <a
+                  href="https://2920.axiscare.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-teal"
+                  style={{ display: "block", textAlign: "center", marginBottom: 16 }}
+                >
+                  Open Applicant Portal
+                </a>
+                <p className="text-muted" style={{ fontSize: ".875rem", marginBottom: 8 }}>Or call our careers line:</p>
+                <a href={PHONES.careersHref} className="btn-outline" style={{ display: "block", textAlign: "center" }}>{PHONES.careers}</a>
               </div>
               <div className="card">
                 <h3 className="h-sm text-ink mb-3">What Happens Next</h3>

@@ -4,14 +4,16 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Caregiver Standards | Beyond Care Home Care Services",
   description:
-    "Every Beyond Care caregiver is a direct employee — bonded, insured, CPR certified, and held to consistent standards of care. Learn what it takes to become a Beyond Care caregiver.",
+    "Every Beyond Care caregiver is a direct employee — licensed, bonded, insured, drug screened, and held to consistent standards of care. Learn how Beyond Care screens and trains its caregivers.",
 }
 
 const STANDARDS = [
   "Direct employees of Beyond Care — not contractors or agency referrals",
+  "Licensed in-home care provider (South Carolina)",
   "Fully bonded and insured",
   "Covered by workers' compensation",
   "CPR certified through required training",
+  "Drug screened upon hire",
   "Complete continuing education and in-service training",
   "Regular skills assessments and performance evaluations",
   "Screened through a selective hiring process",
@@ -76,8 +78,8 @@ export default function CaregiverStandardsPage() {
               <span className="eyebrow">The Difference</span>
               <h2 className="h-lg mt-2 mb-4">Employees vs. Contractors</h2>
               <p className="body-lg text-muted mb-6">
-                Many home care companies use contractors or agency referrals — people they have less direct
-                oversight and accountability over. Beyond Care does not operate that way.
+                Not all home care is structured the same way. Understanding how caregivers are hired and
+                managed can help families make a more informed choice.
               </p>
               <div style={{ border: "1px solid var(--rule)", borderRadius: 10, overflow: "hidden" }}>
                 {/* Header */}

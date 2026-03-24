@@ -19,8 +19,8 @@ export const PHONES = {
   willistonHref:   "tel:8648412500",
   primary:         "864-841-2500",
   primaryHref:     "tel:8648412500",
-  careers:         "864-338-7145",
-  careersHref:     "tel:8643387145",
+  careers:         "864-514-6066",
+  careersHref:     "tel:8645146066",
 };
 
 // ─── OFFICES ──────────────────────────────────────────────────────────────
@@ -260,18 +260,30 @@ export const AUDIENCE_PAGES = [
   { title: "Support for Family Caregivers",     href: "/who-we-serve/family-caregivers" },
   { title: "Aging in Place",                    href: "/who-we-serve/aging-in-place"    },
   { title: "Help After a Hospital Stay",        href: "/who-we-serve/hospital-discharge"},
+  { title: "Home Care for Veterans",            href: "/who-we-serve/veterans"          },
+  { title: "Dementia & Memory Care Support",    href: "/who-we-serve/dementia-families" },
+  { title: "Parkinson's Disease Home Care",     href: "/who-we-serve/parkinsons-care"   },
+  { title: "Stroke Recovery at Home",           href: "/who-we-serve/stroke-recovery"   },
   { title: "When It's Time for Home Care",      href: "/resources/when-its-time"        },
 ];
 
 // ─── LOCATION PAGES ───────────────────────────────────────────────────────
 export const LOCATION_PAGES = [
-  { title: "Honea Path",      href: "/locations/honea-path"         },
-  { title: "Williamston",     href: "/locations/williamston"        },
-  { title: "Anderson County", href: "/locations/anderson-county"    },
-  { title: "Greenville County",href:"/locations/greenville-county"  },
-  { title: "Abbeville County",href: "/locations/abbeville-county"   },
-  { title: "Pickens County",  href: "/locations/pickens-county"     },
-  { title: "Greenwood County",href: "/locations/greenwood-county"   },
+  { title: "Honea Path",       href: "/locations/honea-path"        },
+  { title: "Williamston",      href: "/locations/williamston"       },
+  { title: "Anderson County",  href: "/locations/anderson-county"   },
+  { title: "Anderson",         href: "/locations/anderson"          },
+  { title: "Belton",           href: "/locations/belton"            },
+  { title: "Iva",              href: "/locations/iva"               },
+  { title: "Greenville County",href: "/locations/greenville-county" },
+  { title: "Greenville",       href: "/locations/greenville"        },
+  { title: "Simpsonville",     href: "/locations/simpsonville"      },
+  { title: "Mauldin",          href: "/locations/mauldin"           },
+  { title: "Greer",            href: "/locations/greer"             },
+  { title: "Easley",           href: "/locations/easley"            },
+  { title: "Abbeville County", href: "/locations/abbeville-county"  },
+  { title: "Pickens County",   href: "/locations/pickens-county"    },
+  { title: "Greenwood County", href: "/locations/greenwood-county"  },
 ];
 
 // ─── MEGA NAV ─────────────────────────────────────────────────────────────
@@ -420,19 +432,21 @@ export const PROCESS_STEPS = [
   { n: "02", title: "Care Assessment",    body: "Our nurse-led team evaluates your loved one's needs and builds a clear, honest picture of what support will help most." },
   { n: "03", title: "Personalized Plan",  body: "We design a flexible care plan around real daily needs — a few hours a week to around-the-clock support." },
   { n: "04", title: "Caregiver Match",    body: "We match your family with a screened, trained caregiver who fits your loved one's personality and daily routine." },
-  { n: "05", title: "Ongoing Support",    body: "Care is monitored continuously. We stay in close contact and adjust the plan as needs evolve over time." },
+  { n: "05", title: "Ongoing Support",    body: "Care is monitored continuously with regular nurse supervisory visits to ensure quality. We stay in close contact with families and adjust the plan as needs evolve over time." },
 ];
 
 // ─── TRUST SIGNALS ────────────────────────────────────────────────────────
 export const TRUST_SIGNALS = [
   "Employee caregivers — not contractors",
+  "Licensed in-home care provider (South Carolina)",
   "Bonded and insured",
   "Workers' compensation covered",
   "CPR certified",
+  "Drug screened upon hire",
   "Ongoing skills training and assessments",
   "Regular performance evaluations",
   "Selective hiring and screening",
-  "Nurse-led daily operations and home visits",
+  "Regular nurse supervisory visits",
 ];
 
 // ─── TESTIMONIALS ─────────────────────────────────────────────────────────

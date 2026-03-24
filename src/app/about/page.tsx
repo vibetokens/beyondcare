@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { AWARDS } from "@/lib/constants"
 
 export const metadata: Metadata = {
   title: "About Beyond Care Home Care Services | Nurse-Led Home Care in South Carolina",
@@ -106,6 +107,30 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Awards */}
+      <section className="section bg-canvas">
+        <div className="wrap">
+          <div className="text-center mb-10">
+            <span className="eyebrow">Recognition</span>
+            <h2 className="h-lg mt-2">Recognized for Outstanding Care</h2>
+            <p className="text-muted mt-3" style={{ maxWidth: 540, margin: "12px auto 0" }}>
+              These awards are based on client and family feedback — a reflection of the trust our community has placed in us.
+            </p>
+          </div>
+          <div className="grid-3" style={{ gap: 24, maxWidth: 860, margin: "0 auto" }}>
+            {AWARDS.map(award => (
+              <div key={award.label} className="card text-center" style={{ padding: "36px 24px" }}>
+                <span className="material-symbols-outlined block mb-4" style={{ fontSize: 40, color: "var(--teal-brand)" }}>
+                  military_tech
+                </span>
+                <p className="eyebrow mb-2">{award.org}</p>
+                <h3 className="h-sm text-ink">{award.label}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Team links */}
       <section className="section bg-teal-pale">
         <div className="wrap">
@@ -113,8 +138,8 @@ export default function AboutPage() {
             <span className="eyebrow">Our Leadership</span>
             <h2 className="h-lg mt-2 mb-4">Nurse-Led from the Top</h2>
             <p className="body-lg text-muted mb-6">
-              Beyond Care is owned and operated by a Registered Nurse who is personally involved in client care,
-              caregiver oversight, and daily operations. Learn more about our team and the recognition we have earned.
+              Beyond Care was founded by a Registered Nurse whose clinical expertise shaped the standards and
+              oversight model the company runs on today. Learn more about our team and the recognition we have earned.
             </p>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/about/leadership" className="btn-teal">Meet Our Leadership</Link>
