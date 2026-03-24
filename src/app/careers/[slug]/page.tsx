@@ -115,7 +115,7 @@ export default async function CareerSlugPage(
                 <div className="card text-center">
                   <h3 className="h-sm text-ink mb-3">Ready to Apply?</h3>
                   <p className="text-muted mb-4">Apply through our online portal or call our careers line.</p>
-                  <a href="https://2920.axiscare.com" target="_blank" rel="noopener noreferrer" className="btn-coral" style={{ display: "block", textAlign: "center", marginBottom: 12 }}>Apply Online</a>
+                  <Link href="/careers/apply" className="btn-coral" style={{ display: "block", textAlign: "center", marginBottom: 12 }}>Apply Now</Link>
                   <a href={PHONES.careersHref} className="btn-outline" style={{ display: "block", textAlign: "center" }}>{PHONES.careers}</a>
                 </div>
               </div>
@@ -248,21 +248,8 @@ export default async function CareerSlugPage(
               Start Your Application
             </h1>
             <p className="mt-4 max-w-xl" style={{ color: "rgba(255,255,255,0.72)", fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: 1.75 }}>
-              Apply online through our applicant portal for the fastest response — or fill out the form below
-              and we will reach out promptly.
+              Fill out the form below and we will reach out promptly — usually within 1–2 business days.
             </p>
-            <div className="mt-6">
-              <a
-                href="https://2920.axiscare.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl font-bold text-base transition-all"
-                style={{ background: "#fff", color: "#00343e" }}
-              >
-                Apply Online — Applicant Portal
-                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>open_in_new</span>
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -280,21 +267,11 @@ export default async function CareerSlugPage(
             {/* Side info */}
             <div>
               <div className="bg-teal-pale" style={{ borderRadius: 12, padding: 32, marginBottom: 24 }}>
-                <h2 className="h-md text-teal-brand mb-4">Apply Online</h2>
+                <h2 className="h-md text-teal-brand mb-4">Questions?</h2>
                 <p className="text-muted mb-4">
-                  Use our applicant portal for the fastest response and automatic interview scheduling.
+                  Prefer to talk before applying? Call our careers line — we are happy to answer any questions.
                 </p>
-                <a
-                  href="https://2920.axiscare.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-teal"
-                  style={{ display: "block", textAlign: "center", marginBottom: 16 }}
-                >
-                  Open Applicant Portal
-                </a>
-                <p className="text-muted" style={{ fontSize: ".875rem", marginBottom: 8 }}>Or call our careers line:</p>
-                <a href={PHONES.careersHref} className="btn-outline" style={{ display: "block", textAlign: "center" }}>{PHONES.careers}</a>
+                <a href={PHONES.careersHref} className="btn-teal" style={{ display: "block", textAlign: "center" }}>{PHONES.careers}</a>
               </div>
               <div className="card">
                 <h3 className="h-sm text-ink mb-3">What Happens Next</h3>

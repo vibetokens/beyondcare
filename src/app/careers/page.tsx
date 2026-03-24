@@ -123,8 +123,7 @@ export default function CareersPage() {
               and what working at Beyond Care looks like.
             </p>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="https://2920.axiscare.com" target="_blank" rel="noopener noreferrer" className="btn-coral">Apply Online</a>
-              <Link href="/careers/apply" className="btn-outline">Application Form</Link>
+              <Link href="/careers/apply" className="btn-coral">Apply Now</Link>
               <a href={PHONES.careersHref} className="btn-outline">{PHONES.careers}</a>
             </div>
             <div style={{ display: "flex", gap: 32, justifyContent: "center", flexWrap: "wrap", marginTop: 32 }}>
