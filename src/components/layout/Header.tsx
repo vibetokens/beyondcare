@@ -64,7 +64,7 @@ export default function Header() {
 
       {/* ── Main header ── */}
       <header ref={headerRef} className={clsx("site-header", scrolled && "scrolled")}>
-        <div className="wrap flex items-center justify-between h-20 lg:h-24">
+        <div className="wrap flex items-center justify-between h-24 lg:h-28">
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" onClick={() => setMobileOpen(false)}>
@@ -73,7 +73,7 @@ export default function Header() {
               alt="Beyond Care Home Care Services"
               width={220}
               height={211}
-              className="h-14 lg:h-16 w-auto"
+              className="h-16 lg:h-20 w-auto"
               priority
             />
           </Link>
@@ -192,9 +192,9 @@ export default function Header() {
         <div className="lg:hidden fixed inset-0 z-50 flex flex-col bg-white overflow-y-auto"
           style={{ top: 0 }}>
           {/* Drawer header */}
-          <div className="flex items-center justify-between px-5 h-20 border-b border-rule flex-shrink-0">
+          <div className="flex items-center justify-between px-5 h-24 border-b border-rule flex-shrink-0">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/images/beyond-care-logo.png" alt="Beyond Care" width={220} height={211} className="h-14 w-auto" />
+              <Image src="/images/beyond-care-logo.png" alt="Beyond Care" width={220} height={211} className="h-16 w-auto" />
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg text-ink" aria-label="Close menu">
               <X size={22} />
