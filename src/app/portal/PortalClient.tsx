@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import type { Resource } from "./page";
 
-const PASSWORD = "beyondcare2026";
 const AUTH_KEY = "beyondcare_portal_auth";
 
 const TYPE_ICON: Record<string, string> = {
@@ -38,6 +37,7 @@ export default function PortalClient({ initialResources }: { initialResources: R
   const [authed, setAuthed]         = useState(false);
   const [pwInput, setPwInput]       = useState("");
   const [pwError, setPwError]       = useState(false);
+  const [loading, setLoading]       = useState(false);
   const [resources, setResources]   = useState<Resource[]>(initialResources);
   const [activeTab, setActiveTab]   = useState("All");
   const [modal, setModal]           = useState<Resource | null>(null);
@@ -58,14 +58,26 @@ export default function PortalClient({ initialResources }: { initialResources: R
       .catch(() => {});
   }, [authed]);
 
-  function handleLogin(e: React.FormEvent) {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-    if (pwInput === PASSWORD) {
-      localStorage.setItem(AUTH_KEY, "true");
-      setAuthed(true);
-      setPwError(false);
-    } else {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/portal-auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pwInput }),
+      });
+      if (res.ok) {
+        localStorage.setItem(AUTH_KEY, "true");
+        setAuthed(true);
+        setPwError(false);
+      } else {
+        setPwError(true);
+      }
+    } catch {
       setPwError(true);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -113,10 +125,11 @@ export default function PortalClient({ initialResources }: { initialResources: R
             </div>
             <button
               type="submit"
+              disabled={loading}
               className="w-full py-2.5 rounded-lg text-sm font-bold text-white transition-opacity hover:opacity-90"
-              style={{ background: "var(--teal-deep)" }}
+              style={{ background: "var(--teal-deep)", opacity: loading ? 0.7 : 1 }}
             >
-              Enter Portal
+              {loading ? "Checking…" : "Enter Portal"}
             </button>
           </form>
 
