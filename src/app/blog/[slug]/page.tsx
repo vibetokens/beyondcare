@@ -3,13 +3,84 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
+const SITE_DOMAIN = "https://beyondcarehc.com";
+const SITE_NAME   = "Beyond Care Home Care Services";
+
 const TB = () => <span style={{ color: "var(--teal-brand)" }}>→</span>;
+
+// ── All slugs + metadata for Related Posts ──────────────────────────────────
+const ALL_SLUGS: { slug: string; title: string; category: string; date: string }[] = [
+  { slug: "home-care-seniors-independence-south-carolina", title: "How Home Care Helps Seniors Stay Independent in South Carolina", category: "Senior Independence", date: "March 2026" },
+  { slug: "signs-parent-needs-help-at-home", title: "7 Signs Your Parent May Need Help at Home", category: "Family Guides", date: "March 2026" },
+  { slug: "home-care-vs-home-health-families", title: "Home Care vs Home Health — What Every Family Should Understand", category: "Understanding Care", date: "March 2026" },
+  { slug: "in-home-support-after-hospital-stay", title: "Coming Home From the Hospital — Why In-Home Support Matters", category: "Hospital Discharge", date: "March 2026" },
+  { slug: "when-is-right-time-to-start-home-care", title: "When Is the Right Time to Start Home Care?", category: "Getting Started", date: "March 2026" },
+  { slug: "why-companion-care-matters-senior-wellbeing", title: "Why Companion Care for Seniors Is More Than Just Keeping Them Company", category: "Companion Care", date: "March 2026" },
+  { slug: "what-to-expect-home-care-consultation", title: "What to Expect During a Home Care Consultation", category: "Getting Started", date: "March 2026" },
+  { slug: "fall-prevention-tips-seniors-at-home", title: "Fall Prevention Tips for Seniors Living at Home", category: "Safety", date: "March 2026" },
+  { slug: "why-medication-reminders-matter-seniors", title: "Why Medication Reminders Are One of the Most Important Home Care Services", category: "Health Management", date: "March 2026" },
+  { slug: "what-professional-caregivers-help-with-day-to-day", title: "What a Professional Caregiver Actually Does Each Day", category: "Our Services", date: "March 2026" },
+  { slug: "why-cpr-certified-caregivers-matter", title: "Why CPR Certification in a Home Caregiver Is a Standard That Matters", category: "Caregiver Standards", date: "March 2026" },
+  { slug: "how-family-caregivers-avoid-burnout", title: "How Family Caregivers Can Protect Themselves From Burnout", category: "Family Caregivers", date: "March 2026" },
+  { slug: "transportation-support-seniors-more-than-a-ride", title: "Senior Transportation — Why It Is About More Than Getting From Here to There", category: "Transportation", date: "March 2026" },
+  { slug: "what-respite-care-gives-back-to-families", title: "What Respite Care Actually Gives Back to Families", category: "Respite Care", date: "March 2026" },
+  { slug: "families-choosing-aging-in-place-support", title: "Why Aging in Place Has Become the Preferred Choice for South Carolina Families", category: "Aging in Place", date: "March 2026" },
+  { slug: "senior-nutrition-at-home-small-habits", title: "Senior Nutrition at Home — Why It Matters and How to Support It", category: "Health & Wellness", date: "March 2026" },
+  { slug: "early-memory-changes-when-families-should-pay-attention", title: "Early Memory Changes — What Families Should Watch For", category: "Memory Care", date: "March 2026" },
+  { slug: "home-care-supports-mobility-daily-confidence", title: "How Home Care Supports Senior Mobility and Daily Confidence", category: "Personal Care", date: "March 2026" },
+  { slug: "why-social-connection-matters-later-life", title: "Why Social Connection Remains One of the Most Important Health Factors in Later Life", category: "Senior Well-Being", date: "March 2026" },
+  { slug: "light-housekeeping-improves-safety-seniors", title: "How Light Housekeeping Makes a Senior's Home Safer", category: "Home Safety", date: "March 2026" },
+  { slug: "emotional-benefits-staying-at-home-seniors", title: "The Emotional Benefits of Staying Home — What Families Should Understand", category: "Aging in Place", date: "March 2026" },
+  { slug: "home-care-resources-families-honea-path-sc", title: "Home Care Resources for Families in Honea Path, South Carolina", category: "Local Resources", date: "March 2026" },
+  { slug: "home-care-resources-families-williamston-sc", title: "Home Care Resources for Families in Williamston, South Carolina", category: "Local Resources", date: "March 2026" },
+  { slug: "upstate-south-carolina-families-choose-in-home-care", title: "Why Upstate South Carolina Families Are Choosing In-Home Care", category: "Local Resources", date: "March 2026" },
+  { slug: "home-care-support-veterans-families-south-carolina", title: "Home Care Support for Veterans in South Carolina", category: "Veterans", date: "March 2026" },
+  { slug: "planning-care-after-surgery-rehabilitation", title: "How to Plan for Care After Surgery or Rehabilitation", category: "Recovery Care", date: "March 2026" },
+  { slug: "questions-ask-before-hiring-home-care-provider", title: "Questions to Ask Before You Hire a Home Care Provider", category: "Choosing Care", date: "March 2026" },
+  { slug: "understanding-medicaid-waiver-home-care-south-carolina", title: "Understanding Medicaid Waiver Home Care Options in South Carolina", category: "Payment Options", date: "March 2026" },
+  { slug: "can-long-term-care-insurance-pay-for-home-care", title: "Can Long-Term Care Insurance Help Pay for Home Care? Yes — Here Is How", category: "Payment Options", date: "March 2026" },
+  { slug: "how-to-make-home-safer-aging-parent", title: "How to Make Your Parent's Home Safer as They Age", category: "Home Safety", date: "March 2026" },
+  { slug: "home-care-anderson-south-carolina", title: "Home Care in Anderson, SC — What Families Should Know", category: "Local Resources", date: "March 2026" },
+  { slug: "home-care-greenville-south-carolina", title: "In-Home Care Options in Greenville, SC — A Family Guide", category: "Local Resources", date: "March 2026" },
+  { slug: "home-care-easley-south-carolina", title: "Home Care in Easley and Pickens County, SC", category: "Local Resources", date: "March 2026" },
+  { slug: "dementia-home-care-south-carolina", title: "Home Care for Dementia and Memory Loss — A Guide for SC Families", category: "Memory Care", date: "March 2026" },
+  { slug: "parkinsons-disease-home-care-south-carolina", title: "Parkinson's Disease and Home Care — What Families in SC Need to Know", category: "Condition-Specific Care", date: "March 2026" },
+  { slug: "stroke-recovery-home-care-south-carolina", title: "Stroke Recovery at Home — How Home Care Supports the Process in SC", category: "Recovery Care", date: "March 2026" },
+  { slug: "va-aid-attendance-home-care-south-carolina", title: "VA Aid & Attendance — How Veterans in SC Can Use It for Home Care", category: "Veterans", date: "March 2026" },
+  { slug: "overnight-care-seniors-south-carolina", title: "Overnight Home Care for Seniors in South Carolina — What It Is and When You Need It", category: "Our Services", date: "March 2026" },
+  { slug: "questions-to-ask-home-care-agency-south-carolina", title: "10 Questions to Ask Any Home Care Agency Before You Hire Them", category: "Choosing Care", date: "March 2026" },
+  { slug: "respite-care-family-caregivers-south-carolina", title: "Respite Care for Family Caregivers in South Carolina — Relief That Actually Works", category: "Respite Care", date: "March 2026" },
+  // New posts
+  { slug: "how-to-choose-home-care-agency-guide", title: "How to Choose a Home Care Agency — A Family's Complete Guide", category: "Choosing Care", date: "March 2026" },
+  { slug: "what-to-look-for-in-a-home-caregiver", title: "What to Look for in a Home Caregiver — 8 Qualities That Matter", category: "Caregiver Standards", date: "March 2026" },
+  { slug: "red-flags-home-care-agency", title: "Red Flags When Choosing a Home Care Agency", category: "Choosing Care", date: "March 2026" },
+  { slug: "dementia-care-at-home-complete-guide", title: "Dementia Care at Home — A Complete Guide for Families", category: "Memory Care", date: "March 2026" },
+  { slug: "post-surgery-home-care-what-to-expect", title: "Post-Surgery Home Care — What to Expect and How to Prepare", category: "Recovery Care", date: "March 2026" },
+  { slug: "companion-care-vs-personal-care", title: "Companion Care vs Personal Care — Understanding the Difference", category: "Understanding Care", date: "March 2026" },
+  { slug: "how-much-does-home-care-cost", title: "How Much Does Home Care Cost? A Clear Breakdown for Families", category: "Payment Options", date: "March 2026" },
+  { slug: "does-insurance-cover-home-care", title: "Does Insurance Cover Home Care? Medicare, Medicaid, and More", category: "Payment Options", date: "March 2026" },
+  { slug: "medicare-vs-medicaid-home-care", title: "Medicare vs Medicaid for Home Care — What's the Difference?", category: "Payment Options", date: "March 2026" },
+  { slug: "questions-to-ask-caregiver-interview", title: "Questions to Ask When Interviewing a Home Caregiver", category: "Choosing Care", date: "March 2026" },
+  { slug: "home-care-abbeville-greenwood-sc", title: "Home Care in Abbeville and Greenwood County, SC", category: "Local Resources", date: "March 2026" },
+  { slug: "24-hour-home-care-south-carolina", title: "24-Hour Home Care in South Carolina — What It Is and When You Need It", category: "Our Services", date: "March 2026" },
+  { slug: "hospital-discharge-planning-home-care", title: "Hospital Discharge Planning — How to Set Up Home Care Before You Leave", category: "Hospital Discharge", date: "March 2026" },
+  { slug: "personal-care-at-home-what-it-covers", title: "Personal Care at Home — What It Covers and Why It Matters", category: "Personal Care", date: "March 2026" },
+  { slug: "caregiver-employee-vs-contractor-difference", title: "Caregiver as Employee vs. Independent Contractor — Why It Matters for Your Family", category: "Caregiver Standards", date: "March 2026" },
+];
+
+function getRelatedPosts(currentSlug: string, currentCategory: string, count = 3) {
+  // First try same category, then fall back to recent posts
+  const sameCat = ALL_SLUGS.filter(p => p.slug !== currentSlug && p.category === currentCategory);
+  const others  = ALL_SLUGS.filter(p => p.slug !== currentSlug && p.category !== currentCategory);
+  return [...sameCat, ...others].slice(0, count);
+}
 
 const POSTS: Record<string, {
   title: string;
   date: string;
   description: string;
   category: string;
+  faq?: { q: string; a: string }[];
   body: React.ReactNode;
 }> = {
   "home-care-seniors-independence-south-carolina": {
@@ -17,6 +88,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "In-home care supports independence for South Carolina seniors — learn how non-medical home care helps aging adults stay safe, comfortable, and in control at home.",
     category: "Senior Independence",
+    faq: [
+      { q: "What types of daily tasks can a home care caregiver help with?", a: "A home care caregiver can assist with personal hygiene, meal preparation, light housekeeping, medication reminders, transportation to appointments, and companionship — all of which support a senior's ability to remain safely at home." },
+      { q: "Does receiving home care mean losing independence?", a: "No. For most seniors, the right support actually preserves independence by making daily tasks manageable and safe. A caregiver supplements what the senior cannot do alone without taking over what they can." },
+      { q: "How does Beyond Care tailor support to each senior in South Carolina?", a: "Every client receives an individualized care plan developed by Beyond Care's nurse-led team. The plan is built around the senior's specific needs, preferences, and goals — and updated as those needs change." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">For most seniors, independence is not just about preference — it is about identity. The ability to live in your own home, follow your own routine, and make your own decisions is central to how older adults experience quality of life. When that independence is threatened by age-related challenges, the instinct is often to look for facility-based solutions. But for a significant number of seniors, a better answer exists: professional in-home care.</p>
@@ -48,6 +124,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Not sure if your parent needs in-home care? These 7 signs can help South Carolina families recognize when it is time to explore home care support.",
     category: "Family Guides",
+    faq: [
+      { q: "What is the most serious warning sign that a parent needs home care?", a: "A fall — or a noticeable fear of falling — is one of the clearest signals. Falls significantly increase the risk of injury, hospitalization, and further decline. Even one fall warrants a conversation with a home care professional." },
+      { q: "My parent lives far away. How can I assess whether they need help?", a: "Look for changes during visits or phone calls: unusual confusion, weight loss, poor hygiene, an unkempt home, or mood withdrawal. Any significant change from their baseline is worth investigating." },
+      { q: "Can Beyond Care help families in South Carolina who are struggling to have this conversation with a parent?", a: "Yes. We regularly work with families who are navigating resistance from a loved one. Call us — we can provide guidance on how to approach the conversation in a way that respects your parent's dignity." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">The conversation about home care rarely starts with a clear moment. It usually begins with a feeling — something seemed off during your last visit, or a phone call left you more worried than reassured. Knowing what to look for can help families act before a situation becomes a crisis.</p>
@@ -76,6 +157,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Home care and home health are not the same. Learn the key differences and what each type of service covers — so you can make the right decision for your loved one.",
     category: "Understanding Care",
+    faq: [
+      { q: "Does Medicare pay for non-medical home care in South Carolina?", a: "No. Medicare covers skilled home health services — nursing, physical therapy — when physician-ordered and clinically justified. It does not cover non-medical home care such as personal care, companionship, or meal preparation." },
+      { q: "What is the difference between a home care agency and a home health agency?", a: "A home care agency provides non-medical daily living support — personal care, companionship, housekeeping. A home health agency provides physician-ordered clinical services such as skilled nursing, wound care, and therapy. They serve different needs and are funded differently." },
+      { q: "Can my loved one receive both home care and home health at the same time?", a: "Yes. Many patients need both after a hospitalization — home health for clinical follow-up and home care for daily personal support. The two services complement each other and can run concurrently." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">These two terms are used interchangeably every day — by families, by discharge planners, sometimes even by healthcare professionals who should know better. The confusion is understandable. But the distinction matters, because they are fundamentally different types of service, funded by different sources, appropriate for different situations.</p>
@@ -100,6 +186,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "The weeks after a hospital discharge are high-risk for seniors. Learn how in-home care reduces readmission risk and supports safer recovery at home in South Carolina.",
     category: "Hospital Discharge",
+    faq: [
+      { q: "How soon after hospital discharge can Beyond Care start providing in-home care?", a: "We prioritize post-discharge situations. Contact us as soon as a discharge date is known — even 24 to 48 hours notice allows us to prepare a caregiver and begin care the day your loved one returns home." },
+      { q: "What are the most common reasons seniors are readmitted to the hospital after discharge?", a: "Missed medications, inadequate nutrition, falls, and missed follow-up appointments are among the leading causes of post-discharge readmission. A home care caregiver directly addresses each of these risks." },
+      { q: "Can Beyond Care coordinate with hospital discharge planners?", a: "Yes. We work alongside hospital case managers and discharge teams to ensure a smooth transition home and alignment with the discharge plan." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Hospital discharge can feel like the finish line. In reality, for many seniors, it is one of the most vulnerable moments in their healthcare journey. The weeks following discharge carry a disproportionately high risk of complications, falls, medication errors, and readmission. The right support at home changes that picture significantly.</p>
@@ -124,6 +215,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Many families wait too long to start home care. Learn when the right time actually is — and why earlier is almost always better for seniors in South Carolina.",
     category: "Getting Started",
+    faq: [
+      { q: "What level of need should a senior have before starting home care?", a: "There is no minimum threshold. Many families start with just a few hours a week of companionship or light housekeeping — well before intensive personal care is needed. Beginning early establishes the care relationship and infrastructure before a crisis arrives." },
+      { q: "Is it possible to start home care and then reduce or stop it later?", a: "Yes. Care plans are flexible and adjusted based on the client's evolving needs. Some clients reduce hours after a recovery period; others transition to more intensive support over time." },
+      { q: "How do I start the process with Beyond Care in South Carolina?", a: "Call us at (864) 841-2500 for a free, no-pressure consultation. We will discuss your loved one's situation and help you understand what a care plan might look like — with no obligation to proceed." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">The honest answer: earlier than most families think. The most common mistake families make in home care planning is waiting for a crisis before they act. By the time a fall, a hospitalization, or a significant health event forces the decision, the family is scrambling — and the senior is already in a compromised position.</p>
@@ -148,6 +244,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Loneliness is a serious health risk for older adults. Learn why companion care for seniors in South Carolina is more than comfort — it is a meaningful health intervention.",
     category: "Companion Care",
+    faq: [
+      { q: "Is loneliness actually harmful to a senior's health?", a: "Yes. Research links chronic social isolation in older adults to accelerated cognitive decline, increased rates of depression, weakened immune function, and higher mortality — risks comparable in severity to smoking or obesity." },
+      { q: "What does a companion caregiver actually do during a visit?", a: "A companion caregiver engages the client in conversation, shared activities, games, reading, and outings. They also observe for changes in mood or condition and provide a consistent, familiar presence that supports routine and emotional well-being." },
+      { q: "Can companion care slow cognitive decline in seniors with early memory changes?", a: "Regular social engagement and mental stimulation have documented protective effects on cognitive health. A companion caregiver who provides consistent interaction and structured activity supports brain health in ways that isolation actively undermines." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">When families think about home care, personal care tends to come to mind first — help with bathing, dressing, mobility. Companion care is often seen as secondary. But the research on social connection and senior health tells a different story. For many older adults, companion care may be the most impactful service they receive.</p>
@@ -172,6 +273,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Wondering what happens during a home care consultation? Learn what Beyond Care covers, what questions to ask, and how to prepare for your first meeting.",
     category: "Getting Started",
+    faq: [
+      { q: "Is there any cost or obligation to schedule a home care consultation with Beyond Care?", a: "No. Consultations are free and create no obligation. The purpose is simply to understand your family's situation and share honest information about whether and how Beyond Care can help." },
+      { q: "What information should I have ready before the consultation?", a: "It helps to have a general picture of your loved one's daily challenges, current health conditions, what tasks have become difficult, the household's schedule, and any questions about payment options or care logistics." },
+      { q: "How long does the process take from consultation to care starting?", a: "Many families can begin care within a few days of the initial consultation. For urgent post-discharge or recovery situations, we work to move as quickly as possible." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Many families approach the first home care consultation with uncertainty — not knowing what to say, what will be asked, or what the outcome will be. The reality is that a good consultation is simply a conversation. Here is what you can expect from yours with Beyond Care.</p>
@@ -196,6 +302,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Falls are the leading cause of injury in older adults. These fall prevention tips can help South Carolina seniors stay safer at home — with or without home care support.",
     category: "Safety",
+    faq: [
+      { q: "What is the most effective way to reduce fall risk for a senior living at home?", a: "Addressing the highest-risk environments — especially the bathroom — with grab bars, non-slip surfaces, and adequate lighting provides immediate impact. A consistent home care caregiver who assists during high-risk activities like bathing and transfers reduces risk further." },
+      { q: "Can medications increase fall risk in older adults?", a: "Yes. Blood pressure medications, sedatives, sleep aids, and certain antidepressants can increase dizziness and unsteadiness. A medication review with a physician can identify whether any current prescriptions are contributing to fall risk." },
+      { q: "My parent has already fallen once. What should I do?", a: "One fall significantly raises the statistical likelihood of another. Contact your loved one's physician to assess contributing factors, and consider a home care consultation to discuss how regular caregiver support could reduce ongoing risk." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Falls are the leading cause of injury — and injury-related death — among adults over 65. Each year, millions of older Americans experience a fall, and a significant percentage result in serious injury, hospitalization, and lasting loss of independence. The good news is that many falls are preventable. Here is what families and seniors should know.</p>
@@ -222,6 +333,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Medication errors are among the most common — and preventable — causes of health decline in seniors. Learn why medication reminders are a critical component of home care.",
     category: "Health Management",
+    faq: [
+      { q: "Can a home care caregiver manage or administer my parent's medications?", a: "Non-medical home caregivers provide reminders — prompts to take medications at the right time — but do not administer or manage prescriptions. Medication administration is the role of licensed nursing staff." },
+      { q: "How common are medication errors in seniors living at home?", a: "Medication non-adherence — missed doses, incorrect timing, or wrong dosages — contributes to a significant percentage of senior hospitalizations. For seniors managing multiple prescriptions for chronic conditions, consistent reminders have a direct impact on health stability." },
+      { q: "What happens if my loved one refuses to take their medications?", a: "A Beyond Care caregiver will note refusals and communicate them to the family as part of regular reporting. Persistent refusal should be raised with the client's physician, as it may signal side effects, confusion, or another underlying issue." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Seniors typically manage more prescriptions than any other age group. And managing multiple medications — with different dosing schedules, dietary restrictions, and potential interactions — is genuinely difficult. Medication errors are among the most common and most consequential causes of health decline in older adults. The simple act of a consistent daily reminder can change that picture.</p>
@@ -244,6 +360,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "What does a home care caregiver actually do during a visit? Learn what daily professional caregiver support looks like from Beyond Care in South Carolina.",
     category: "Our Services",
+    faq: [
+      { q: "How many hours does a typical home care caregiver visit last?", a: "Visit length depends on the care plan. Some clients receive a few hours of daily support; others have full-day or overnight caregivers. Beyond Care builds schedules around each client's actual needs." },
+      { q: "Does a caregiver only help with tasks, or do they also spend time with the client?", a: "Both. Between task-oriented support, a caregiver is present — talking, listening, and engaging with the client. Companionship is not filler time; it is often what clients value most about the relationship." },
+      { q: "Will Beyond Care communicate with my family about what happens during visits?", a: "Yes. Caregivers observe throughout every visit and report changes in the client's mood, energy, appetite, or condition to the Beyond Care team and to the family — keeping everyone informed." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Many families have a general idea that a home care caregiver helps around the house and with personal care — but not a clear picture of what a visit actually looks like from start to finish. Here is a realistic view of what professional caregiver support looks like day to day.</p>
@@ -272,6 +393,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "CPR certification in a home caregiver is more than a credential — it is a critical safety standard. Learn why it matters and how Beyond Care trains its team.",
     category: "Caregiver Standards",
+    faq: [
+      { q: "Are all Beyond Care caregivers CPR certified?", a: "Yes. CPR and First Aid certification is required as part of Beyond Care's orientation process and is maintained through ongoing training standards. No caregiver begins working with clients without this credential." },
+      { q: "Why does CPR certification matter more in a home setting than in a facility?", a: "In a home setting, the caregiver is the only first responder until emergency services arrive — a window that can span several critical minutes. A CPR-certified caregiver in that moment is not a credential on paper; they are the emergency response." },
+      { q: "What other safety training do Beyond Care caregivers receive?", a: "In addition to CPR and First Aid, caregivers complete orientation training, skills assessments, in-service education, and ongoing competency evaluations before and throughout their work with clients." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">When families evaluate home care options, CPR certification may not be the first thing they check — but it should be on the list. The presence of a CPR-certified caregiver in the home is not just a credential on paper. In the event of a cardiac emergency, stroke, choking incident, or other acute event, those skills can mean the difference between life and death in the minutes before emergency services arrive.</p>
@@ -294,6 +420,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Family caregiver burnout is real — and common. Learn the warning signs and practical steps that help South Carolina family caregivers protect their own health and sustain care.",
     category: "Family Caregivers",
+    faq: [
+      { q: "What are the early warning signs of family caregiver burnout?", a: "Early signs include chronic exhaustion that sleep does not resolve, growing resentment, inability to concentrate, withdrawal from your own relationships, and declining personal health. These are signals that the caregiving load has exceeded sustainable capacity." },
+      { q: "Is it acceptable to take breaks from caregiving?", a: "Not only acceptable — it is necessary. Sustainable caregiving over months or years requires built-in relief. Families that maintain long-term caregiving relationships successfully are those that recognize when to ask for help and act on it." },
+      { q: "How can Beyond Care help a family caregiver who is approaching burnout in South Carolina?", a: "Respite care, supplemental daily support, and overnight coverage are all designed with family caregiver sustainability in mind. Call us — we can discuss how to structure relief that works for your specific situation." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Caregiver burnout is not a personal failure. It is the predictable result of sustained, often invisible effort that exceeds what one person can maintain indefinitely. If you are caring for a parent or spouse at home, you are doing something extraordinarily demanding — and the fact that you love the person you are caring for does not reduce the physical and emotional toll.</p>
@@ -324,6 +455,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "When seniors lose access to transportation, health suffers. Learn how caregiver-provided transportation in South Carolina supports independence and health access.",
     category: "Transportation",
+    faq: [
+      { q: "Can a Beyond Care caregiver accompany my parent inside a medical appointment?", a: "Yes, where appropriate and as desired by the client and family. Unlike rideshare services, Beyond Care caregivers accompany clients — waiting, assisting inside the appointment if needed, and ensuring a safe return home." },
+      { q: "Why is transportation considered a health care issue for seniors?", a: "Seniors without reliable transportation miss medical appointments at high rates, leading to delayed treatment, unmonitored conditions, and lapsed prescriptions. Transportation access is directly tied to health outcomes, not just convenience." },
+      { q: "Does Beyond Care provide transportation to non-medical destinations?", a: "Yes. Caregivers provide transportation to grocery stores, pharmacy runs, social activities, religious services, and other errands — all of which contribute to a senior's independence and quality of life." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Driving is independence for most adults. When a senior can no longer drive safely — or simply no longer feels confident behind the wheel — the loss extends far beyond convenience. It affects access to healthcare, medication pickups, grocery shopping, social activities, and the fundamental feeling of being in control of one&apos;s daily life. Transportation support from a trusted caregiver is one of the most meaningful services home care provides.</p>
@@ -348,6 +484,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Respite care is not just a break — it is what makes sustainable family caregiving possible. Learn how respite care from Beyond Care in South Carolina supports the whole family.",
     category: "Respite Care",
+    faq: [
+      { q: "What exactly is respite care and how is it different from regular home care?", a: "Respite care is relief-focused in-home care specifically designed to give family caregivers a scheduled break. The care provided is the same quality as any Beyond Care visit; the distinction is the purpose — supporting the sustainability of the family caregiver." },
+      { q: "How much respite care do family caregivers typically need?", a: "This varies enormously. Some families benefit from a few hours per week; others need full-day or overnight coverage. The right amount is whatever allows the family caregiver to genuinely recover and maintain their own well-being over time." },
+      { q: "Can respite care be arranged on short notice?", a: "Beyond Care does its best to accommodate short-notice respite needs. The earlier you contact us, the better we can match the right caregiver to the situation. Planned, scheduled respite is more sustainable than emergency-only arrangements." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">The word &quot;respite&quot; means a brief period of rest or relief from something difficult. In the context of caregiving, it means time — time to rest, to handle personal obligations, to sleep through the night, to remember who you are outside of the caregiving role. What respite care gives back to families is not just hours. It is capacity.</p>
@@ -372,6 +513,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Aging in place is not just a trend — it is what most seniors want. Learn why in-home care is making it possible for more South Carolina families.",
     category: "Aging in Place",
+    faq: [
+      { q: "What percentage of seniors prefer to age in place at home?", a: "Surveys consistently show that approximately 90 percent of older adults want to remain in their own homes for as long as possible. That preference is strong across income levels, health status, and geography." },
+      { q: "What makes aging in place sustainable rather than just a preference?", a: "The right support structure. Without adequate help, aging in place can mean a senior struggling unsafely through daily tasks. With the right home care — personal assistance, companionship, meal preparation, transportation — it becomes a genuinely viable long-term plan." },
+      { q: "Is aging in place always the right choice for South Carolina seniors?", a: "Not always. Beyond Care will be honest with families when a situation has exceeded what in-home care can safely address. But for many seniors — particularly when care begins early — appropriate home support makes aging in place a realistic long-term option." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">A generation ago, the default response to a senior&apos;s declining functional ability was often facility placement — assisted living, a nursing home, or a move in with an adult child. That default is shifting. More families today are choosing to keep their loved ones home — with professional support in place to make it work. That shift is not just sentimental. It is practical, evidence-based, and increasingly well-supported by home care infrastructure.</p>
@@ -396,6 +542,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Poor nutrition is a leading driver of health decline in older adults. Learn practical nutrition tips for seniors at home — and how home care supports better eating habits.",
     category: "Health & Wellness",
+    faq: [
+      { q: "Why are seniors at higher risk for nutritional decline at home?", a: "Physical changes that affect taste and appetite, difficulty standing to cook, challenges grocery shopping, and the reality of eating alone all contribute to nutritional decline that families often do not notice until it has become a real problem." },
+      { q: "Can a Beyond Care caregiver prepare meals for a senior with dietary restrictions?", a: "Yes. Dietary restrictions and preferences are documented in the care plan and respected during every meal preparation. Caregivers can work with low-sodium, diabetic, soft, and other specialty diets as prescribed." },
+      { q: "What are the signs that a senior is experiencing nutritional decline?", a: "Unexplained weight loss, an increasingly empty refrigerator, signs of dehydration, declining energy, or increased confusion can all signal nutritional issues. Any of these warrant a conversation with a physician and a review of daily support." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Nutrition is one of the least visible and most important factors in senior health. Many older adults quietly experience nutritional decline — not because they do not want to eat well, but because shopping, cooking, and eating alone have become difficult in ways that are easy to overlook from a distance.</p>
@@ -426,6 +577,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Memory changes in aging parents can be easy to dismiss. Learn which early signs warrant attention — and how in-home support helps South Carolina families manage safely.",
     category: "Memory Care",
+    faq: [
+      { q: "What is the difference between normal age-related forgetfulness and a warning sign of dementia?", a: "Normal aging may involve occasionally forgetting a name but recalling it later, or slower information retrieval. Concerning signs include repeatedly asking the same question, forgetting recently learned information, getting lost in familiar places, or significant personality changes." },
+      { q: "If my parent shows early memory changes, what should I do first?", a: "Schedule an appointment with their primary care physician. A physician can rule out reversible causes of cognitive decline — medication side effects, thyroid issues, vitamin deficiencies — and refer for further evaluation if needed. Early diagnosis opens the door to planning and support." },
+      { q: "How does home care help a senior with early memory changes stay safe?", a: "Consistency is one of the most effective supports for early cognitive decline. A familiar caregiver, a predictable daily routine, and a structured home environment reduce confusion, support function, and provide early warning for the family when changes occur." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">It is easy to dismiss early memory changes in a parent or loved one as &quot;just getting older.&quot; And some degree of cognitive slowing is a normal part of aging. But there is a meaningful difference between normal age-related memory variation and changes that warrant attention, a physician conversation, and a plan.</p>
@@ -451,6 +607,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Mobility challenges affect everything — from fall risk to independence and emotional well-being. Learn how home care from Beyond Care supports safer daily movement for seniors.",
     category: "Personal Care",
+    faq: [
+      { q: "Can a home care caregiver assist a senior who uses a wheelchair or walker?", a: "Yes. Beyond Care caregivers are trained in mobility assistance for clients using wheelchairs, walkers, and other assistive equipment — including safe transfer techniques and ambulation support." },
+      { q: "Does home care replace physical therapy for seniors with mobility challenges?", a: "No. Physical therapy is a clinical service requiring a licensed therapist and physician order. Home care supports daily mobility between therapy sessions — reinforcing function, building confidence, and assisting with prescribed exercise activities." },
+      { q: "How does reduced mobility affect a senior's overall well-being?", a: "Mobility decline creates a difficult cycle: reduced movement weakens muscles, increasing fall risk, which leads to fear-driven inactivity that further weakens the body. A present caregiver breaks that cycle by providing the confidence and physical support needed to keep moving." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Mobility affects everything. A senior who moves with confidence — who can get out of bed safely, walk through the home without fear, and transfer from a chair without help — experiences a fundamentally different daily life than one who cannot. When mobility becomes compromised, beyond the physical risk, it erodes the sense of independence and confidence that is central to quality of life.</p>
@@ -475,6 +636,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Social connection is not a luxury for seniors — it is a health requirement. Learn why companionship and engagement matter deeply to senior well-being in South Carolina.",
     category: "Senior Well-Being",
+    faq: [
+      { q: "How serious a health risk is social isolation for older adults?", a: "Chronic isolation in older adults is linked to accelerated cognitive decline, depression, weakened immune function, increased cardiovascular risk, and higher mortality rates. The research places its health impact in the same category as smoking or obesity." },
+      { q: "How does social isolation happen for seniors living at home?", a: "Isolation typically builds gradually: a spouse passes, friends move or decline, driving stops, mobility decreases, and family is busy at a distance. Over time, the social world contracts until daily life becomes very quiet — often without the senior fully registering how much has changed." },
+      { q: "Can a companion caregiver really make a meaningful difference for a lonely senior?", a: "Yes. Families consistently observe meaningful changes in mood, engagement, and energy within weeks of regular companion care. The relationship itself — a consistent, caring presence — has documented health value beyond the activities involved." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">We tend to think of health in terms of physical measures — blood pressure, medication management, fall prevention. But social connection is as important to senior health as many clinical factors — and it is one of the most commonly neglected.</p>
@@ -499,6 +665,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "A tidy home is a safer home. Learn how light housekeeping from a home care caregiver supports fall prevention and daily health for seniors in South Carolina.",
     category: "Home Safety",
+    faq: [
+      { q: "What does light housekeeping from a home care caregiver typically include?", a: "Light housekeeping includes laundry, dishes, vacuuming, sweeping, surface cleaning, bathroom and kitchen maintenance, organization, and trash removal — the routine upkeep that keeps a home functional, clean, and safe." },
+      { q: "How does a messy home increase fall risk for seniors?", a: "Throw rugs, loose cords, stacked items in walkways, and general floor clutter are among the most common trip hazards in senior homes. A caregiver who keeps pathways clear and manages accumulating items is actively reducing fall risk with every visit." },
+      { q: "Does light housekeeping include deep cleaning or home repairs?", a: "No. Light housekeeping covers routine daily and weekly maintenance tasks. Deep cleaning projects, repairs, and outdoor maintenance are not typically included, though specific needs can be discussed during the care planning process." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Housekeeping is often framed as a comfort service — something nice to have but not essential. For seniors living at home, the reality is different. A cluttered, disorganized, or poorly maintained home is a physical risk environment. Light housekeeping from a home care caregiver is a safety service as much as a comfort one.</p>
@@ -523,6 +694,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Home is more than a place — for seniors, it is independence, memory, and identity. Learn about the emotional benefits of aging at home with support from Beyond Care in South Carolina.",
     category: "Aging in Place",
+    faq: [
+      { q: "Do seniors who stay at home have better emotional health outcomes than those who move to facilities?", a: "Research consistently shows that seniors who remain at home with appropriate support report higher life satisfaction, lower rates of depression, and better overall psychological well-being compared to comparable populations in facility care." },
+      { q: "Why is environmental familiarity especially important for seniors with memory changes?", a: "Familiar environments reduce confusion, support daily orientation, and provide the sensory anchors — the chair by the window, the layout of the kitchen — that help people with cognitive changes navigate their day. Removing those anchors can produce disorientation and accelerated decline." },
+      { q: "Can a senior return to home care after a period in a facility?", a: "In some cases, yes. If a senior was placed in a facility following a health event and has since stabilized, returning home with in-home support may be possible. Contact Beyond Care to discuss the specific situation." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">When families weigh care options, the conversation tends to focus on practical factors: safety, cost, level of need. The emotional dimension — what it means to a senior to stay in their own home — often gets underweighted. For many older adults, home is not just where they live. It is where their life is.</p>
@@ -547,6 +723,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Families in Honea Path, SC looking for in-home care resources — Beyond Care Home Care Services is based in Honea Path and serves the surrounding community. Learn more.",
     category: "Local Resources",
+    faq: [
+      { q: "Where is Beyond Care's main office in Honea Path, South Carolina?", a: "Beyond Care's main office is located at 512A East Greer Street in Honea Path, SC. This serves as the operational hub for care throughout Anderson County and the broader Upstate South Carolina region." },
+      { q: "Does Beyond Care serve areas outside Honea Path?", a: "Yes. Beyond Care serves families throughout Anderson County and surrounding Upstate counties including Greenville, Abbeville, Pickens, and Greenwood — all served from the Honea Path and Williamston office locations." },
+      { q: "What public programs help pay for home care in Anderson County, South Carolina?", a: "Anderson County families may qualify for Community Long Term Care (CLTC), Medicaid Waiver programs, VA Aid and Attendance benefits, and vouchers. Contact SCDHHS at 1-888-549-0820 to explore eligibility." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">If you are caring for an aging parent, a spouse, or another family member in Honea Path, SC, you are likely navigating a mix of practical challenges: finding reliable care, understanding what options are available, managing the emotional weight of the situation, and figuring out who to call. This post is designed to help Honea Path families orient themselves.</p>
@@ -569,6 +750,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Beyond Care serves families in Williamston, SC from our satellite office at 103 Belton Drive. Learn about home care services and resources available in Williamston.",
     category: "Local Resources",
+    faq: [
+      { q: "Where is Beyond Care's Williamston, SC office located?", a: "Beyond Care's Williamston satellite office is located at 103 Belton Drive, Williamston, SC. Office hours are Monday through Friday, 8:00 AM to 4:00 PM." },
+      { q: "What home care services are available to families in Williamston, South Carolina?", a: "The full range of Beyond Care services is available in Williamston — personal care, companion care, respite care, meal preparation, housekeeping, transportation, medication reminders, mobility support, and hospital discharge support." },
+      { q: "How do I contact Beyond Care's Williamston office?", a: "Call the Williamston office at (864) 369-0222 or the main Honea Path line at (864) 841-2500. Both lines connect you with our team and are available during regular business hours." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">If your family is navigating a home care situation in Williamston, SC, Beyond Care Home Care Services is close by. Our Williamston office at 103 Belton Drive brings professional, nurse-led home care directly to this community.</p>
@@ -591,6 +777,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Families across Upstate South Carolina are increasingly choosing in-home care for seniors and adults. Learn why — and how Beyond Care supports families throughout the region.",
     category: "Local Resources",
+    faq: [
+      { q: "Which counties in Upstate South Carolina does Beyond Care serve?", a: "Beyond Care serves Anderson, Greenville, Abbeville, Pickens, and Greenwood counties from office locations in Honea Path and Williamston, SC. Contact us to confirm service availability in your specific area." },
+      { q: "Why do Upstate South Carolina families tend to prefer in-home care over facility placement?", a: "Upstate communities have a strong cultural value placed on family, independence, and staying rooted in home. In-home care aligns with that character — it supports the desire to age in a familiar place without requiring the family to manage everything alone." },
+      { q: "Why does it matter that Beyond Care is locally owned rather than a franchise?", a: "A locally owned company — operated by a nurse who lives in this community — has genuine accountability to the families it serves. When something needs to be addressed, there is a real person nearby who has a personal stake in getting it right." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Across Upstate South Carolina — Anderson, Greenville, Abbeville, Pickens, Greenwood counties — families are navigating the same question: when a loved one needs more support than the family alone can provide, what is the best option? For a growing number of families in this region, the answer is professional in-home care.</p>
@@ -615,6 +806,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Veterans in South Carolina may qualify for VA home care benefits. Learn how Beyond Care supports veterans and how VA Aid and Attendance can help fund in-home care.",
     category: "Veterans",
+    faq: [
+      { q: "What is VA Aid and Attendance and how can it help pay for home care in South Carolina?", a: "VA Aid and Attendance is a monthly pension supplement available to qualifying veterans and surviving spouses who need assistance with daily living activities. Eligible recipients receive meaningful additional monthly income specifically intended to fund care like what Beyond Care provides." },
+      { q: "Does a veteran need to have been injured in service to qualify for Aid and Attendance?", a: "No. Aid and Attendance eligibility is based on current need for daily assistance and financial criteria — not on service-connected disability. Many veterans who never filed a VA disability claim may still qualify for this benefit." },
+      { q: "Does Beyond Care's surviving spouse qualify for VA benefits if their veteran spouse is deceased?", a: "Surviving spouses of eligible veterans may qualify for a version of the Aid and Attendance benefit. Contact the VA at 1-800-827-1000 or a Veterans Service Organization such as the American Legion or VFW for specific guidance." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Veterans who have served this country deserve access to quality care in their later years. For many veterans — and eligible surviving spouses — the U.S. Department of Veterans Affairs provides benefits that can significantly offset the cost of in-home care. Yet these benefits are among the most underutilized entitlements available to American veterans.</p>
@@ -639,6 +835,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Coming home after surgery or rehab requires a plan. Learn how in-home care from Beyond Care in South Carolina supports a safer, smoother recovery at home.",
     category: "Recovery Care",
+    faq: [
+      { q: "When should I contact Beyond Care if my loved one has upcoming surgery?", a: "Contact us as soon as a discharge date is anticipated — ideally before the discharge day. This allows us to conduct an assessment, build a care plan, and identify the right caregiver match so care can begin the day your loved one returns home." },
+      { q: "What specific support does Beyond Care provide during the post-surgery recovery window?", a: "Personal care assistance, meal preparation appropriate to recovery dietary needs, medication reminders, transportation to follow-up appointments, light housekeeping, companionship, and observation for concerning changes that warrant contact with the care team." },
+      { q: "How long does post-surgery home care typically last?", a: "It depends on the procedure, the patient's age and health, and the pace of recovery. Some clients need a few weeks of daily support; others transition to longer-term home care. Beyond Care adjusts care plans as the patient's needs evolve." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Surgery and rehabilitation stays are planned events — which means the home care that follows can be planned too. The families who navigate post-surgical and post-rehabilitation recovery most successfully are those who arrange support before discharge, not after arrival home.</p>
@@ -663,6 +864,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Not all home care providers are equal. Use these questions to evaluate and choose the right home care company for your loved one in South Carolina.",
     category: "Choosing Care",
+    faq: [
+      { q: "What is the most important question to ask a home care provider in South Carolina?", a: "Ask whether caregivers are employees or independent contractors. Employee caregivers are trained, supervised, bonded, insured, and covered by workers' compensation. Contractor-based agencies transfer significant risk and accountability to the family." },
+      { q: "Should all home care agencies have nurse involvement in care planning?", a: "Yes — it is a meaningful quality differentiator. A care plan created without clinical input is essentially a schedule. Nurse-led oversight ensures clinical awareness, appropriate response to health changes, and a higher standard of ongoing care." },
+      { q: "How do I verify that a home care agency in South Carolina is licensed?", a: "You can verify licensing through the South Carolina Department of Health and Environmental Control (DHEC). Ask any agency you are evaluating for their license number and confirm it with DHEC." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Choosing a home care provider is one of the most important decisions a family can make for a loved one. The options vary widely in quality, accountability, and transparency. Asking the right questions before you commit separates providers who will tell you what you want to hear from those who can tell you exactly what they do and why.</p>
@@ -691,6 +897,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "South Carolina's Medicaid Waiver and CLTC programs may help eligible families access in-home care. Learn how these programs work and how to explore eligibility.",
     category: "Payment Options",
+    faq: [
+      { q: "What is South Carolina's CLTC program and how does it help pay for home care?", a: "Community Long Term Care (CLTC) is South Carolina's primary Medicaid-funded program for home and community-based long-term care services. For eligible elderly and disabled residents, it covers personal care, homemaker services, and similar in-home supports administered through SCDHHS." },
+      { q: "How do I start the eligibility process for Medicaid Waiver home care in South Carolina?", a: "Contact SCDHHS at 1-888-549-0820 to begin the application process. Eligibility involves a functional needs assessment and a financial determination. Starting early matters — enrollment can take weeks to months." },
+      { q: "Can my family start home care while waiting for Medicaid Waiver approval?", a: "Yes. Many families begin care on a private pay basis while the CLTC or Medicaid Waiver enrollment is processing, then transition to program billing once approved. Contact Beyond Care to discuss interim care arrangements." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Medicaid Waiver programs are among the least understood and most underutilized home care funding resources available to South Carolina families. For eligible individuals, they can significantly reduce or eliminate out-of-pocket costs for in-home care — but navigating eligibility and enrollment requires some guidance.</p>
@@ -715,6 +926,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "If your loved one has a long-term care insurance policy, it may cover significant home care costs. Learn how LTC insurance works for home care in South Carolina.",
     category: "Payment Options",
+    faq: [
+      { q: "What triggers long-term care insurance benefits for home care?", a: "Most LTC policies activate when the insured cannot independently perform a certain number of Activities of Daily Living — typically two or three from a standard list including bathing, dressing, eating, transferring, toileting, and continence. If your loved one needs help with these, review the policy carefully." },
+      { q: "What is an elimination period in a long-term care insurance policy?", a: "The elimination period is a waiting period — typically 30, 60, or 90 days — before LTC benefits begin. Families commonly pay privately during this window and transition to insurance billing once the period ends." },
+      { q: "How do I activate long-term care insurance benefits for in-home care in South Carolina?", a: "Contact the insurance company's claims department and ask specifically about home care benefits. They will initiate a claims process that involves a functional assessment of the insured. Once approved, benefits are paid per policy terms — sometimes to the provider, sometimes to the family." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Millions of Americans carry long-term care insurance policies — and many of them, or their families, are not aware of what those policies actually cover. For families paying for home care in South Carolina, a long-term care policy could represent a significant funding resource. Here is what you need to know.</p>
@@ -739,6 +955,11 @@ const POSTS: Record<string, {
     date: "March 2026",
     description: "Small home modifications can dramatically reduce fall risk and improve safety for aging seniors. A practical guide for South Carolina families preparing a parent's home.",
     category: "Home Safety",
+    faq: [
+      { q: "What are the highest-priority home safety modifications for an aging parent?", a: "The bathroom is statistically the highest-risk room. Grab bars beside the toilet and in the shower, non-slip mats, a shower chair, and adequate lighting are the most impactful immediate modifications. Clearing throw rugs and clutter from walkways throughout the home is equally important." },
+      { q: "Who can assess my parent's home for safety risks in South Carolina?", a: "An occupational therapist can conduct a formal home safety assessment and provide specific recommendations. Beyond Care caregivers also note safety concerns during care visits and communicate them to the family as part of ongoing monitoring." },
+      { q: "Can home safety modifications fully prevent falls without a caregiver?", a: "Modifications significantly reduce environmental risk, but they do not replace the presence of a trained caregiver who assists during the highest-risk activities — bathing, transfers, nighttime movement — where most falls actually occur." },
+    ],
     body: (
       <>
         <p className="body-lg mb-4">Home safety for seniors is something most families think about after a fall — not before one. But the adjustments that make a home safer for an aging adult are often simple, relatively inexpensive, and far less disruptive than dealing with the consequences of a preventable accident. Here is a practical room-by-room guide.</p>
@@ -1039,7 +1260,471 @@ const POSTS: Record<string, {
         <p>The most effective respite care is scheduled — built into the care plan as a consistent, predictable break. Emergency respite is also available, but planned respite is far more sustainable. Beyond Care works with families to build respite schedules that provide meaningful relief while maintaining the quality and consistency of care for the client.</p>
         <h2>Frequently Asked Questions</h2>
         <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is respite care covered by insurance in South Carolina?</p><p className="text-muted text-sm">A: It may be. Long-term care insurance, Medicaid Waiver, CLTC, and VA benefits may all cover qualifying respite care. Contact us to discuss what applies to your situation.</p></div>
-        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: My loved one doesn't want a caregiver. What do I do?</p><p className="text-muted text-sm">A: This is a common challenge. We recommend starting with short, low-key visits focused on companionship rather than personal care — allowing the client to build trust with the caregiver over time. Contact us to discuss strategies.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: My loved one doesn&apos;t want a caregiver. What do I do?</p><p className="text-muted text-sm">A: This is a common challenge. We recommend starting with short, low-key visits focused on companionship rather than personal care — allowing the client to build trust with the caregiver over time. Contact us to discuss strategies.</p></div>
+      </>
+    ),
+  },
+
+  // ── NEW POSTS ──────────────────────────────────────────────────────────────
+
+  "how-to-choose-home-care-agency-guide": {
+    title: "How to Choose a Home Care Agency — A Family's Complete Guide",
+    date: "March 2026",
+    description: "A step-by-step guide to choosing the right home care agency for your loved one in South Carolina. What to look for, what to avoid, and questions that reveal the truth.",
+    category: "Choosing Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Choosing a home care agency is one of the most important decisions a family can make — and one of the most confusing. There are dozens of providers in Upstate South Carolina, and they all use similar language. This guide gives you a practical framework for evaluating agencies honestly, asking the right questions, and choosing a provider your family can trust.</p>
+        <h2>Step 1 — Understand What You Actually Need</h2>
+        <p>Before you call a single agency, get clear on what type of care your loved one needs. Personal care (bathing, grooming, dressing), companion care (social engagement, companionship), respite care (relief for a family caregiver), or a combination? Knowing this helps you evaluate whether an agency is actually equipped to serve your specific situation — or just selling you a package.</p>
+        <h2>Step 2 — Verify the Basics</h2>
+        <p>Confirm the agency is licensed to operate in South Carolina, carries liability insurance, and uses direct employee caregivers rather than independent contractors. Employee-based agencies provide significantly more protection: the agency — not you — is responsible for caregiver screening, taxes, workers' compensation, and liability. If a caregiver is an independent contractor and gets injured in your home, your exposure is different than with an agency employee.</p>
+        <h2>Step 3 — Ask About the Hiring Process</h2>
+        <p>A quality agency will describe a rigorous, multi-point screening process including criminal background checks, reference verification, in-person interviews, and skills assessments. Ask specifically: what disqualifies a caregiver from employment? What ongoing training is required after hiring? How are caregivers evaluated after they begin working with clients?</p>
+        <h2>Step 4 — Evaluate the Nurse Involvement</h2>
+        <p>A nurse-led agency provides a clinically informed layer of oversight that non-nurse-led agencies cannot match. Ask whether a registered nurse is involved in developing care plans, conducting supervisory visits, and monitoring client status over time. This oversight is the difference between a schedule and a real care plan.</p>
+        <h2>Step 5 — Understand How Schedules Work</h2>
+        <p>Ask what the minimum hours per visit are, whether the same caregiver will show up regularly, and what happens when a caregiver calls in sick. Consistent caregiver assignment is one of the highest predictors of client satisfaction — especially for clients with dementia or chronic conditions.</p>
+        <h2>Step 6 — Clarify the Financial Picture</h2>
+        <p>Ask about hourly rates, minimums, and any additional fees. Ask which payment options the agency accepts: private pay, long-term care insurance, Medicaid Waiver, VA benefits. A quality agency will have a clear, honest conversation about cost before you commit.</p>
+        <h2>Step 7 — Trust Your Read of the Agency</h2>
+        <p>Pay attention to how quickly calls are returned, how clearly questions are answered, and whether the agency feels locally invested or transactional. Locally owned agencies in your community have a different kind of accountability than national franchises.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How is Beyond Care different from other agencies?</p><p className="text-muted text-sm">A: Beyond Care is locally owned, nurse-led, and uses only direct employee caregivers who are background-checked, bonded, insured, and CPR certified. Sarah Atkin, RN, BSN is personally involved in care planning and quality oversight. We welcome every question before a commitment is made.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can I meet the caregiver before care begins?</p><p className="text-muted text-sm">A: Yes. We facilitate introductions before the first visit whenever possible. Comfort and trust between the client and caregiver are priorities, not afterthoughts.</p></div>
+      </>
+    ),
+  },
+
+  "what-to-look-for-in-a-home-caregiver": {
+    title: "What to Look for in a Home Caregiver — 8 Qualities That Matter",
+    date: "March 2026",
+    description: "Not all caregivers are equal. These 8 qualities separate truly excellent home caregivers from mediocre ones — and what to ask to find out which you are getting.",
+    category: "Caregiver Standards",
+    body: (
+      <>
+        <p className="body-lg mb-4">The quality of in-home care depends almost entirely on the individual who shows up at the door. A great caregiver makes an enormous difference in a client's daily life — and a poor one can create real harm. Here are the eight qualities that define an exceptional home caregiver, and how to evaluate whether a candidate has them.</p>
+        <h2>1. Reliability</h2>
+        <p>The single most important professional quality in a caregiver is showing up — on time, consistently, and without creating anxiety for the family. Reliability is not glamorous, but it is the foundation of every good care relationship. Ask about an agency's attendance and on-call policies before care begins.</p>
+        <h2>2. Patience</h2>
+        <p>Personal care tasks with a senior who moves slowly, gets confused, or resists help require genuine patience. A caregiver who rushes or shows frustration is not providing dignified care. Look for evidence of patience in the way a caregiver talks about their clients — not just in what they claim.</p>
+        <h2>3. Observational Skills</h2>
+        <p>An excellent caregiver notices changes. Unusual bruising, changes in eating or sleeping patterns, signs of confusion or distress — these are the things a clinical supervisor or family member needs to know. Caregivers who observe carefully and communicate proactively are genuinely valuable partners in health management.</p>
+        <h2>4. Genuine Warmth</h2>
+        <p>Clients know when care is transactional. The caregivers who have the most positive impact on seniors' well-being are those who actually like people — who are curious about their clients' histories, interests, and personalities. Warmth is not performable over time; it has to be real.</p>
+        <h2>5. Physical Capability</h2>
+        <p>Many home care tasks require real physical strength — safe transfers, mobility assistance, and helping a client who has fallen. Confirm that a caregiver is trained in proper body mechanics and transfer techniques, and that they are physically capable of the tasks required.</p>
+        <h2>6. Discretion</h2>
+        <p>Caregivers enter clients' homes and lives with deep access. A trustworthy caregiver maintains strict privacy, never shares client information outside of the care team, and never takes advantage of the intimacy that comes with the role.</p>
+        <h2>7. Adaptability</h2>
+        <p>A client's needs, moods, and health status change. An excellent caregiver adapts — adjusting their approach based on how a client is doing today, not how they were doing last week. Rigidity is a liability in home care.</p>
+        <h2>8. Communication</h2>
+        <p>The best caregivers keep families informed and are clear with the care team about what they observe, what happened during a visit, and any concerns they have. Communication is the connective tissue of good care.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How does Beyond Care screen for these qualities?</p><p className="text-muted text-sm">A: Our hiring process includes in-person interviews, reference verification, background checks, and an orientation period. Caregivers are monitored through regular supervisory visits and performance evaluations that assess the qualities above — not just compliance.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if the caregiver isn&apos;t the right fit?</p><p className="text-muted text-sm">A: We take fit seriously. If a match is not working for any reason — personality, communication style, anything — we work with the family to find a better match. Your loved one&apos;s comfort is the priority.</p></div>
+      </>
+    ),
+  },
+
+  "red-flags-home-care-agency": {
+    title: "Red Flags When Choosing a Home Care Agency",
+    date: "March 2026",
+    description: "Some home care agencies cut corners in ways families never discover until care begins. These red flags can help South Carolina families avoid a costly mistake.",
+    category: "Choosing Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Most home care agencies present well. They have professional websites, warm customer service representatives, and reassuring language about quality and compassion. The problems usually do not show up in the sales conversation — they show up after care begins. These red flags are the signals families should watch for before they sign anything.</p>
+        <h2>Red Flag #1 — Caregivers Are Independent Contractors</h2>
+        <p>An agency that sends independent contractors rather than employees is shifting significant responsibility onto you. Independent contractors are not covered by the agency&apos;s workers' compensation or liability insurance. If a contractor is injured in your home, your homeowner's insurance — and potentially you personally — may be exposed. Always confirm that caregivers are direct employees of the agency.</p>
+        <h2>Red Flag #2 — Vague Answers About the Hiring Process</h2>
+        <p>If an agency cannot clearly describe their background check, reference verification, and screening process, be cautious. Quality agencies are proud of their standards and happy to explain them in detail. Vague answers often mean minimal standards.</p>
+        <h2>Red Flag #3 — No Nurse Involvement in Care Planning</h2>
+        <p>A care plan created without clinical input is a schedule, not a care plan. Ask whether a registered nurse is involved in the assessment process, care plan development, and supervisory visits. If the answer is no, the quality oversight you would expect may not exist.</p>
+        <h2>Red Flag #4 — High Caregiver Turnover</h2>
+        <p>Frequent caregiver changes are disruptive to clients and often indicate poor management, inadequate caregiver support, or a pattern of hiring anyone available to fill shifts. Ask how long caregivers typically stay with the agency and what the agency does to support caregiver retention.</p>
+        <h2>Red Flag #5 — Pressure to Sign Immediately</h2>
+        <p>A reputable agency wants you to feel comfortable before you commit. High-pressure sales tactics — urgency about availability, discounts that expire today, pressure to decide on the first call — are a sign of a company that prioritizes sales over service.</p>
+        <h2>Red Flag #6 — Inconsistent Communication</h2>
+        <p>If calls are not returned promptly, questions are answered unclearly, or you are passed between multiple people without consistent contact, expect that pattern to continue during care. How an agency communicates with you before you are a client is a preview.</p>
+        <h2>Red Flag #7 — No Physical Office Presence</h2>
+        <p>An agency with a local office has real accountability. An agency operating entirely remotely may not have the local presence to provide responsive support when something goes wrong.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How do I verify that an agency is licensed in South Carolina?</p><p className="text-muted text-sm">A: You can verify licensing through the South Carolina Department of Health and Environmental Control (DHEC). Ask any agency you are considering for their license number.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is Beyond Care employee-based?</p><p className="text-muted text-sm">A: Yes. Every caregiver is a Beyond Care employee — bonded, insured, and covered by workers&apos; compensation. We do not use independent contractors.</p></div>
+      </>
+    ),
+  },
+
+  "dementia-care-at-home-complete-guide": {
+    title: "Dementia Care at Home — A Complete Guide for Families",
+    date: "March 2026",
+    description: "A comprehensive guide to supporting a loved one with dementia at home. Practical strategies, what to expect at each stage, and how professional home care helps.",
+    category: "Memory Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Caring for a loved one with dementia at home is one of the most demanding caregiving challenges a family can face. The disease progresses, needs evolve, and the emotional weight is substantial. This guide provides a practical, honest framework for understanding dementia care at home — what it involves, how it changes over time, and where professional home care fits into the picture.</p>
+        <h2>Understanding Dementia Progression</h2>
+        <p>Dementia is not a single disease — it is an umbrella term for conditions that affect memory, cognition, and behavior. The most common is Alzheimer's disease, followed by vascular dementia, Lewy body dementia, and frontotemporal dementia. All are progressive, though the pace and pattern of progression vary. Families benefit from understanding the typical stages, not to predict the future precisely, but to anticipate and plan for what lies ahead.</p>
+        <h2>Early Stage — What Families Can Manage</h2>
+        <p>In early dementia, many individuals can manage most daily activities with minimal support. Challenges typically involve short-term memory, word-finding, and some organizational tasks. Families often handle this stage through reminders, safety modifications, and increased communication. Professional care may begin as a few hours of companion care per week — providing engagement and observation while allowing the person to maintain as much independence as possible.</p>
+        <h2>Middle Stage — When Care Needs Intensify</h2>
+        <p>The middle stage is typically the longest — and the most demanding for families. Individuals may become confused about time and place, need assistance with bathing and dressing, experience behavioral changes such as agitation or sundowning, and require closer supervision for safety. This is when professional home care becomes genuinely necessary for most families. A consistent caregiver who knows the client, understands their triggers, and maintains a structured routine makes an enormous difference in this stage.</p>
+        <h2>Late Stage — Full Support</h2>
+        <p>In late-stage dementia, individuals typically need full assistance with all personal care tasks, may lose the ability to communicate verbally, and require constant supervision. At this stage, care is often around the clock. Beyond Care provides 24-hour home care options for families who want to keep a loved one at home through the end of the disease progression.</p>
+        <h2>Home Safety for Dementia Clients</h2>
+        <ul>
+          <li><TB /><span>Remove or secure items that could cause injury — stoves, sharp utensils, cleaning products</span></li>
+          <li><TB /><span>Install door alarms or locks that prevent unsupervised exit</span></li>
+          <li><TB /><span>Reduce clutter and trip hazards throughout the home</span></li>
+          <li><TB /><span>Use clear labeling on cabinets and rooms to support orientation</span></li>
+          <li><TB /><span>Consider GPS tracking devices for individuals at high elopement risk</span></li>
+        </ul>
+        <h2>The Role of Routine in Dementia Care</h2>
+        <p>Consistency is one of the most effective tools in dementia care. A predictable daily routine — same wake time, same meal schedule, same activities in the same order — significantly reduces agitation and confusion. Professional caregivers who maintain this routine provide a stability that family caregivers, managing many competing demands, often cannot deliver alone.</p>
+        <h2>Supporting Family Caregivers</h2>
+        <p>Caregiver burnout in dementia care is not a possibility — it is a near-certainty without adequate relief. Respite care is not a luxury in this context; it is what makes long-term home-based care sustainable. Beyond Care can provide scheduled respite — a few hours per week or full-day coverage — so that family caregivers can rest without guilt.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Do Beyond Care caregivers have experience with dementia?</p><p className="text-muted text-sm">A: Yes. Our caregivers receive ongoing training in dementia care, including behavioral approaches, safe redirection techniques, and routine-based care. Our nurse-led model means clinical oversight is always part of the picture.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can you help a dementia client who wanders?</p><p className="text-muted text-sm">A: Yes. Our caregivers are trained in elopement prevention and supervision strategies for clients who are at risk. We work with families to assess the home environment and put appropriate safeguards in place.</p></div>
+      </>
+    ),
+  },
+
+  "post-surgery-home-care-what-to-expect": {
+    title: "Post-Surgery Home Care — What to Expect and How to Prepare",
+    date: "March 2026",
+    description: "Coming home after surgery can be overwhelming without support. Learn what post-surgery home care includes and how to prepare before discharge.",
+    category: "Recovery Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">The day a loved one comes home from surgery is often more stressful than the surgery itself. The hospital handled the clinical piece. Now, everything that happens next is up to the family — and that is a lot of responsibility without a plan. Post-surgery home care from a professional agency changes that dynamic significantly. Here is what to expect and how to prepare.</p>
+        <h2>Why the First Week Home Is Critical</h2>
+        <p>Hospital readmission rates after surgery are highest in the first 30 days — and the greatest risk is in the first week. The reasons are consistent: patients are not taking medications correctly, are not eating or hydrating adequately, are falling, or are not following activity restrictions. Non-medical in-home care directly addresses each of these risks without requiring clinical nursing.</p>
+        <h2>What Post-Surgery Home Care Covers</h2>
+        <ul>
+          <li><TB /><span>Assistance with bathing, dressing, and personal hygiene while mobility is limited</span></li>
+          <li><TB /><span>Meal preparation that supports recovery and dietary restrictions</span></li>
+          <li><TB /><span>Medication reminders to maintain the prescribed post-surgical schedule</span></li>
+          <li><TB /><span>Transportation to follow-up appointments and physical therapy</span></li>
+          <li><TB /><span>Light housekeeping to maintain a safe recovery environment</span></li>
+          <li><TB /><span>Companionship and emotional support through the recovery period</span></li>
+          <li><TB /><span>Observation for concerning changes that warrant contact with the care team</span></li>
+        </ul>
+        <h2>How to Prepare Before the Hospital Discharge</h2>
+        <p>The biggest mistake families make is waiting until the day of discharge to think about home support. Discharge planners move quickly, and family members are often overwhelmed with the emotion of the moment. Reach out to a home care agency before the discharge date — ideally 48 to 72 hours in advance. Beyond Care can often begin care on the day of discharge when the family plans ahead.</p>
+        <h2>Coordinating With Home Health</h2>
+        <p>Many patients are also discharged with home health orders — skilled nursing or physical therapy provided at home. Home health and non-medical home care serve different functions and can run simultaneously. The home health nurse addresses clinical needs; the home care caregiver handles daily living support. They are complementary, not redundant.</p>
+        <h2>How Long Is Post-Surgery Care Typically Needed?</h2>
+        <p>It depends on the procedure, the patient&apos;s age and health, and the pace of recovery. For a hip or knee replacement in an otherwise healthy senior, a few weeks of daily support may be sufficient. For a more complex surgery, or for a patient managing multiple conditions, longer-term support may be appropriate. Beyond Care builds care plans that adjust as the patient&apos;s needs change.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How soon can care begin after hospital discharge?</p><p className="text-muted text-sm">A: With advance notice, we can begin care the day of discharge. Contact us before the discharge date — not the day of — to make this possible.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is post-surgery home care covered by insurance?</p><p className="text-muted text-sm">A: Non-medical home care after surgery is not typically covered by Medicare, but may be covered by long-term care insurance, VA benefits, or Medicaid Waiver. Contact us to discuss what applies.</p></div>
+      </>
+    ),
+  },
+
+  "companion-care-vs-personal-care": {
+    title: "Companion Care vs Personal Care — Understanding the Difference",
+    date: "March 2026",
+    description: "Companion care and personal care serve different purposes. Learn the distinction so you can choose the right type of in-home support for your loved one.",
+    category: "Understanding Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Two of the most common home care services — companion care and personal care — are often confused or conflated. They are distinct services that meet different needs, and the distinction matters when you are designing a care plan. Here is a clear, practical explanation of each.</p>
+        <h2>What Is Companion Care?</h2>
+        <p>Companion care is primarily about social engagement, connection, and daily presence. A companion caregiver provides conversation, participates in activities, accompanies clients on outings, reads aloud, plays games, and generally helps a senior stay mentally and emotionally engaged. Companion care also includes light assistance — reminding clients about medications, helping with light tasks, observing for safety concerns — but it does not include hands-on personal care.</p>
+        <h2>What Is Personal Care?</h2>
+        <p>Personal care is hands-on assistance with activities of daily living (ADLs). This includes help with bathing, showering, grooming, dressing, oral hygiene, toileting, incontinence care, and mobility support — including transfers and ambulation. Personal care requires a caregiver trained in safe handling, dignity-preserving assistance, and appropriate physical technique.</p>
+        <h2>The Overlap</h2>
+        <p>Most care plans include elements of both. A caregiver who helps a client with bathing in the morning will also have breakfast with them and spend time in conversation. In practice, the services blend naturally. The distinction matters for care planning: if your loved one needs personal care assistance, make sure the agency confirms their caregivers are trained and equipped to provide it — not just companion services marketed broadly.</p>
+        <h2>Which Does Your Loved One Need?</h2>
+        <p>If your primary concern is isolation, cognitive stimulation, and daily engagement — companion care may be the right starting point. If your loved one needs physical assistance with bathing, dressing, or mobility — personal care is required. For many seniors, both are needed, and a care plan that includes both provides the most comprehensive support.</p>
+        <h2>How Needs Change Over Time</h2>
+        <p>A senior who begins with companion care often transitions to personal care as physical needs increase. One of the advantages of working with an established agency like Beyond Care is that the care plan evolves with the client — the relationship continues, and the level of support adjusts without the family needing to find a new provider.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can a caregiver provide both companion care and personal care?</p><p className="text-muted text-sm">A: Yes. Beyond Care caregivers are trained to provide both. Most care visits combine elements of personal care with genuine companion interaction — the separation is conceptual, not operational.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is companion care less expensive than personal care?</p><p className="text-muted text-sm">A: Rates may vary depending on the care plan. Contact us for a free consultation where we can discuss services and pricing based on your specific situation.</p></div>
+      </>
+    ),
+  },
+
+  "how-much-does-home-care-cost": {
+    title: "How Much Does Home Care Cost? A Clear Breakdown for Families",
+    date: "March 2026",
+    description: "Home care costs vary based on hours, care type, and location. A clear breakdown of what families can expect to pay for in-home care in South Carolina.",
+    category: "Payment Options",
+    body: (
+      <>
+        <p className="body-lg mb-4">Cost is one of the first questions families ask — and one of the hardest to answer without context. Home care pricing varies by geography, care type, hours, and provider. This guide gives South Carolina families a realistic framework for understanding costs and the options available to reduce the out-of-pocket burden.</p>
+        <h2>How Home Care Is Priced</h2>
+        <p>Most non-medical home care agencies charge an hourly rate. The rate typically varies based on the type of care (companion care vs. personal care with hands-on ADL assistance), the number of hours per visit, and overnight or 24-hour coverage requirements. Most agencies also have a minimum hours-per-visit requirement — commonly two to four hours. This is worth asking about upfront.</p>
+        <h2>What Drives Cost Up</h2>
+        <ul>
+          <li><TB /><span>Fewer hours per visit — minimum visit fees often make short visits proportionally more expensive</span></li>
+          <li><TB /><span>Overnight and 24-hour coverage — extended coverage requires more caregiver hours and coordination</span></li>
+          <li><TB /><span>Specialized care needs — clients with dementia or complex behavioral needs may require more caregiver skill and attention</span></li>
+          <li><TB /><span>Short-notice scheduling — last-minute or irregular scheduling can affect rates</span></li>
+        </ul>
+        <h2>What Reduces the Out-of-Pocket Cost</h2>
+        <p>Several funding sources can significantly reduce — or eliminate — the out-of-pocket cost of in-home care for qualifying individuals:</p>
+        <ul>
+          <li><TB /><span>Long-term care insurance policies often cover home care when the policyholder meets benefit triggers</span></li>
+          <li><TB /><span>VA Aid &amp; Attendance benefits provide monthly payments to qualifying veterans and surviving spouses</span></li>
+          <li><TB /><span>South Carolina&apos;s Medicaid Waiver and Community Long Term Care (CLTC) programs cover qualifying low-income individuals</span></li>
+          <li><TB /><span>Voucher programs — Beyond Care accepts vouchers from qualifying programs</span></li>
+        </ul>
+        <h2>The Cost of Not Having Home Care</h2>
+        <p>The financial calculus of home care is not only about the hourly rate. When a senior falls and is hospitalized, or when a family caregiver burns out and can no longer work, the financial and human costs are far greater than the cost of preventive in-home support. This context matters when families are evaluating affordability.</p>
+        <h2>Getting an Accurate Quote</h2>
+        <p>There is no honest way to give a single number without understanding a family&apos;s specific situation. Beyond Care offers free consultations — no commitment, no pressure — where we discuss the care needed, the hours involved, and the payment options available. The conversation is free. The information you get from it is valuable.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does Medicare cover home care costs?</p><p className="text-muted text-sm">A: Medicare does not cover non-medical home care. It covers home health (skilled nursing, therapy) when physician-ordered and clinically justified. Non-medical home care — the kind Beyond Care provides — is a different category.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can we start with just a few hours per week and increase later?</p><p className="text-muted text-sm">A: Yes. Many families start small and adjust the care plan as needs evolve. There is no long-term contract requirement with Beyond Care.</p></div>
+      </>
+    ),
+  },
+
+  "does-insurance-cover-home-care": {
+    title: "Does Insurance Cover Home Care? Medicare, Medicaid, and More",
+    date: "March 2026",
+    description: "Most families assume Medicare covers home care. It usually does not — but other options may apply. A clear guide to insurance coverage for home care in South Carolina.",
+    category: "Payment Options",
+    body: (
+      <>
+        <p className="body-lg mb-4">One of the most common — and most costly — misconceptions in elder care is the belief that Medicare covers in-home care. For most families, it does not. Understanding what insurance actually covers, and what other options exist, is one of the most valuable conversations a family can have before a care crisis arrives.</p>
+        <h2>What Medicare Covers (and Does Not)</h2>
+        <p>Medicare covers skilled home health services — physician-ordered nursing care, physical therapy, occupational therapy — when specific clinical criteria are met. It does not cover non-medical home care: personal care, companion care, meal preparation, or housekeeping assistance. This surprises most families. Medicare was designed to cover acute medical needs, not long-term personal care assistance.</p>
+        <h2>What Medicaid Covers in South Carolina</h2>
+        <p>Medicaid is means-tested and covers a much broader range of services than Medicare. In South Carolina, the Community Long Term Care (CLTC) program and Medicaid Waiver programs can cover qualifying non-medical home care for eligible individuals. Eligibility depends on income, assets, and functional need. Beyond Care accepts Medicaid Waiver payments and can help families understand the application process.</p>
+        <h2>Long-Term Care Insurance</h2>
+        <p>Long-term care (LTC) insurance policies are specifically designed to cover services like home care, assisted living, and nursing facilities. Policies vary significantly in what they cover and when benefits trigger, but most modern LTC policies explicitly cover non-medical in-home care when the policyholder meets functional criteria (typically inability to perform two or more activities of daily living). If your loved one has a policy, review the benefit triggers carefully and contact the insurer to initiate a claim.</p>
+        <h2>VA Benefits</h2>
+        <p>Veterans and surviving spouses may qualify for VA Aid &amp; Attendance — a pension supplement that can help cover home care costs. The benefit is underutilized; many qualifying veterans have never applied. Contact us for guidance or work with a VA-accredited claims agent to explore eligibility.</p>
+        <h2>Private Pay</h2>
+        <p>Many families pay privately — from savings, retirement funds, or proceeds from a home sale. For families without insurance coverage or public program eligibility, private pay with a consistent, flexible schedule can still be significantly more affordable than facility-based care.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How do I find out if my loved one qualifies for Medicaid Waiver home care in SC?</p><p className="text-muted text-sm">A: Contact South Carolina&apos;s Department of Health and Human Services (SCDHHS) or call us. We work with families navigating CLTC and Medicaid Waiver applications regularly.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does Beyond Care work with long-term care insurance?</p><p className="text-muted text-sm">A: Yes. We work with most long-term care insurance policies and can assist with the documentation your insurer requires.</p></div>
+      </>
+    ),
+  },
+
+  "medicare-vs-medicaid-home-care": {
+    title: "Medicare vs Medicaid for Home Care — What's the Difference?",
+    date: "March 2026",
+    description: "Medicare and Medicaid work differently when it comes to home care. Understanding the distinction helps South Carolina families access the right coverage.",
+    category: "Payment Options",
+    body: (
+      <>
+        <p className="body-lg mb-4">Medicare and Medicaid are both federal health programs, and many families use the names interchangeably. They are not the same program, and for home care specifically, the differences are significant. Understanding how each works helps families find coverage that actually applies to their situation.</p>
+        <h2>Medicare — Health Insurance for Seniors</h2>
+        <p>Medicare is the federal health insurance program for Americans age 65 and older (and some younger individuals with disabilities). It is not means-tested — eligibility is based on age and work history, not income. Medicare Part A covers hospital care; Part B covers outpatient and physician services; Part D covers prescription drugs. Medicare does cover home health services — but only skilled clinical care ordered by a physician for a specific medical condition, with strict eligibility criteria. Non-medical personal care and companion care are explicitly excluded from Medicare coverage.</p>
+        <h2>Medicaid — Health Coverage Based on Need</h2>
+        <p>Medicaid is a joint federal-state program that covers healthcare costs for individuals and families with limited income and assets. Eligibility and covered services vary by state. In South Carolina, Medicaid Waiver and the Community Long Term Care (CLTC) program specifically cover non-medical in-home care for qualifying individuals who need help with activities of daily living and meet financial eligibility criteria.</p>
+        <h2>The Key Difference for Home Care</h2>
+        <p>Medicare covers short-term skilled home health after a qualifying hospitalization or for a specific medical condition. Medicaid — through South Carolina&apos;s CLTC and Waiver programs — covers ongoing non-medical home care for eligible low-income individuals who need personal care assistance. For most families navigating daily living support for a senior, Medicaid Waiver is the more relevant public program.</p>
+        <h2>Dual Eligibility</h2>
+        <p>Some individuals qualify for both Medicare and Medicaid (called dual eligible or dual eligible beneficiaries). For these individuals, Medicare covers the clinical services and Medicaid covers the daily living support — a combination that can provide comprehensive coverage.</p>
+        <h2>What to Do If You Are Not Sure Which Applies</h2>
+        <p>Contact us. We work with families navigating these programs regularly and can help you understand which program — if any — applies to your loved one&apos;s situation. Beyond Care accepts Medicaid Waiver payments and VA benefits, and can assist with documentation for long-term care insurance claims.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How do I apply for Medicaid Waiver home care in South Carolina?</p><p className="text-muted text-sm">A: Applications go through South Carolina DHHS and the CLTC program. We recommend contacting SCDHHS directly or calling us — we can point you in the right direction and explain the process.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can someone on Medicare use Beyond Care services?</p><p className="text-muted text-sm">A: Yes. Medicare may not cover our services, but many clients pay privately or through long-term care insurance, VA benefits, or Medicaid Waiver. We can help you explore what applies.</p></div>
+      </>
+    ),
+  },
+
+  "questions-to-ask-caregiver-interview": {
+    title: "Questions to Ask When Interviewing a Home Caregiver",
+    date: "March 2026",
+    description: "The right questions reveal a caregiver's true character, experience, and values. Use these questions when interviewing a home caregiver for your loved one.",
+    category: "Choosing Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Whether you are working with an agency or evaluating a caregiver directly, the interview is your best opportunity to understand who you are inviting into your loved one&apos;s home and life. Most candidates will say the right things when asked directly. The goal is to ask questions that surface the real character, experience, and values behind the standard answers.</p>
+        <h2>Questions About Experience</h2>
+        <ul>
+          <li><TB /><span>&ldquo;What type of clients have you worked with most?&rdquo; — Look for specific conditions, not vague generalities.</span></li>
+          <li><TB /><span>&ldquo;Describe the most challenging client situation you have handled and how you managed it.&rdquo; — Real experience produces real stories.</span></li>
+          <li><TB /><span>&ldquo;Have you worked with clients who have dementia or memory challenges?&rdquo; — Directly relevant for many families.</span></li>
+        </ul>
+        <h2>Questions About Approach and Values</h2>
+        <ul>
+          <li><TB /><span>&ldquo;What do you do when a client refuses care?&rdquo; — This reveals patience, flexibility, and person-centered thinking.</span></li>
+          <li><TB /><span>&ldquo;How do you make a client feel comfortable with personal care tasks?&rdquo; — Look for genuine empathy and dignity-focused language.</span></li>
+          <li><TB /><span>&ldquo;What do you enjoy most about this work?&rdquo; — The answer reveals whether this is a calling or just employment.</span></li>
+        </ul>
+        <h2>Questions About Reliability</h2>
+        <ul>
+          <li><TB /><span>&ldquo;What would you do if you were running late or had an emergency?&rdquo; — Reliable caregivers have clear protocols.</span></li>
+          <li><TB /><span>&ldquo;Have you ever left a client without coverage? What happened?&rdquo; — This tests honesty and accountability.</span></li>
+        </ul>
+        <h2>Questions About Communication</h2>
+        <ul>
+          <li><TB /><span>&ldquo;If you noticed a change in the client&apos;s condition, who would you contact and how?&rdquo; — Communication protocols matter.</span></li>
+          <li><TB /><span>&ldquo;How do you handle a family member who is very involved and frequently calls?&rdquo; — Good caregivers see family as partners, not obstacles.</span></li>
+        </ul>
+        <h2>Questions About Logistics</h2>
+        <ul>
+          <li><TB /><span>&ldquo;Are you comfortable with our client&apos;s specific care needs?&rdquo; — Name the actual tasks — bathing, transfers, dementia supervision — and confirm comfort.</span></li>
+          <li><TB /><span>&ldquo;What are your availability limitations?&rdquo; — Know the schedule constraints upfront.</span></li>
+        </ul>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Should I interview the caregiver before they start, even with an agency?</p><p className="text-muted text-sm">A: Yes, if the agency allows it. Beyond Care facilitates introductions before the first visit and welcomes family involvement in the matching process.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if a caregiver gives concerning answers?</p><p className="text-muted text-sm">A: Trust your instincts. If something feels wrong — evasiveness, lack of empathy, implausible answers — communicate this to the agency immediately. A quality agency will take this seriously.</p></div>
+      </>
+    ),
+  },
+
+  "home-care-abbeville-greenwood-sc": {
+    title: "Home Care in Abbeville and Greenwood County, SC",
+    date: "March 2026",
+    description: "Families in Abbeville and Greenwood County, SC searching for in-home care. Learn how Beyond Care provides nurse-led support throughout this region of Upstate South Carolina.",
+    category: "Local Resources",
+    body: (
+      <>
+        <p className="body-lg mb-4">Families in Abbeville and Greenwood County, South Carolina have access to the same nurse-led, non-medical home care that Beyond Care provides throughout Upstate SC. If you are caring for an aging parent or loved one in this area and wondering what in-home support is available, this guide gives you a practical overview of what home care covers and how to access it.</p>
+        <h2>About Beyond Care in Abbeville and Greenwood Counties</h2>
+        <p>Beyond Care Home Care Services is headquartered in Honea Path, SC — centrally located in Anderson County — and serves families throughout Upstate South Carolina, including Abbeville County and Greenwood County. Our nurse-led model means every care plan is developed and overseen by a registered nurse, and our caregivers are employees of Beyond Care — not independent contractors.</p>
+        <h2>Services Available in the Abbeville and Greenwood Area</h2>
+        <ul>
+          <li><TB /><span>Personal care assistance — bathing, grooming, dressing, hygiene</span></li>
+          <li><TB /><span>Companion care — social engagement and daily presence</span></li>
+          <li><TB /><span>Respite care — relief for family caregivers</span></li>
+          <li><TB /><span>Meal preparation tailored to dietary needs</span></li>
+          <li><TB /><span>Transportation to medical appointments and errands</span></li>
+          <li><TB /><span>Medication reminders</span></li>
+          <li><TB /><span>Light housekeeping and laundry</span></li>
+          <li><TB /><span>Hospital discharge support</span></li>
+          <li><TB /><span>Overnight and 24-hour care for clients who need continuous presence</span></li>
+        </ul>
+        <h2>Payment Options for Abbeville and Greenwood Families</h2>
+        <p>Beyond Care works with families using private pay, long-term care insurance, South Carolina Medicaid Waiver (CLTC), VA Aid &amp; Attendance benefits, and voucher programs. Many families in this region qualify for Medicaid Waiver benefits and have not yet applied — contact us to discuss eligibility.</p>
+        <h2>How to Get Started</h2>
+        <p>The first step is a free, no-pressure consultation — by phone or in person. We will ask about your loved one&apos;s current needs, discuss what a care plan might look like, and answer every question you have. There is no commitment required. Call our Honea Path office at (864) 369-0222 or our Williamston office at (864) 841-2500.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Does Beyond Care serve all of Abbeville County?</p><p className="text-muted text-sm">A: We serve families throughout Abbeville County. Call us to confirm coverage in your specific area.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How quickly can care begin in Greenwood County?</p><p className="text-muted text-sm">A: Timelines vary based on current availability and the complexity of the care needed. Contact us as early as possible — we work to match families quickly, particularly in urgent situations.</p></div>
+      </>
+    ),
+  },
+
+  "24-hour-home-care-south-carolina": {
+    title: "24-Hour Home Care in South Carolina — What It Is and When You Need It",
+    date: "March 2026",
+    description: "Some care needs require around-the-clock support. Learn what 24-hour home care includes, how it works, and when it becomes the right choice for South Carolina families.",
+    category: "Our Services",
+    body: (
+      <>
+        <p className="body-lg mb-4">Twenty-four-hour home care is one of the most comprehensive — and most often misunderstood — levels of in-home support. It is not simply &ldquo;a lot of hours.&rdquo; It is a structured, continuous care model that keeps a loved one safe, supported, and in their own home around the clock. Here is what it actually involves and how to know when it is the right choice.</p>
+        <h2>What 24-Hour Home Care Means</h2>
+        <p>True 24-hour home care involves rotating caregiver coverage throughout the day and night — ensuring that a trained caregiver is always present, awake, and available to assist. This is distinct from live-in care, where a single caregiver is in the home overnight but is entitled to designated sleep hours and is not expected to be continuously awake and responsive. Twenty-four-hour care with rotating caregivers provides the highest level of continuous non-medical in-home support available.</p>
+        <h2>Who Needs 24-Hour Home Care?</h2>
+        <ul>
+          <li><TB /><span>Individuals with late-stage dementia who require constant supervision and cannot be left alone safely</span></li>
+          <li><TB /><span>Seniors recovering from major surgery or illness who need continuous monitoring</span></li>
+          <li><TB /><span>Individuals with severe mobility limitations who require help any time they need to move</span></li>
+          <li><TB /><span>Clients who are at high risk for falls or medical events at any time of day or night</span></li>
+          <li><TB /><span>Families who want to avoid nursing home or facility placement while ensuring comprehensive safety</span></li>
+        </ul>
+        <h2>How Beyond Care Structures 24-Hour Coverage</h2>
+        <p>Beyond Care coordinates caregiver scheduling to ensure continuous coverage. Caregivers rotate in shifts — typically 8-hour or 12-hour shifts — so that your loved one always has a rested, attentive caregiver present. Our nurse-led oversight ensures care plan consistency across all caregivers assigned to a client.</p>
+        <h2>24-Hour Home Care vs. Nursing Home Placement</h2>
+        <p>For many families, 24-hour home care is significantly less expensive than a nursing facility while providing a higher quality of life for the client. The familiar environment — personal belongings, established routines, family proximity — has meaningful health benefits, particularly for clients with dementia. Many families who have explored facility placement have found that 24-hour in-home care is both viable and preferable.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: How is 24-hour care paid for in South Carolina?</p><p className="text-muted text-sm">A: Long-term care insurance, Medicaid Waiver, VA benefits, and private pay are all possible funding sources. Contact us to discuss what applies to your situation.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Will the same caregivers be assigned consistently?</p><p className="text-muted text-sm">A: We assign consistent caregivers to each client and limit the total number of different caregivers whenever possible. Consistency is particularly important for clients with dementia.</p></div>
+      </>
+    ),
+  },
+
+  "hospital-discharge-planning-home-care": {
+    title: "Hospital Discharge Planning — How to Set Up Home Care Before You Leave",
+    date: "March 2026",
+    description: "The discharge process moves fast. Learn how to plan ahead for in-home care before your loved one leaves the hospital — and why waiting until discharge day is too late.",
+    category: "Hospital Discharge",
+    body: (
+      <>
+        <p className="body-lg mb-4">Hospital discharge planners work under real time pressure, and the process can feel abrupt for families. One day you are told your loved one is doing well; the next, discharge is in 24 hours. Families who plan ahead — who contact a home care agency before the discharge date — get a substantially better outcome than those who scramble at the last minute.</p>
+        <h2>Why Discharge Planning Matters</h2>
+        <p>The transition from hospital to home is one of the highest-risk periods in a senior&apos;s health trajectory. Research consistently shows that readmission risk is highest in the first 30 days after discharge, and that the primary drivers are medication errors, falls, inadequate nutrition, and lack of follow-up care. Non-medical in-home care directly addresses each of these risk factors.</p>
+        <h2>What to Do Before Your Loved One Is Discharged</h2>
+        <ul>
+          <li><TB /><span>Contact a home care agency at least 48-72 hours before the expected discharge date</span></li>
+          <li><TB /><span>Ask the hospital discharge planner to provide a written discharge summary and medication list before the day of discharge</span></li>
+          <li><TB /><span>Confirm home health orders — if a physician has ordered home health services (skilled nursing, PT), ensure the referral is submitted before discharge</span></li>
+          <li><TB /><span>Prepare the home before your loved one returns: remove trip hazards, ensure medications are accessible, arrange a comfortable recovery space</span></li>
+          <li><TB /><span>Set up follow-up appointments with the primary care physician and any specialists before leaving the hospital</span></li>
+        </ul>
+        <h2>What Information to Have Ready for the Home Care Agency</h2>
+        <p>When you contact Beyond Care, it helps to have the following ready: the diagnosis or procedure, any specific care restrictions (activity limitations, wound care instructions), the discharge date and time, the home address and any access considerations, and the name and contact information of the primary physician.</p>
+        <h2>What Beyond Care Provides at Discharge</h2>
+        <p>Beyond Care can begin care the day your loved one comes home, if contacted in advance. Our nurse-led team coordinates with the family to ensure the care plan aligns with the discharge instructions, and our caregivers provide daily living support — bathing assistance, meal preparation, medication reminders, transportation, and companionship — from the first day home.</p>
+        <h2>Coordinating With Home Health</h2>
+        <p>If your loved one is also receiving home health services (skilled nursing, physical therapy), our caregivers coordinate seamlessly alongside that team. Home health handles the clinical components. Beyond Care handles the daily living support. The two services complement each other and cover different aspects of the recovery.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can care start the same day as hospital discharge?</p><p className="text-muted text-sm">A: Yes, with advance notice. Contact us before the discharge date — not the morning of — to make same-day care starts possible.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if my loved one refuses care when they get home?</p><p className="text-muted text-sm">A: This is common. We start with a low-key introduction — companionship first, personal care later — to build comfort and trust before diving into hands-on care tasks.</p></div>
+      </>
+    ),
+  },
+
+  "personal-care-at-home-what-it-covers": {
+    title: "Personal Care at Home — What It Covers and Why It Matters",
+    date: "March 2026",
+    description: "Personal care is the most hands-on home care service. A clear guide to what it covers, who it is for, and how to evaluate whether a caregiver is delivering it with dignity.",
+    category: "Personal Care",
+    body: (
+      <>
+        <p className="body-lg mb-4">Personal care is the most intimate category of home care — and the most essential for seniors who are losing the ability to manage daily hygiene and self-care independently. When it is done well, personal care preserves dignity and supports independence. When it is done poorly, it is embarrassing, uncomfortable, and sometimes harmful. Understanding what personal care actually covers — and what &ldquo;done well&rdquo; looks like — helps families make better decisions about the care they choose.</p>
+        <h2>What Personal Care Covers</h2>
+        <ul>
+          <li><TB /><span>Bathing and showering assistance — including full bath support, sponge bathing, and hair washing</span></li>
+          <li><TB /><span>Grooming — hair combing, shaving, nail care (basic), oral hygiene</span></li>
+          <li><TB /><span>Dressing — selecting appropriate clothing, dressing, and undressing</span></li>
+          <li><TB /><span>Toileting assistance — support with toilet use, commode transfers, and incontinence care</span></li>
+          <li><TB /><span>Mobility and transfers — safe assistance moving from bed to chair, chair to standing, in and out of vehicles</span></li>
+          <li><TB /><span>Positioning and repositioning — reducing pressure injury risk for clients with limited mobility</span></li>
+          <li><TB /><span>Skin care — moisturizing, monitoring for skin breakdown or wounds (observation only, not treatment)</span></li>
+        </ul>
+        <h2>Who Needs Personal Care?</h2>
+        <p>Personal care is appropriate for any individual who can no longer safely and adequately complete these tasks independently. This includes seniors with mobility limitations, individuals recovering from surgery or illness, adults with chronic conditions such as Parkinson&apos;s or stroke, and individuals with dementia who may need gentle redirection and assistance with self-care tasks they can no longer initiate on their own.</p>
+        <h2>What Dignified Personal Care Looks Like</h2>
+        <p>A caregiver who provides dignified personal care speaks directly to the client — not around them. They explain each step before they do it. They move at the client&apos;s pace, not their own schedule. They maintain warmth and conversation throughout what can feel like a vulnerable experience. They do not rush, do not express frustration, and do not treat the tasks as burdensome. The difference between clinical personal care and genuinely compassionate personal care is often the difference between a client who accepts help and one who refuses it.</p>
+        <h2>How Beyond Care Trains for Personal Care</h2>
+        <p>All Beyond Care caregivers receive training in personal care delivery that covers safe transfer techniques, proper body mechanics, skin observation, and person-centered, dignity-preserving approaches. Our nurse-led oversight includes regular supervisory visits to ensure quality standards are being met in the home.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if my loved one is embarrassed about receiving personal care?</p><p className="text-muted text-sm">A: Embarrassment is very common — and almost always diminishes once a consistent caregiver relationship is established. We start slowly, build trust, and always follow the client&apos;s lead on pace.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Can a family member be present during personal care visits?</p><p className="text-muted text-sm">A: Absolutely. Family members are always welcome, and many find that their presence initially helps the client feel more comfortable with the caregiver.</p></div>
+      </>
+    ),
+  },
+
+  "caregiver-employee-vs-contractor-difference": {
+    title: "Caregiver as Employee vs. Independent Contractor — Why It Matters for Your Family",
+    date: "March 2026",
+    description: "Whether a caregiver is an agency employee or independent contractor affects your legal liability, insurance coverage, and quality assurance. What South Carolina families should know.",
+    category: "Caregiver Standards",
+    body: (
+      <>
+        <p className="body-lg mb-4">The distinction between an employee caregiver and an independent contractor caregiver sounds like a technical employment classification. In practice, it has real consequences for your family — including your legal exposure, the insurance coverage in effect, and the quality oversight that does or does not exist. Here is what you need to understand before you choose a home care provider.</p>
+        <h2>The Difference in Plain Terms</h2>
+        <p>An employee caregiver works for the agency. The agency manages their schedule, trains them, evaluates their performance, pays their taxes, and carries workers&apos; compensation and liability insurance on their behalf. An independent contractor caregiver is hired by the agency to provide services but is not legally an employee — the agency&apos;s liability protections do not fully extend to them, and your exposure is different.</p>
+        <h2>Why the Employee Model Is Better for Families</h2>
+        <ul>
+          <li><TB /><span>Workers&apos; compensation coverage — if an employee caregiver is injured in your home, the agency&apos;s workers&apos; comp covers it. An independent contractor injured in your home may look to your homeowner&apos;s insurance — or to you personally.</span></li>
+          <li><TB /><span>Liability insurance — agency employees are covered by the agency&apos;s liability policy. Independent contractor arrangements may leave gaps in coverage.</span></li>
+          <li><TB /><span>Background checks and training — agencies control the hiring, screening, and training of their employees. With independent contractors, this oversight is inconsistent.</span></li>
+          <li><TB /><span>Performance accountability — employees can be disciplined, retrained, or terminated by the agency. Independent contractors have more autonomous relationships that are harder to manage.</span></li>
+        </ul>
+        <h2>How to Find Out</h2>
+        <p>Ask directly: &ldquo;Are your caregivers employees of your agency or independent contractors?&rdquo; A quality agency will answer this question clearly and immediately. If the answer is evasive — &ldquo;it depends,&rdquo; &ldquo;some are employees and some are contractors&rdquo; — press for clarity. You need to know exactly what the arrangement is before care begins.</p>
+        <h2>The Beyond Care Model</h2>
+        <p>All Beyond Care caregivers are direct employees of Beyond Care Home Care Services. They are bonded, insured, covered by workers&apos; compensation, CPR certified, background-checked, and subject to our performance evaluation and training standards. This is not an exception — it is how we operate with every caregiver we place.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if I want to hire a private caregiver directly — not through an agency?</p><p className="text-muted text-sm">A: That is your choice, and it can reduce costs. However, be aware that when you hire directly, you become the employer — responsible for taxes, workers&apos; compensation, background checks, and liability. The agency model handles all of this for you.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is the employee model more expensive?</p><p className="text-muted text-sm">A: It is often comparable in total cost when the liability protections, quality oversight, and operational reliability are accounted for. The higher-quality outcome is reflected in the price — but families are not exposed to the additional risks of contractor-based care.</p></div>
       </>
     ),
   },
@@ -1056,6 +1741,65 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Beyond Care`,
     description: post.description,
+    alternates: { canonical: `${SITE_DOMAIN}/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `${SITE_DOMAIN}/blog/${slug}`,
+      type: "article",
+    },
+  };
+}
+
+function buildArticleSchema(slug: string, post: { title: string; date: string; description: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    url: `${SITE_DOMAIN}/blog/${slug}`,
+    datePublished: post.date,
+    dateModified:  post.date,
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_DOMAIN,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_DOMAIN,
+      logo: { "@type": "ImageObject", url: `${SITE_DOMAIN}/images/beyond-care-logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_DOMAIN}/blog/${slug}` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".prose-beyond p:first-child"],
+    },
+  };
+}
+
+function buildFaqSchema(faq: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+function buildBreadcrumbSchema(slug: string, title: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home",  item: SITE_DOMAIN },
+      { "@type": "ListItem", position: 2, name: "Blog",  item: `${SITE_DOMAIN}/blog` },
+      { "@type": "ListItem", position: 3, name: title,   item: `${SITE_DOMAIN}/blog/${slug}` },
+    ],
   };
 }
 
@@ -1064,8 +1808,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const post = POSTS[slug];
   if (!post) notFound();
 
+  const relatedPosts = getRelatedPosts(slug, post.category);
+  const articleSchema    = buildArticleSchema(slug, post);
+  const breadcrumbSchema = buildBreadcrumbSchema(slug, post.title);
+  const faqSchema = post.faq && post.faq.length > 0 ? buildFaqSchema(post.faq) : null;
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+
       {/* Hero */}
       <section className="section-sm bg-teal-deep">
         <div className="wrap">
@@ -1148,6 +1901,33 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </div>
         </div>
       </section>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="section bg-canvas">
+          <div className="wrap">
+            <h2 className="h-sm mb-6" style={{ color: "var(--teal-deep)" }}>Related Articles</h2>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {relatedPosts.map((rp) => (
+                <Link
+                  key={rp.slug}
+                  href={`/blog/${rp.slug}`}
+                  className="card"
+                  style={{ display: "flex", flexDirection: "column", textDecoration: "none" }}
+                >
+                  <div className="eyebrow mb-2">{rp.category}</div>
+                  <h3 className="h-sm text-ink mb-3" style={{ fontSize: "clamp(0.9375rem, 1.8vw, 1.1rem)", flex: 1 }}>
+                    {rp.title}
+                  </h3>
+                  <span className="text-sm font-bold" style={{ color: "var(--teal-brand)" }}>
+                    Read →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Back to blog */}
       <div className="bg-canvas">
