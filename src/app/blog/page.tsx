@@ -328,6 +328,31 @@ const ALL_POSTS = [
     description:
       "Family caregivers in South Carolina are burning out. Learn how scheduled respite care from Beyond Care provides real, sustainable relief — without the guilt.",
   },
+  // April 2026 — Seasonal Spring/Summer
+  {
+    slug: "spring-wellness-tips-seniors-south-carolina",
+    title: "Spring Wellness Tips for Seniors in South Carolina",
+    date: "April 20, 2026",
+    category: "Health & Wellness",
+    description:
+      "Spring in South Carolina brings warmer weather and new opportunities for seniors to stay active and healthy. Practical tips on outdoor activity, allergy management, and hydration as temperatures rise.",
+  },
+  {
+    slug: "heat-safety-elderly-south-carolina-summer",
+    title: "Heat Safety for Elderly Adults in South Carolina — A Summer Guide",
+    date: "April 14, 2026",
+    category: "Safety",
+    description:
+      "South Carolina summers are dangerously hot for seniors. Learn the signs of heat exhaustion, how to keep elderly loved ones safe, and when to call for help.",
+  },
+  {
+    slug: "caregiver-respite-planning-summer-south-carolina",
+    title: "Summer Respite Care Planning for South Carolina Families",
+    date: "April 7, 2026",
+    category: "Respite Care",
+    description:
+      "Planning a family vacation this summer? Learn how respite care ensures your elderly loved one receives consistent, quality care while you take a well-deserved break.",
+  },
 ]
 
 export default function BlogPage() {

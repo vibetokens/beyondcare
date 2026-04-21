@@ -66,6 +66,10 @@ const ALL_SLUGS: { slug: string; title: string; category: string; date: string }
   { slug: "hospital-discharge-planning-home-care", title: "Hospital Discharge Planning — How to Set Up Home Care Before You Leave", category: "Hospital Discharge", date: "March 2026" },
   { slug: "personal-care-at-home-what-it-covers", title: "Personal Care at Home — What It Covers and Why It Matters", category: "Personal Care", date: "March 2026" },
   { slug: "caregiver-employee-vs-contractor-difference", title: "Caregiver as Employee vs. Independent Contractor — Why It Matters for Your Family", category: "Caregiver Standards", date: "March 2026" },
+  // April 2026 — Seasonal Spring/Summer
+  { slug: "spring-wellness-tips-seniors-south-carolina", title: "Spring Wellness Tips for Seniors in South Carolina", category: "Health & Wellness", date: "April 2026" },
+  { slug: "heat-safety-elderly-south-carolina-summer", title: "Heat Safety for Elderly Adults in South Carolina — A Summer Guide", category: "Safety", date: "April 2026" },
+  { slug: "caregiver-respite-planning-summer-south-carolina", title: "Summer Respite Care Planning for South Carolina Families", category: "Respite Care", date: "April 2026" },
 ];
 
 function getRelatedPosts(currentSlug: string, currentCategory: string, count = 3) {
@@ -1850,6 +1854,140 @@ const POSTS: Record<string, {
         <h2>Frequently Asked Questions</h2>
         <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if I want to hire a private caregiver directly — not through an agency?</p><p className="text-muted text-sm">A: That is your choice, and it can reduce costs. However, be aware that when you hire directly, you become the employer — responsible for taxes, workers&apos; compensation, background checks, and liability. The agency model handles all of this for you.</p></div>
         <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is the employee model more expensive?</p><p className="text-muted text-sm">A: It is often comparable in total cost when the liability protections, quality oversight, and operational reliability are accounted for. The higher-quality outcome is reflected in the price — but families are not exposed to the additional risks of contractor-based care.</p></div>
+      </>
+    ),
+  },
+
+  // ── April 2026 — Seasonal Spring/Summer Posts ───────────────────────────
+
+  "spring-wellness-tips-seniors-south-carolina": {
+    title: "Spring Wellness Tips for Seniors in South Carolina",
+    date: "April 2026",
+    description: "Spring in South Carolina brings warmer weather and new opportunities for seniors to stay active and healthy. Practical tips on outdoor activity, allergy management, and hydration as temperatures rise.",
+    category: "Health & Wellness",
+    faq: [
+      { q: "What outdoor activities are safe for seniors in South Carolina during spring?", a: "Short walks in the early morning or late afternoon, light gardening with proper support, and supervised porch sitting are all appropriate. The key is to avoid midday heat, stay hydrated, and have a caregiver or family member nearby in case of fatigue or unsteadiness." },
+      { q: "How can seniors manage seasonal allergies without increasing fall risk?", a: "Work with a physician to identify allergy medications that do not cause drowsiness or dizziness. Many antihistamines increase fall risk in older adults. A home care caregiver can help monitor symptoms and ensure medication adjustments are followed correctly." },
+      { q: "How much water should a senior drink during warmer spring weather?", a: "Most physicians recommend six to eight glasses of water per day for older adults, with increased intake during warmer weather or physical activity. Seniors often lose their sense of thirst with age, so consistent reminders from a caregiver are one of the most effective ways to prevent dehydration." },
+    ],
+    body: (
+      <>
+        <p className="body-lg mb-4">Spring in South Carolina is one of the most pleasant times of year — mild temperatures, longer days, and the kind of weather that invites people outdoors. For seniors, the season brings real opportunities to improve physical and emotional well-being. It also brings a few risks that families should be aware of. Here is how to help your loved one make the most of spring safely.</p>
+        <h2>Getting Outside Safely</h2>
+        <p>After months of shorter days and colder temperatures, spring is an ideal time for seniors to spend more time outdoors. Even light activity — a short walk around the yard, sitting on the porch, or gentle gardening — provides meaningful benefits for mood, circulation, and overall health. The key is timing and preparation.</p>
+        <ul>
+          <li><TB /><span>Schedule outdoor time for early morning or late afternoon when temperatures are mildest</span></li>
+          <li><TB /><span>Ensure your loved one wears supportive, non-slip footwear — not sandals or house slippers</span></li>
+          <li><TB /><span>Check outdoor walking paths for uneven surfaces, wet spots, or debris from winter storms</span></li>
+          <li><TB /><span>A caregiver or family member should be present during outdoor activity, especially for seniors with balance or mobility concerns</span></li>
+        </ul>
+        <h2>Managing Spring Allergies</h2>
+        <p>South Carolina&apos;s spring pollen season is aggressive. For seniors, seasonal allergies are more than an inconvenience — they can disrupt sleep, reduce appetite, and contribute to fatigue. More importantly, many common allergy medications carry side effects that increase fall risk in older adults.</p>
+        <p>Families should work with their loved one&apos;s physician to identify allergy treatments that are safe for seniors. A home care caregiver can help by monitoring symptoms, ensuring medications are taken correctly, and keeping windows closed during high-pollen days.</p>
+        <h2>Hydration Before the Heat Arrives</h2>
+        <p>One of the most important spring wellness habits for seniors is establishing a consistent hydration routine before summer heat arrives. Older adults are at higher risk for dehydration because the body&apos;s thirst mechanism weakens with age. Many seniors simply do not feel thirsty until they are already dehydrated.</p>
+        <p>A caregiver who provides regular hydration reminders throughout the day is one of the most effective safeguards against dehydration. Water, diluted juice, and herbal tea all count. Caffeinated beverages and alcohol should be limited, as both contribute to fluid loss.</p>
+        <h2>Light Exercise and Mobility</h2>
+        <p>Spring is a natural time to increase physical activity gradually. For seniors, this does not mean vigorous exercise — it means consistent, gentle movement. Walking, seated stretches, range-of-motion exercises, and supervised balance activities all support the kind of physical function that protects against falls and maintains independence.</p>
+        <p>Beyond Care caregivers can assist with prescribed exercise routines and accompany seniors on short walks, providing both physical support and the social engagement that makes activity more enjoyable.</p>
+        <h2>Emotional Well-Being and Social Connection</h2>
+        <p>Longer days and warmer weather naturally create opportunities for social engagement. Seniors who were isolated during winter months benefit significantly from increased interaction — whether that means visits from family, outings with a companion caregiver, or simply more time spent in shared spaces rather than alone in a bedroom.</p>
+        <h2>Spring Cleaning and Home Safety</h2>
+        <p>Spring is also a practical time to reassess the home environment. Clear walkways, check smoke detectors, ensure adequate lighting, and remove any clutter that accumulated over winter. A Beyond Care caregiver who provides light housekeeping can support this process while maintaining the safe, clean environment that reduces fall risk year-round.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: My parent barely left the house this winter. How do I encourage them to be more active this spring?</p><p className="text-muted text-sm">A: Start small. A few minutes on the porch, a short walk to the mailbox, or light gardening in a raised bed. A companion caregiver can make the transition easier by providing both encouragement and physical support.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Should I be concerned about sunburn for my elderly parent?</p><p className="text-muted text-sm">A: Yes. Seniors&apos; skin is thinner and more vulnerable to UV damage. Use a broad-spectrum SPF 30+ sunscreen, wear a hat, and limit direct sun exposure during peak hours (10 AM to 4 PM).</p></div>
+      </>
+    ),
+  },
+
+  "heat-safety-elderly-south-carolina-summer": {
+    title: "Heat Safety for Elderly Adults in South Carolina — A Summer Guide",
+    date: "April 2026",
+    description: "South Carolina summers are dangerously hot for seniors. Learn the signs of heat exhaustion, how to keep elderly loved ones safe, and when to call for help.",
+    category: "Safety",
+    faq: [
+      { q: "What are the early signs of heat exhaustion in elderly adults?", a: "Heavy sweating, cool or clammy skin, weakness, nausea, dizziness, headache, and muscle cramps. In seniors, confusion or unusual lethargy may be the most noticeable early sign — and it should be treated as urgent. Move the person to a cool environment, provide water, and contact a physician if symptoms do not improve within 30 minutes." },
+      { q: "Why are seniors more vulnerable to heat-related illness?", a: "Aging reduces the body's ability to regulate temperature, decreases sweat production, and weakens the thirst response. Many common medications — including diuretics, beta-blockers, and antihistamines — further impair the body's heat response. These factors combine to make seniors significantly more vulnerable than younger adults." },
+      { q: "What should I do if my elderly parent does not have reliable air conditioning?", a: "Contact your local Area Agency on Aging or 211 to ask about cooling assistance programs. Many South Carolina counties operate cooling centers during extreme heat. Beyond Care can also help by ensuring a caregiver is present during the hottest parts of the day to monitor conditions and provide transportation to cooler environments." },
+    ],
+    body: (
+      <>
+        <p className="body-lg mb-4">South Carolina summers are beautiful — and dangerous for seniors. Temperatures regularly exceed 90 degrees with high humidity, creating conditions that can become life-threatening for elderly adults in a matter of hours. Heat-related illness is one of the most preventable causes of hospitalization and death among older adults. Here is what every family should know.</p>
+        <h2>Why Seniors Are at Higher Risk</h2>
+        <p>The human body&apos;s ability to regulate temperature declines with age. Seniors sweat less efficiently, have a weaker thirst response, and are more likely to take medications that interfere with heat regulation — including diuretics, beta-blockers, antihistamines, and certain psychiatric medications. Chronic conditions like heart disease, diabetes, and respiratory illness further increase vulnerability.</p>
+        <h2>Know the Signs of Heat Exhaustion</h2>
+        <p>Heat exhaustion is the body&apos;s warning before heatstroke. Recognizing it early can prevent a medical emergency.</p>
+        <ul>
+          <li><TB /><span>Heavy sweating with cool, clammy skin</span></li>
+          <li><TB /><span>Weakness and fatigue</span></li>
+          <li><TB /><span>Nausea or vomiting</span></li>
+          <li><TB /><span>Dizziness or lightheadedness</span></li>
+          <li><TB /><span>Headache</span></li>
+          <li><TB /><span>Muscle cramps</span></li>
+          <li><TB /><span>Confusion or unusual behavior — in seniors, this is often the most visible sign</span></li>
+        </ul>
+        <h2>Know the Signs of Heatstroke — This Is an Emergency</h2>
+        <p>Heatstroke occurs when the body&apos;s temperature regulation fails entirely. Signs include a body temperature above 103 degrees, hot and dry skin (no sweating), rapid pulse, confusion, slurred speech, or loss of consciousness. Heatstroke is a medical emergency. Call 911 immediately. Move the person to a cool area and apply cool cloths to the skin while waiting for emergency services.</p>
+        <h2>Keeping Your Loved One Safe at Home</h2>
+        <ul>
+          <li><TB /><span>Ensure air conditioning is functioning properly before summer begins — schedule a maintenance check in spring</span></li>
+          <li><TB /><span>Keep the home at 78 degrees or below during peak heat</span></li>
+          <li><TB /><span>Provide consistent hydration reminders throughout the day — do not wait for your loved one to say they are thirsty</span></li>
+          <li><TB /><span>Avoid outdoor activity during peak heat hours (10 AM to 4 PM)</span></li>
+          <li><TB /><span>Dress in lightweight, loose-fitting, light-colored clothing</span></li>
+          <li><TB /><span>Close blinds and curtains on sun-facing windows during the afternoon</span></li>
+          <li><TB /><span>Check on seniors living alone at least twice daily during extreme heat</span></li>
+        </ul>
+        <h2>The Role of a Home Care Caregiver in Heat Safety</h2>
+        <p>A Beyond Care caregiver present during the day provides a critical layer of protection during summer heat. They ensure consistent hydration, monitor for early signs of heat-related illness, confirm that the home environment remains cool, prepare appropriate meals, and communicate any concerns to the family before a situation becomes an emergency.</p>
+        <p>For seniors who live alone, having a caregiver present during the hottest part of the day can be the difference between a safe summer and a preventable hospitalization.</p>
+        <h2>Medications and Heat — Talk to the Doctor</h2>
+        <p>Families should review their loved one&apos;s medication list with a physician before summer. Some medications need dosage adjustments during extreme heat, and others require extra precautions. A Beyond Care caregiver can help track these changes and ensure medication routines are followed correctly during the transition.</p>
+        <h2>When to Call for Help</h2>
+        <p>If a senior shows signs of confusion, stops sweating in the heat, has a body temperature above 103 degrees, or loses consciousness — call 911. Do not wait to see if they improve. Heat-related emergencies in seniors can escalate rapidly, and early intervention saves lives.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Is it safe for my elderly parent to go outside at all during a South Carolina summer?</p><p className="text-muted text-sm">A: Yes, with precautions. Early morning (before 9 AM) and evening (after 6 PM) are generally safe for brief outdoor activity. Stay in shaded areas, bring water, and return indoors at the first sign of fatigue or overheating.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: My parent says they feel fine and do not need to drink more water. Should I be concerned?</p><p className="text-muted text-sm">A: Yes. Seniors often do not feel thirsty until they are already dehydrated. Consistent hydration reminders — not relying on the senior to self-regulate — are essential during summer months.</p></div>
+      </>
+    ),
+  },
+
+  "caregiver-respite-planning-summer-south-carolina": {
+    title: "Summer Respite Care Planning for South Carolina Families",
+    date: "April 2026",
+    description: "Planning a family vacation this summer? Learn how respite care ensures your elderly loved one receives consistent, quality care while you take a well-deserved break.",
+    category: "Respite Care",
+    faq: [
+      { q: "How far in advance should I arrange respite care for a summer vacation?", a: "At least two to four weeks in advance is ideal, especially during peak summer months when demand increases. Early planning allows time for a proper care assessment, caregiver matching, and an introduction visit so your loved one is comfortable before you leave." },
+      { q: "Can Beyond Care provide 24-hour coverage while I am away?", a: "Yes. Beyond Care offers flexible scheduling that includes extended shifts, overnight care, and 24-hour coverage for families who need continuous support during a vacation or extended absence. The care plan is built around the client's existing routine." },
+      { q: "What if my loved one has dementia — is respite care still an option?", a: "Absolutely. Respite care for clients with memory loss requires additional planning — consistent caregiver assignment, detailed routine documentation, and familiarity with the client's triggers and preferences. Beyond Care's nurse-led team develops dementia-specific respite plans that prioritize the client's safety and comfort." },
+    ],
+    body: (
+      <>
+        <p className="body-lg mb-4">Summer brings family vacations, reunions, and travel — and for families who provide daily care for an elderly loved one, it also brings a difficult question: what happens to Mom or Dad while we are away? The answer does not have to be guilt, cancellation, or scrambling for last-minute help. With proper planning, respite care ensures your loved one is safe, comfortable, and well-cared-for while you take the break your family needs.</p>
+        <h2>Why Summer Respite Planning Matters</h2>
+        <p>Family caregivers provide an extraordinary amount of daily support — and burnout is one of the most well-documented risks of sustained caregiving. Taking time away is not a luxury; it is a necessary part of sustaining the care relationship long-term. Summer offers a natural opportunity because of school schedules, family gatherings, and the psychological lift that comes with a real break.</p>
+        <p>But time away only works if the family trusts the care arrangement. Planning ahead eliminates the uncertainty that turns a vacation into a source of anxiety.</p>
+        <h2>Start Planning Early</h2>
+        <p>The most important step in summer respite planning is starting early — ideally two to four weeks before your trip. This window allows time for a proper care assessment, caregiver selection and matching, an introduction visit so your loved one meets the caregiver before you leave, and documentation of routines, preferences, and emergency contacts.</p>
+        <p>Demand for respite care increases during summer months. Families who plan ahead have significantly more flexibility in caregiver selection and scheduling.</p>
+        <h2>Documenting the Routine</h2>
+        <p>Continuity of routine is critical — especially for seniors with cognitive changes. Before you leave, document the daily routine in detail: wake-up time, meal preferences and schedule, medication times and dosages, preferred activities, bedtime routine, and any behavioral patterns the caregiver should be aware of.</p>
+        <p>Beyond Care builds this documentation into the care plan so that the caregiver can maintain the client&apos;s normal rhythm as closely as possible.</p>
+        <h2>Choosing the Right Level of Coverage</h2>
+        <p>Respite care is not one-size-fits-all. Some families need a few hours of daily support while a nearby family member checks in. Others need full 24-hour coverage for an extended trip. Beyond Care offers flexible scheduling that includes daytime companion or personal care visits, extended shifts covering morning through evening, overnight care for clients who need nighttime support, and continuous 24-hour coverage for families traveling out of state or for extended periods.</p>
+        <h2>The Introduction Visit</h2>
+        <p>One of the most effective ways to reduce anxiety — for both you and your loved one — is scheduling an introduction visit before your trip. The caregiver comes to the home, meets the client, walks through the routine together, and establishes familiarity. This is especially important for clients with dementia or anxiety about new people in the home.</p>
+        <h2>Staying Connected While Away</h2>
+        <p>Beyond Care provides regular updates to families during respite care periods. You will know how your loved one is doing, what activities they engaged in, how meals and medications went, and whether any concerns have arisen. This communication allows you to relax knowing that you are informed — without needing to manage the care from a distance.</p>
+        <h2>Respite Care Is Not Just for Vacations</h2>
+        <p>While summer vacations are a common reason families explore respite care, the service is valuable anytime a primary caregiver needs time away — for a medical procedure, a work commitment, a family emergency, or simply to rest and recharge. The infrastructure you build for a summer respite plan can serve your family throughout the year.</p>
+        <h2>Returning Home</h2>
+        <p>After your trip, Beyond Care can provide a transition summary — how the client responded to the respite period, any changes observed, and recommendations for ongoing support. Many families discover during a respite period that additional regular care would benefit their loved one — and themselves.</p>
+        <h2>Frequently Asked Questions</h2>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: Will my loved one be upset that I am leaving?</p><p className="text-muted text-sm">A: Some initial adjustment is normal, especially for seniors with cognitive changes. The introduction visit, maintaining routine, and a trusted caregiver all minimize this. Most clients settle into the respite routine quickly once familiarity is established.</p></div>
+        <div className="bg-canvas rounded-xl p-5 mb-4"><p className="font-bold text-ink mb-2">Q: What if something goes wrong while I am away?</p><p className="text-muted text-sm">A: Beyond Care maintains emergency protocols and communicates with families immediately if a concern arises. Our nurse-led oversight means that changes in condition are identified and addressed — and you are contacted promptly with clear information.</p></div>
       </>
     ),
   },
